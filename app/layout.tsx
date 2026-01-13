@@ -31,8 +31,10 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${merriweather.variable} antialiased`}
       >
-        <Navbar />
-        {children}
+        <header>
+          <Navbar />
+        </header>
+        <main>{children}</main>
       </body>
     </html>
   );

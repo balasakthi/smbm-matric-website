@@ -142,7 +142,7 @@ const Navbar = ({
       </nav>
 
       {/* Mobile Menu */}
-      <div className="block py-2 lg:hidden">
+      <nav className="block py-2 lg:hidden">
         <div className="flex items-center justify-between px-2">
           {/* Logo */}
           <div className="flex mr-2">
@@ -200,7 +200,7 @@ const Navbar = ({
             </SheetContent>
           </Sheet>
         </div>
-      </div>
+      </nav>
     </section>
   );
 };

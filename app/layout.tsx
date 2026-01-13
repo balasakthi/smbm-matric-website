@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Merriweather } from "next/font/google";
 import "./globals.css";
+import { Navbar } from "@/components/NavBar";
 
 const inter = Inter({
   variable: "--font-body",
@@ -26,10 +27,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-scroll-behavior="smooth">
       <body
         className={`${inter.variable} ${merriweather.variable} antialiased`}
       >
+        <Navbar />
         {children}
       </body>
     </html>

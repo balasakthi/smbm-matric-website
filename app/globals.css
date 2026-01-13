@@ -177,7 +177,3 @@
     background-color: var(--brand-gold);
   }
 }
-
-html {
-  scroll-behavior: smooth;
-}

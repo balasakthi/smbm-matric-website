@@ -31,6 +31,7 @@ import { cn } from "@/lib/utils";
 import SocialLinks from "./SocialLinks";
 import { Icon } from "@iconify/react";
 import { defaultMenu, MenuItem } from "@/lib/menuData";
+import { getAdmissionActions } from "@/utils/admissionStatus";
 
 interface Props {
   logo?: {
@@ -96,6 +97,7 @@ const Navbar = ({
   menu = defaultMenu,
 }: Props) => {
   const pathname = usePathname();
+  const { primary } = getAdmissionActions();
   return (
     <section className="sticky top-0 z-50 bg-white/85 backdrop-blur-xs">
       <nav className="hidden bg-primary lg:flex justify-between gap-4 text-white p-2">
@@ -175,7 +177,7 @@ const Navbar = ({
                   href={logo.url}
                 />
                 <Button asChild className="w-full">
-                  <Link href="/admissions">Admissions Open</Link>
+                  <Link href={primary.href}>{primary.label}</Link>
                 </Button>
                 <hr className="my-2 border-muted" />
 

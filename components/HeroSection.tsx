@@ -75,8 +75,8 @@ export default function HeroSection() {
 
               <Button
                 className="text-white"
-                size="lg"
                 variant="outline"
+                size="lg"
                 asChild
               >
                 <Link href={secondary.href}>{secondary.label}</Link>

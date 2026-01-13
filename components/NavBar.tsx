@@ -128,7 +128,7 @@ const Navbar = ({
         </div>
       </nav>
 
-      <nav className="hidden bg-brand-gold py-2 lg:block">
+      <nav className="hidden bg-accent py-2 lg:block">
         <div className="grid grid-cols-[auto] items-center px-6">
           {/* Center – Menu (TRUE CENTER) */}
           <div className="flex justify-center">
@@ -170,6 +170,7 @@ const Navbar = ({
               </SheetHeader>
               <div className="flex flex-col gap-6 p-4">
                 <Logo
+                  className="pr-6"
                   src={logo.src}
                   alt={logo.alt}
                   width={300}
@@ -215,7 +216,7 @@ const renderMenuItem = (item: MenuItem, pathname?: string) => {
       <NavigationMenuItem key={item.title}>
         <NavigationMenuTrigger
           aria-label={`${item.title} menu`}
-          className="bg-transparent text-foreground"
+          className="bg-transparent text-foreground hover:bg-muted/50"
         >
           {item.title}
         </NavigationMenuTrigger>
@@ -244,7 +245,7 @@ const renderMenuItem = (item: MenuItem, pathname?: string) => {
                     <NavigationMenuLink asChild>
                       <Link
                         href={subItem.url}
-                        className="from-muted/50 to-muted flex h-full w-full flex-col justify-end rounded-md bg-linear-to-b p-4 no-underline outline-hidden transition-all duration-200 select-none focus:shadow-md md:p-6"
+                        className="from-accent/10 to-accent/40 flex h-full w-full flex-col justify-end rounded-md bg-linear-to-b p-4 no-underline outline-hidden transition-all duration-200 select-none focus:shadow-md md:p-6"
                       >
                         <div className="mb-2 text-lg font-medium sm:mt-4">
                           {subItem.title}
@@ -290,9 +291,9 @@ const renderMenuItem = (item: MenuItem, pathname?: string) => {
       <NavigationMenuLink
         href={item.url}
         className={cn(
-          "px-4 py-2 text-sm font-medium",
+          "px-4 py-2 text-sm font-medium hover:bg-muted/50",
           isActive &&
-            "border-b-2 rounded-b-none border-primary text-primary hover:rounded-md"
+            "border-b-2 rounded-b-none border-primary text-primary hover:rounded-md hover:border-accent"
         )}
       >
         {item.title}
@@ -331,7 +332,7 @@ const renderMobileMenuItem = (item: MenuItem) => {
 const SubMenuLink = ({ item }: { item: MenuItem }) => {
   return (
     <Link
-      className="flex gap-4 rounded-md p-3 transition-colors hover:bg-secondary"
+      className="flex gap-4 rounded-md p-3 transition-colors hover:bg-accent/20"
       href={item.url}
     >
       <div className="text-foreground">{item.icon}</div>

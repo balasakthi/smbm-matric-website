@@ -49,103 +49,81 @@
 :root {
   --radius: 0.625rem;
 
-  /* Backgrounds */
-  --background: oklch(1 0 0); /* white */
-  --card: oklch(1 0 0);
-  --popover: oklch(1 0 0);
+  /* =========================
+     BASE SURFACES & TEXT
+     ========================= */
+  --background: oklch(99.5% 0 0);
+  --foreground: oklch(20% 0.04 260);
 
-  /* Text */
-  --foreground: oklch(0.18 0.03 260); /* dark slate */
-  --card-foreground: oklch(0.18 0.03 260);
-  --popover-foreground: oklch(0.18 0.03 260);
+  --card: oklch(99% 0.005 260);
+  --card-foreground: var(--foreground);
 
-  /* Primary – School Blue */
-  --primary: oklch(0.32 0.08 260); /* #1E3A8A */
-  --primary-foreground: oklch(0.98 0.01 250);
+  --popover: var(--card);
+  --popover-foreground: var(--foreground);
 
-  /* Secondary – Soft Blue Section */
-  --secondary: oklch(0.97 0.02 250); /* #F2F8FF */
-  --secondary-foreground: oklch(0.32 0.08 260);
+  /* =========================
+     PRIMARY – SCHOOL BLUE
+     ========================= */
+  --primary: oklch(32% 0.09 250);              /* Logo blue */
+  --primary-foreground: oklch(98% 0.02 250);
 
-  /* Muted */
-  --muted: oklch(0.97 0.02 250);
-  --muted-foreground: oklch(0.55 0.03 260);
+  --primary-hover: oklch(38% 0.10 250);
+  --primary-active: oklch(24% 0.08 250);
+  --primary-muted: oklch(60% 0.06 250);
 
-  /* Accent – Hover / Highlight */
-  --accent: oklch(0.42 0.12 260); /* #2563EB */
-  --accent-foreground: oklch(0.98 0.01 250);
+  /* =========================
+     SECONDARY – SOFT SECTIONS
+     ========================= */
+  --secondary: oklch(97.5% 0.015 250);
+  --secondary-foreground: oklch(30% 0.06 260);
 
-  /* Gold – Admissions / Pride */
-  --brand-gold: oklch(0.82 0.17 85);
-  --brand-gold-foreground: oklch(0.18 0.03 260);
+  /* =========================
+     ACCENT – GOLD (IMPORTANT)
+     ========================= */
+  --accent: oklch(78% 0.09 75);                
+  --accent-hover: oklch(72% 0.10 75);
+  --accent-soft: oklch(90% 0.06 75);
+  --accent-foreground: oklch(20% 0.04 260);
 
-  /* Success – Results / Achievements */
-  --success: oklch(0.62 0.14 145);
-  --success-foreground: oklch(0.98 0.01 250);
+  /* =========================
+     SEMANTIC COLORS
+     ========================= */
+  --success: oklch(62% 0.12 150);
+  --success-foreground: oklch(98% 0.02 250);
 
-  /* Info – Notices / Announcements */
-  --info: oklch(0.58 0.12 235);
-  --info-foreground: oklch(0.98 0.01 250);
+  --info: oklch(55% 0.08 245);                 /* Info blue (related to primary) */
+  --info-foreground: oklch(98% 0.02 250);
 
-  /* Warning – Alerts / Deadlines */
-  --warning: oklch(0.72 0.18 55);
-  --warning-foreground: oklch(0.18 0.03 260);
+  --warning: oklch(78% 0.15 60);
+  --warning-foreground: oklch(20% 0.04 260);
 
-  /* Soft Surface – Section backgrounds */
-  --surface-soft: oklch(0.96 0.01 260);
-  --surface-soft-foreground: oklch(0.18 0.03 260);
+  --destructive: oklch(58% 0.20 30);
+  --destructive-foreground: oklch(98% 0.02 250);
 
-  /* Destructive */
-  --destructive: oklch(0.58 0.22 27);
+  /* =========================
+     MUTED & BORDERS
+     ========================= */
+  --muted: oklch(96% 0.012 250);
+  --muted-foreground: oklch(50% 0.03 260);
 
-  /* Borders & Inputs */
-  --border: oklch(0.92 0.01 260);
-  --input: oklch(0.92 0.01 260);
-  --ring: oklch(0.42 0.12 260);
+  --border: oklch(90% 0.01 260);
+  --input: var(--border);
+  --ring: var(--accent);
 
-  /* Charts (keep professional) */
-  --chart-1: oklch(0.42 0.12 260);
-  --chart-2: oklch(0.55 0.1 200);
-  --chart-3: oklch(0.38 0.06 260);
-  --chart-4: oklch(0.75 0.12 90);
-  --chart-5: oklch(0.65 0.14 40);
-
-  /* Sidebar */
-  --sidebar: oklch(0.97 0.02 250);
-  --sidebar-foreground: oklch(0.18 0.03 260);
-  --sidebar-primary: oklch(0.32 0.08 260);
-  --sidebar-primary-foreground: oklch(0.98 0.01 250);
-  --sidebar-accent: oklch(0.42 0.12 260);
-  --sidebar-accent-foreground: oklch(0.98 0.01 250);
-  --sidebar-border: oklch(0.92 0.01 260);
-  --sidebar-ring: oklch(0.42 0.12 260);
+  /* =========================
+     CHARTS
+     ========================= */
+  --chart-1: var(--primary);
+  --chart-2: var(--accent);
+  --chart-3: oklch(48% 0.08 250);
+  --chart-4: var(--success);
+  --chart-5: var(--info);
 }
 
+
+
 .dark {
-  --background: oklch(0.15 0.03 260);
-  --foreground: oklch(0.98 0.01 250);
-
-  --card: oklch(0.2 0.04 260);
-  --card-foreground: oklch(0.98 0.01 250);
-
-  --popover: oklch(0.2 0.04 260);
-  --popover-foreground: oklch(0.98 0.01 250);
-
-  --primary: oklch(0.75 0.1 260);
-  --primary-foreground: oklch(0.2 0.04 260);
-
-  --secondary: oklch(0.25 0.03 260);
-  --secondary-foreground: oklch(0.98 0.01 250);
-
-  --muted: oklch(0.25 0.03 260);
-  --muted-foreground: oklch(0.7 0.03 260);
-
-  --accent: oklch(0.65 0.12 260);
-  --accent-foreground: oklch(0.15 0.03 260);
-
-  --border: oklch(1 0 0 / 12%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.65 0.12 260);
+  
 }
 
 @layer base {
@@ -173,7 +151,39 @@
 }
 
 @layer utilities {
-  .bg-brand-gold {
-    background-color: var(--brand-gold);
+  /* Accent / Gold */
+  .bg-accent {
+    background-color: var(--accent);
   }
+  .bg-accent-soft {
+    background-color: var(--accent-soft);
+  }
+  .bg-accent-hover {
+    background-color: var(--accent-hover);
+  }
+  .text-accent {
+    color: var(--accent);
+  }
+  .border-accent {
+    border-color: var(--accent);
+  }
+
+  /* Primary */
+  .bg-primary {
+    background-color: var(--primary);
+  }
+  .text-primary {
+    color: var(--primary);
+  }
+
+  /* Semantic helpers */
+  .text-success {
+    color: var(--success);
+  }
+  .text-info {
+    color: var(--info);
+  }
+  .text-warning {
+    color: var(--warning);
+  }   
 }

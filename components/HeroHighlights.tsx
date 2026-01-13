@@ -18,21 +18,19 @@ export default function HeroHighlights() {
           <CardContent className="p-6">
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
               <Highlight
-                icon={<School className="h-8 w-8 mx-auto text-primary" />}
+                icon={<School className="h-8 w-8 mx-auto text-accent" />}
                 text="45+ Years of Excellence"
               />
               <Highlight
-                icon={
-                  <GraduationCap className="h-8 w-8 mx-auto text-primary" />
-                }
+                icon={<GraduationCap className="h-8 w-8 mx-auto text-accent" />}
                 text="Matriculation Board"
               />
               <Highlight
-                icon={<Users className="h-8 w-8 mx-auto text-primary" />}
+                icon={<Users className="h-8 w-8 mx-auto text-accent" />}
                 text="Dedicated Faculty"
               />
               <Highlight
-                icon={<Leaf className="h-8 w-8 mx-auto text-primary" />}
+                icon={<Leaf className="h-8 w-8 mx-auto text-accent" />}
                 text="Holistic Development"
               />
             </div>

@@ -57,7 +57,7 @@ const WhySMBM = () => {
           <div className="grid md:grid-cols-2 rounded-xl overflow-hidden outline-solid outline-[1px] outline-background -outline-offset-1">
             {reasons.map(({ title, description, icon: Icon }) => (
               <div key={title} className="border p-6 -mt-px -ml-px">
-                <div className="h-10 w-10 flex items-center justify-center rounded-full bg-accent-soft">
+                <div className="h-10 w-10 flex items-center justify-center rounded-full bg-accent/50 text-accent-foreground">
                   <Icon className="h-5 w-5" />
                 </div>
 
@@ -72,10 +72,10 @@ const WhySMBM = () => {
           <div className="relative w-full aspect-[4/3] overflow-hidden rounded-xl bg-muted">
             <Image
               src="/images/school-building.webp"
-              alt="SMBM Matriculation Higher Secondary School campus"
-              fill
-              className="object-cover"
-              priority={false}
+              alt="ShadcnStore Showcase"
+              className="size-full object-cover dark:brightness-[0.95] dark:invert"
+              width={800}
+              height={600}
             />
           </div>
         </div>

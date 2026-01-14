@@ -40,7 +40,7 @@ const features: FeatureItem[] = [
 
 const Academics = () => {
   return (
-    <section className="w-full bg-muted/50 py-12 lg:py-20">
+    <section className="w-full bg-muted/40 py-12 lg:py-20">
       <div className="container mx-auto px-4 md:px-6">
         {/* Header Section */}
         <header className="mx-auto mb-12 max-w-2xl text-center">
@@ -62,9 +62,9 @@ const Academics = () => {
                 <CardContent className="px-6">
                   <Badge
                     variant="secondary"
-                    className="mb-4 bg-accent-soft inline-flex size-12 items-center justify-center"
+                    className="mb-4 bg-accent/50 text-accent-foreground inline-flex size-10 items-center justify-center"
                   >
-                    <feature.icon className="!size-6" aria-hidden="true" />
+                    <feature.icon className="!size-5" aria-hidden="true" />
                   </Badge>
                   <h3 className="mb-2 text-lg font-semibold">
                     {feature.title}

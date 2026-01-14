@@ -3,6 +3,8 @@ import HeroHighlights from "@/components/HeroHighlights";
 import HeroSection from "@/components/HeroSection";
 import Academics from "@/components/sections/Academics";
 import WhySMBM from "@/components/sections/WhySMBM";
+import Stats from "@/components/sections/Stats";
+import Announcements from "@/components/sections/Announcements";
 
 export default function Home() {
   return (
@@ -12,6 +14,8 @@ export default function Home() {
       <AboutSection />
       <Academics />
       <WhySMBM />
+      {/* <Stats /> */}
+      <Announcements />
     </>
   );
 }

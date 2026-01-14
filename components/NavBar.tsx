@@ -64,7 +64,7 @@ const Logo = ({
       width={width}
       height={height}
       priority
-      className={cn("dark:invert w-auto h-auto", className)}
+      className={cn("dark:invert w-auto h-auto aspect-auto", className)}
     />
   </Link>
 );
@@ -111,8 +111,8 @@ const Navbar = ({
             <Logo
               src={logo.src}
               alt={logo.alt}
-              width={350}
-              height={40}
+              width={320}
+              height={46}
               href={logo.url}
             />
           </div>

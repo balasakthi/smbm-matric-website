@@ -34,6 +34,8 @@ export default function HeroSection() {
           src={src}
           alt="SMBM School Campus"
           fill
+          fetchPriority="high"
+          loading="eager"
           priority={index === 0}
           className={cn(
             "object-cover transition-opacity duration-1000",

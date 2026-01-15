@@ -75,12 +75,7 @@ export default function HeroSection() {
                 <Link href={primary.href}>{primary.label}</Link>
               </Button>
 
-              <Button
-                className="text-white"
-                variant="outline"
-                size="lg"
-                asChild
-              >
+              <Button variant="white" size="lg" asChild>
                 <Link href={secondary.href}>{secondary.label}</Link>
               </Button>
             </div>

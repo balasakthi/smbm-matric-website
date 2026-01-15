@@ -73,7 +73,7 @@ const WhySMBM = () => {
             <Image
               src="/images/school-building.webp"
               alt="ShadcnStore Showcase"
-              className="size-full object-cover dark:brightness-[0.95] dark:invert"
+              className="size-full object-cover"
               width={800}
               height={600}
             />

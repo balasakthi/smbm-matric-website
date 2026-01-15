@@ -13,6 +13,8 @@ const buttonVariants = cva(
 
         gold: "bg-[color:var(--accent)] text-[color:var(--accent-foreground)] hover:bg-[color:var(--accent-hover)]",
 
+        white: "bg-background text-foreground hover:bg-gray-200",
+
         success:
           "bg-[color:var(--success)] text-[color:var(--success-foreground)] hover:bg-[color:var(--success)]/90",
 

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Merriweather } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/NavBar";
+import Footer from "@/components/Footer";
 
 const inter = Inter({
   variable: "--font-body",
@@ -35,6 +36,7 @@ export default function RootLayout({
           <Navbar />
         </header>
         <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );

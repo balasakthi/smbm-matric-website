@@ -21,6 +21,11 @@ const socialLinks = [
     icon: "ri:youtube-fill",
     label: "YouTube",
   },
+  {
+    href: "https://play.google.com/store/apps/details?id=in.nirals.smbmmatric&hl=en-IN",
+    icon: "ri:google-play-fill",
+    label: "Playstore",
+  },
 ];
 
 function SocialLinks({ variant = "dark" }: Props) {
@@ -31,7 +36,7 @@ function SocialLinks({ variant = "dark" }: Props) {
   };
 
   return (
-    <div className="flex justify-center gap-4">
+    <div className="flex gap-4">
       {socialLinks.map(({ href, icon, label }) => (
         <Link
           key={href}

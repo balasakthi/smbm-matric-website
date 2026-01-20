@@ -100,8 +100,8 @@ const Announcements = () => {
           Announcements & School Activities
         </h2>
         <p className="mt-3 text-center text-muted-foreground max-w-[60ch] mx-auto">
-          Stay informed about admissions, academics, and the vibrant life at
-          SMBM.
+          Stay informed about admissions, academics, and the vibrant school life
+          at SMBM.
         </p>
 
         {/* Content */}

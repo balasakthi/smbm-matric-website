@@ -4,11 +4,14 @@ import Link from "next/link";
 
 export default function CorrespondentMessage() {
   return (
-    <section className="py-16 sm:py-20">
+    <section className="py-16 sm:py-20" aria-labelledby="correspondent-heading">
       <div className="container mx-auto px-6">
         {/* Heading */}
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight">
+          <h2
+            id="correspondent-heading"
+            className="text-3xl sm:text-4xl font-semibold tracking-tight"
+          >
             Correspondent’s Message
           </h2>
           <p className="mt-4 text-muted-foreground sm:text-lg">
@@ -17,38 +20,45 @@ export default function CorrespondentMessage() {
         </div>
 
         {/* Content */}
-        <Card className="mt-12 max-w-5xl mx-auto rounded-xl shadow-md">
+        <Card className="mt-12 max-w-5xl mx-auto rounded-2xl shadow-md">
           <CardContent className="p-6 sm:p-10 grid gap-8 md:grid-cols-3 items-center">
             {/* Image */}
-            <div className="md:col-span-1 flex justify-center">
-              <div className="relative h-50 w-50 overflow-hidden rounded-xl bg-muted">
+            <div className="flex justify-center md:justify-start">
+              <div className="relative size-64 overflow-hidden rounded-xl bg-muted">
                 <Image
                   src="/images/correspondent.webp"
                   alt="Correspondent of SMBM Matriculation Higher Secondary School"
-                  className="size-full object-cover h-50 w-50"
-                  width={300}
-                  height={300}
+                  fill
+                  className="object-cover"
+                  priority={false}
                 />
               </div>
             </div>
 
             {/* Message */}
             <div className="md:col-span-2">
-              <p className="text-foreground/80 leading-relaxed line-clamp-4">
-                At SMBM Matriculation Higher Secondary School, our mission is to
-                provide a nurturing environment where students grow not only in
-                academic excellence but also in character, discipline, and
-                social responsibility. Education, in our belief, is the
-                foundation for building confident individuals prepared to face
-                the challenges of the future.
+              <blockquote className="border-l-4 border-brand-gold bg-primary/5 p-4 italic text-foreground/80 leading-relaxed line-clamp-3">
+                “A school is a place where learning and joy come together,
+                shaping educated, responsible, and confident individuals for
+                tomorrow.”
+              </blockquote>
+
+              <p className="mt-4 text-foreground/80 leading-relaxed line-clamp-4">
+                At SMBM, education goes beyond books and classrooms. We strive
+                to nurture character, encourage individuality, and empower
+                students to communicate confidently and face the future with
+                courage and competence.
               </p>
 
               <div className="mt-6">
-                <p className="font-semibold text-lg">— Correspondent</p>
+                <p className="font-semibold text-base">
+                  — Mr. M.K. Paramasivam
+                </p>
                 <p className="text-sm text-muted-foreground">
-                  SMBM Matriculation Higher Secondary School
+                  Secretary & Correspondent
                 </p>
               </div>
+
               <Link
                 href="/about/correspondent"
                 className="mt-4 inline-flex items-center text-sm font-medium text-brand-gold hover:underline"

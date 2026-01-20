@@ -10,22 +10,23 @@ const AboutSection = () => {
         <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
           <div className="space-y-8 text-center lg:text-start">
             <header className="space-y-4">
-              <h1 className="text-3xl font-bold tracking-tight text-balance md:text-4xl">
+              <h1 className="text-3xl font-bold text-balance md:text-4xl">
                 About SMBM Matriculation Higher Secondary School
               </h1>
               <p className="text-muted-foreground text-balance md:text-lg">
-                Established with a vision to provide quality education rooted in
-                strong values, SMBM Matriculation Higher Secondary School has
-                been shaping young minds for decades. Our institution is
-                committed to academic excellence, character building, and
-                holistic development.
+                Established under the vision of Dindigul Nadar Uravinmurai, SMBM
+                Matriculation Higher Secondary School has been shaping young
+                minds since 1984. Guided by the values of discipline, humility,
+                hard work, aspiration, and purpose, the institution stands as a
+                pillar of quality education and social responsibility in
+                Dindigul.
               </p>
 
               <p className="text-muted-foreground text-balance md:text-lg">
-                With experienced faculty, a disciplined learning environment,
-                and modern facilities, we prepare students to excel academically
-                while growing into responsible, confident individuals ready for
-                the future.
+                With a strong foundation in academics and a deep commitment to
+                character building, SMBM nurtures students to grow into
+                confident, ethical, and capable individuals prepared to serve
+                society and the nation.
               </p>
             </header>
 

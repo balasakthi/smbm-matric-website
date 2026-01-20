@@ -17,7 +17,7 @@ const features: FeatureItem[] = [
     icon: Blocks,
     title: "Pre-Primary",
     description:
-      "A joyful and nurturing learning environment for LKG and UKG, focusing on foundational skills, creativity, and early childhood development.",
+      "A nurturing environment that fosters curiosity, creativity, and early learning skills.",
     link: "/academics/kindergarten",
   },
   {
@@ -25,7 +25,7 @@ const features: FeatureItem[] = [
     icon: BookOpenText,
     title: "Primary",
     description:
-      "Strong academic foundations from Classes I to V, emphasizing literacy, numeracy, curiosity, and value-based education.",
+      "Strong academic foundations with emphasis on literacy, numeracy, and values.",
     link: "/academics/primary",
   },
   {
@@ -33,7 +33,7 @@ const features: FeatureItem[] = [
     icon: GraduationCap,
     title: "Secondary & Higher Secondary",
     description:
-      "Comprehensive Matriculation curriculum from Classes VI to XII, preparing students for board examinations and higher education.",
+      "Comprehensive curriculum aligned with Matriculation Board standards and career readiness.",
     link: "/academics/courses-offered",
   },
 ];
@@ -48,9 +48,10 @@ const Academics = () => {
             Academics
           </h2>
           <p className="text-muted-foreground text-pretty">
-            Our academic programs are thoughtfully designed to nurture young
+            Our academic programmes are thoughtfully designed to nurture young
             minds, build strong foundations, and prepare students for future
-            success.
+            success through a balanced blend of traditional values and modern
+            learning methodologies.
           </p>
         </header>
 

@@ -14,25 +14,25 @@ const reasons = [
     icon: Users,
     title: "Experienced & Caring Teachers",
     description:
-      "Highly qualified faculty dedicated to nurturing academic excellence and personal growth.",
+      "Dedicated educators focused on academic excellence and personal growth.",
   },
   {
     icon: HeartHandshake,
     title: "Value-Based Education",
     description:
-      "Strong focus on discipline, ethics, and moral values alongside academics.",
+      "Strong emphasis on discipline, ethics, respect, and social responsibility.",
   },
   {
     icon: Target,
     title: "Individual Student Attention",
     description:
-      "Personalized guidance to help every student reach their full potential.",
+      "Healthy student-teacher ratio ensuring personalised guidance.",
   },
   {
     icon: ShieldCheck,
     title: "Safe & Disciplined Environment",
     description:
-      "Secure campus with a structured, respectful, and student-friendly atmosphere.",
+      "Structured, secure, and student-friendly campus atmosphere.",
   },
 ];
 

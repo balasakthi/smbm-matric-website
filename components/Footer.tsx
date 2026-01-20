@@ -51,9 +51,9 @@ export default function Footer() {
             alt="SMBM Matriculation Higher Secondary School"
             width={160}
             height={70}
-            className="mb-4 w-35 h-auto"
+            className="mb-4 h-auto"
           />
-          <p className="text-sm leading-relaxed text-primary-foreground/90">
+          <p className="text-sm leading-relaxed text-primary-foreground/90 max-w-sm">
             A place of learning committed to academic excellence, discipline,
             and holistic development for every child.
           </p>
@@ -80,7 +80,7 @@ export default function Footer() {
           <h3 className="mb-4 font-semibold">Contact</h3>
           <ul className="space-y-4 text-sm text-primary-foreground/90">
             <li className="flex items-start gap-2">
-              <MapPin className="h-4 w-4 mt-0.5" />
+              <MapPin className="h-4 w-4 mt-0.5 shrink-0" />
               <span>
                 No. 35, G.T.N. Salai, <br />
                 Dindigul – 624 001
@@ -88,7 +88,7 @@ export default function Footer() {
             </li>
 
             <li className="flex items-start gap-2">
-              <Phone className="h-4 w-4 mt-0.5" />
+              <Phone className="h-4 w-4 mt-0.5 shrink-0" />
               <div className="flex flex-col gap-1">
                 {phoneNumbers.map((phone) => (
                   <Link
@@ -103,7 +103,7 @@ export default function Footer() {
             </li>
 
             <li className="flex items-center gap-2">
-              <Mail className="h-4 w-4" />
+              <Mail className="h-4 w-4 shrink-0" />
               <Link href="mailto:info@smbmmatricschool.com">
                 info@smbmmatricschool.com
               </Link>

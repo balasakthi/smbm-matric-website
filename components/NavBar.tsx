@@ -264,7 +264,7 @@ const renderMenuItem = (item: MenuItem, pathname?: string) => {
                   >
                     <SubMenuLink item={subItem} />
                   </NavigationMenuLink>
-                )
+                ),
               )}
             </ul>
           )}
@@ -293,7 +293,7 @@ const renderMenuItem = (item: MenuItem, pathname?: string) => {
         className={cn(
           "px-4 py-2 text-sm font-medium hover:bg-muted/50",
           isActive &&
-            "border-b-2 rounded-b-none border-primary text-primary hover:rounded-md hover:border-accent"
+            "border-b-2 rounded-b-none border-primary text-primary hover:rounded-md hover:border-accent",
         )}
       >
         {item.title}

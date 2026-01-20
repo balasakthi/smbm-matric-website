@@ -64,9 +64,11 @@ export default function HeroSection() {
 
             {/* Description */}
             <p className="mt-6 max-w-2xl text-base sm:text-lg text-white/85 leading-relaxed">
-              A co-educational Matriculation institution committed to academic
-              excellence, strong moral values, and holistic development —
-              shaping confident learners prepared for tomorrow.
+              SMBM Matriculation Higher Secondary School is a co-educational
+              institution committed to academic excellence, strong moral values,
+              and holistic development. Rooted in tradition and driven by modern
+              educational practices, we prepare confident, responsible learners
+              ready to face the challenges of tomorrow.
             </p>
 
             {/* CTAs */}

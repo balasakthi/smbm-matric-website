@@ -8,10 +8,13 @@ import {
   Flag,
   Bus,
 } from "lucide-react";
-
 import { Card, CardContent } from "@/components/ui/card";
 import Link from "next/link";
-import { Button } from "../ui/button";
+import { Button } from "@/components/ui/button";
+import FadeUp from "@/components/motion/FadeUp";
+import Stagger from "@/components/motion/Stagger";
+import StaggerItem from "@/components/motion/StaggerItem";
+import SectionHeading from "./SectionHeading";
 
 const announcements = [
   {
@@ -57,7 +60,7 @@ const activities = [
     icon: Flag,
     title: "National & Social Awareness Programs",
     description:
-      "Activities that instill patriotism, values, and social responsibility.",
+      "Activities that instill patriotism, values, and social responsibility in our future leaders.",
   },
   {
     icon: Bus,
@@ -66,6 +69,12 @@ const activities = [
       "Well-planned educational visits that enhance real-world learning experiences.",
   },
 ];
+
+interface CardSection {
+  icon: React.ComponentType<{ className?: string }>;
+  title: string;
+  description: string;
+}
 
 function CardView({
   icon: Icon,
@@ -77,7 +86,7 @@ function CardView({
   description: string;
 }) {
   return (
-    <Card className="transition-shadow hover:shadow-md">
+    <Card className="relative h-full overflow-hidden transition-all hover:shadow-md hover:scale-105 duration-300">
       <CardContent className="px-6 py-2">
         <div className="mb-4 flex items-center gap-4">
           <div className="h-10 w-10 flex items-center justify-center rounded-full bg-accent/50 text-accent-foreground">
@@ -91,48 +100,50 @@ function CardView({
   );
 }
 
-const Announcements = () => {
+function CardSection({
+  heading,
+  items,
+}: {
+  heading: string;
+  items: CardSection[];
+}) {
+  return (
+    <div className="grid">
+      <FadeUp>
+        <h3 className="text-xl font-semibold mb-6">{heading}</h3>
+      </FadeUp>
+
+      <Stagger>
+        {items.map(({ title, description, icon: Icon }) => (
+          <StaggerItem key={title} className="mb-4">
+            <CardView icon={Icon} title={title} description={description} />
+          </StaggerItem>
+        ))}
+      </Stagger>
+    </div>
+  );
+}
+
+function Announcements() {
   return (
     <section className="bg-muted/40 px-6 py-16">
       <div className="container max-w-(--breakpoint-lg) mx-auto">
         {/* Heading */}
-        <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-center">
-          Announcements & School Activities
-        </h2>
-        <p className="mt-3 text-center text-muted-foreground max-w-[60ch] mx-auto">
-          Stay informed about admissions, academics, and the vibrant school life
-          at SMBM.
-        </p>
+        <div className="text-center">
+          <SectionHeading
+            title="Announcements & School Activities"
+            description=" Stay informed about admissions, academics, and the vibrant school
+          life at SMBM."
+          />
+        </div>
 
         {/* Content */}
         <div className="mt-12 grid gap-12 xl:grid-cols-2">
-          {/* Announcements */}
-          <div className="grid gap-4">
-            <h3 className="text-xl font-semibold">Important Announcements</h3>
-
-            {announcements.map(({ title, description, icon: Icon }) => (
-              <CardView
-                key={title}
-                icon={Icon}
-                title={title}
-                description={description}
-              />
-            ))}
-          </div>
-
-          {/* Activities */}
-          <div className="grid gap-4">
-            <h3 className="text-xl font-semibold">School Activities</h3>
-
-            {activities.map(({ title, description, icon: Icon }) => (
-              <CardView
-                key={title}
-                icon={Icon}
-                title={title}
-                description={description}
-              />
-            ))}
-          </div>
+          <CardSection
+            heading="Important Announcements"
+            items={announcements}
+          />
+          <CardSection heading="School Activities" items={activities} />
         </div>
 
         {/* CTA */}
@@ -144,6 +155,6 @@ const Announcements = () => {
       </div>
     </section>
   );
-};
+}
 
 export default Announcements;

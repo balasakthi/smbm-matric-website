@@ -1,18 +1,18 @@
 import AboutSection from "@/components/AboutSection";
-import Academics from "@/components/sections/Academics";
-import Announcements from "@/components/sections/Announcements";
-import CallToAction from "@/components/sections/CallToAction";
-import CorrespondentMessage from "@/components/sections/CorrespondentMessage";
-import Hero from "@/components/sections/Hero";
-import HeroHighlights from "@/components/sections/HeroHighlights";
-import Stats from "@/components/sections/Stats";
-import WhySMBM from "@/components/sections/WhySMBM";
+import Academics from "@/components/Academics";
+import Announcements from "@/components/Announcements";
+import CallToAction from "@/components/CallToAction";
+import CorrespondentMessage from "@/components/CorrespondentMessage";
+import Highlights from "@/components/hero/Highlights";
+import HeroSection from "@/components/hero/HeroSection";
+import Stats from "@/components/Stats";
+import WhySMBM from "@/components/WhySMBM";
 
 export default function Home() {
   return (
     <>
-      <Hero />
-      <HeroHighlights />
+      <HeroSection />
+      <Highlights />
       <AboutSection />
       <Academics />
       <WhySMBM />

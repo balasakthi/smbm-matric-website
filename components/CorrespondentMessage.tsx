@@ -19,26 +19,25 @@ export default function CorrespondentMessage() {
         {/* Content */}
         <FadeUp>
           <Card className="mt-12 max-w-5xl mx-auto rounded-2xl shadow-md">
-            <CardContent className="p-6 sm:p-10 grid gap-8 md:grid-cols-3 items-center">
+            <CardContent className="p-6 sm:p-10 grid gap-8 lg:grid-cols-3 items-center">
               {/* Image */}
-              <div className="flex justify-center md:justify-start">
+              <div className="w-full flex justify-center">
                 <FadeUp direction="right" delay={0.1}>
-                  <div className="relative size-64 overflow-hidden rounded-xl bg-muted">
+                  <div className="relative w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 overflow-hidden rounded-xl bg-muted">
                     <Image
                       src="/images/correspondent.webp"
                       alt="Correspondent of SMBM Matriculation Higher Secondary School"
                       fill
                       className="object-cover"
-                      priority={false}
                     />
                   </div>
                 </FadeUp>
               </div>
 
               {/* Message */}
-              <div className="md:col-span-2">
+              <div className="lg:col-span-2">
                 <FadeUp delay={0.2}>
-                  <blockquote className="border-l-4 border-brand-gold bg-primary/5 p-4 italic text-foreground/80 leading-relaxed line-clamp-3">
+                  <blockquote className="border-l-4 border-accent bg-accent/15 p-4 italic text-foreground/80 leading-relaxed">
                     “A school is a place where learning and joy come together,
                     shaping educated, responsible, and confident individuals for
                     tomorrow.”

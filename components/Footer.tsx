@@ -57,10 +57,12 @@ export default function Footer() {
             A place of learning committed to academic excellence, discipline,
             and holistic development for every child.
           </p>
-
-          <div className="mt-4">
+          <div className="my-4">
             <SocialLinks variant="light" />
           </div>
+          <p className="text-xs opacity-80">
+            Managed by Dindigul Nadar Uravinmurai (DNU)
+          </p>
         </div>
 
         {/* Quick Links */}

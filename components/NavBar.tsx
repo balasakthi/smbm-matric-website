@@ -1,6 +1,5 @@
 "use client";
 
-import { Menu } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
@@ -24,14 +23,15 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-import SocialLinks from "./SocialLinks";
-import { Icon } from "@iconify/react";
 import { defaultMenu, MenuItem } from "@/lib/menuData";
 import { getAdmissionActions } from "@/utils/admissionStatus";
+import { Icon } from "@iconify/react";
+import { Menu } from "lucide-react";
+import { usePathname } from "next/navigation";
+import Image from "next/image";
+import Link from "next/link";
+import SocialLinks from "@/components/SocialLinks";
 
 interface Props {
   logo?: {
@@ -65,6 +65,8 @@ const Logo = ({
       height={height}
       priority
       className={cn("w-auto h-auto aspect-auto", className)}
+      unoptimized={true}
+      style={{ width: "350px", height: "auto" }}
     />
   </Link>
 );

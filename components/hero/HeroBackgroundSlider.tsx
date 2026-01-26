@@ -4,13 +4,18 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 
-const images = [
-  "/images/school-building.webp",
-  "/images/school-building-transparent.webp",
-  "/images/school-building.webp",
-];
+interface Slide {
+  asset: {
+    url: string;
+  };
+  alt: string;
+}
 
-export default function HeroBackgroundSlider() {
+interface Props {
+  images: Slide[];
+}
+
+export default function HeroBackgroundSlider({ images }: Props) {
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
@@ -19,15 +24,15 @@ export default function HeroBackgroundSlider() {
     }, 5000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [images.length]);
 
   return (
     <>
-      {images.map((src, index) => (
+      {images.map((image, index) => (
         <Image
           key={index}
-          src={src}
-          alt="SMBM School Campus"
+          src={image.asset.url}
+          alt={image.alt}
           fill
           priority={index === 0}
           className={cn(

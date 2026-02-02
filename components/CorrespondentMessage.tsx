@@ -3,16 +3,20 @@ import { Card, CardContent } from "@/components/ui/card";
 import Link from "next/link";
 import SectionHeading from "./SectionHeading";
 import FadeUp from "./motion/FadeUp";
+import { client } from "@/sanity/client";
+import { messageQuery, options } from "@/lib/sanityQuery";
+import { ArrowRight, Minus } from "lucide-react";
 
-export default function CorrespondentMessage() {
+export default async function CorrespondentMessage() {
+  const correspondentMessage = await client.fetch(messageQuery, {}, options);
   return (
     <section className="py-16 sm:py-20" aria-labelledby="correspondent-heading">
       <div className="container mx-auto px-6">
         {/* Heading */}
         <div className="max-w-2xl mx-auto text-center">
           <SectionHeading
-            title="Correspondent’s Message"
-            description="A vision rooted in values, discipline, and academic excellence."
+            title={correspondentMessage.title}
+            description={correspondentMessage.description}
           />
         </div>
 
@@ -25,10 +29,14 @@ export default function CorrespondentMessage() {
                 <FadeUp direction="right" delay={0.1}>
                   <div className="relative w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 overflow-hidden rounded-xl bg-muted">
                     <Image
-                      src="/images/correspondent.webp"
-                      alt="Correspondent of SMBM Matriculation Higher Secondary School"
-                      fill
-                      className="object-cover"
+                      src={correspondentMessage.image?.asset.url}
+                      alt={
+                        correspondentMessage.image?.alt || "Correspondent Image"
+                      }
+                      className="size-full object-cover"
+                      loading="eager"
+                      width={800}
+                      height={600}
                     />
                   </div>
                 </FadeUp>
@@ -38,38 +46,35 @@ export default function CorrespondentMessage() {
               <div className="lg:col-span-2">
                 <FadeUp delay={0.2}>
                   <blockquote className="border-l-4 border-accent bg-accent/15 p-4 italic text-foreground/80 leading-relaxed">
-                    “A school is a place where learning and joy come together,
-                    shaping educated, responsible, and confident individuals for
-                    tomorrow.”
+                    {correspondentMessage.quote}
                   </blockquote>
                 </FadeUp>
 
                 <FadeUp delay={0.3}>
                   <p className="mt-4 text-foreground/80 leading-relaxed line-clamp-4">
-                    At SMBM, education goes beyond books and classrooms. We
-                    strive to nurture character, encourage individuality, and
-                    empower students to communicate confidently and face the
-                    future with courage and competence.
+                    {correspondentMessage.message}
                   </p>
                 </FadeUp>
 
                 <FadeUp delay={0.4}>
                   <div className="mt-6">
                     <p className="font-semibold text-base">
-                      — Mr. M.K. Paramasivam
+                      <Minus className="h-5 w-5 inline" />{" "}
+                      {correspondentMessage.name}
                     </p>
                     <p className="text-sm text-muted-foreground">
-                      Secretary & Correspondent
+                      {correspondentMessage.designation}
                     </p>
                   </div>
                 </FadeUp>
 
                 <FadeUp delay={0.5}>
                   <Link
-                    href="/about/correspondent"
+                    href={correspondentMessage.readMoreAction?.url || "#"}
                     className="mt-4 inline-flex items-center text-sm font-medium text-brand-gold hover:underline"
                   >
-                    Read Full Message →
+                    {correspondentMessage.readMoreAction?.label}
+                    <ArrowRight className="ml-1 h-4 w-4" />
                   </Link>
                 </FadeUp>
               </div>

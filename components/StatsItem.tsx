@@ -51,7 +51,7 @@ export default function StatsItem({
       className="max-w-3xs text-center"
     >
       <span className="text-5xl font-semibold">
-        {value !== undefined ? count : value}
+        {value !== undefined && value !== null ? count : null}
         {suffix}
       </span>
       <p className="mt-4 text-lg">{label}</p>

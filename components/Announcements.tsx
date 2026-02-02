@@ -1,80 +1,49 @@
 import {
-  Megaphone,
-  Trophy,
-  ClipboardList,
-  CalendarCheck,
   BookOpen,
-  Palette,
-  Flag,
   Bus,
+  CalendarCheck,
+  ClipboardList,
+  Flag,
+  LucideIcon,
+  Megaphone,
+  Palette,
+  Trophy,
 } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { client } from "@/sanity/client";
+import { updatesQuery, options } from "@/lib/sanityQuery";
 import FadeUp from "@/components/motion/FadeUp";
+import Link from "next/link";
+import SectionHeading from "./SectionHeading";
 import Stagger from "@/components/motion/Stagger";
 import StaggerItem from "@/components/motion/StaggerItem";
-import SectionHeading from "./SectionHeading";
-
-const announcements = [
-  {
-    icon: Megaphone,
-    title: "Admissions Information",
-    description:
-      "Details about the admission process, eligibility criteria, and required documents.",
-  },
-  {
-    icon: CalendarCheck,
-    title: "Academic Calendar",
-    description:
-      "Overview of the academic year including working days, holidays, and examinations.",
-  },
-  {
-    icon: BookOpen,
-    title: "Examination System",
-    description:
-      "Continuous assessment and structured evaluations aligned with the Matriculation Board.",
-  },
-  {
-    icon: ClipboardList,
-    title: "Parent–Teacher Interaction",
-    description:
-      "Regular communication between parents and teachers to support student progress.",
-  },
-];
-
-const activities = [
-  {
-    icon: Trophy,
-    title: "Annual Sports Day",
-    description:
-      "Encouraging physical fitness, teamwork, and sportsmanship among students.",
-  },
-  {
-    icon: Palette,
-    title: "Cultural & Arts Programs",
-    description:
-      "Opportunities for students to express creativity through music, dance, and arts.",
-  },
-  {
-    icon: Flag,
-    title: "National & Social Awareness Programs",
-    description:
-      "Activities that instill patriotism, values, and social responsibility in our future leaders.",
-  },
-  {
-    icon: Bus,
-    title: "Educational Tours & Trips",
-    description:
-      "Well-planned educational visits that enhance real-world learning experiences.",
-  },
-];
 
 interface CardSection {
   icon: React.ComponentType<{ className?: string }>;
   title: string;
   description: string;
 }
+
+interface FeatureItem {
+  id: number;
+  title: string;
+  subtitle: string;
+  description: string;
+  link: string;
+  icon?: string;
+}
+
+const iconMap: Record<string, LucideIcon> = {
+  MegaPhone: Megaphone,
+  CalendarCheck: CalendarCheck,
+  BookOpen: BookOpen,
+  ClipboardList: ClipboardList,
+  Trophy: Trophy,
+  Palette: Palette,
+  Flag: Flag,
+  Bus: Bus,
+};
 
 function CardView({
   icon: Icon,
@@ -90,7 +59,7 @@ function CardView({
       <CardContent className="px-6 py-2">
         <div className="mb-4 flex items-center gap-4">
           <div className="h-10 w-10 flex items-center justify-center rounded-full bg-accent/50 text-accent-foreground">
-            <Icon className="h-5 w-5" />
+            <Icon className="size-5!" aria-hidden="true" />
           </div>
           <h4 className="text-lg font-semibold">{title}</h4>
         </div>
@@ -105,7 +74,7 @@ function CardSection({
   items,
 }: {
   heading: string;
-  items: CardSection[];
+  items: FeatureItem[];
 }) {
   return (
     <div className="grid">
@@ -114,26 +83,34 @@ function CardSection({
       </FadeUp>
 
       <Stagger>
-        {items.map(({ title, description, icon: Icon }) => (
-          <StaggerItem key={title} className="mb-4">
-            <CardView icon={Icon} title={title} description={description} />
-          </StaggerItem>
-        ))}
+        {items.map((feature: FeatureItem) => {
+          const IconComponent =
+            (feature.icon && iconMap[feature.icon]) || Megaphone;
+          return (
+            <StaggerItem key={feature.title} className="mb-4">
+              <CardView
+                icon={IconComponent}
+                title={feature.title}
+                description={feature.description}
+              />
+            </StaggerItem>
+          );
+        })}
       </Stagger>
     </div>
   );
 }
 
-function Announcements() {
+async function Announcements() {
+  const updates = await client.fetch(updatesQuery, {}, options);
   return (
     <section className="bg-muted/40 px-6 py-16">
       <div className="container max-w-(--breakpoint-lg) mx-auto">
         {/* Heading */}
         <div className="text-center">
           <SectionHeading
-            title="Announcements & School Activities"
-            description=" Stay informed about admissions, academics, and the vibrant school
-          life at SMBM."
+            title={updates.title}
+            description={updates.description}
           />
         </div>
 
@@ -141,9 +118,9 @@ function Announcements() {
         <div className="mt-12 grid gap-12 xl:grid-cols-2">
           <CardSection
             heading="Important Announcements"
-            items={announcements}
+            items={updates.announcements}
           />
-          <CardSection heading="School Activities" items={activities} />
+          <CardSection heading="School Activities" items={updates.activities} />
         </div>
 
         {/* CTA */}

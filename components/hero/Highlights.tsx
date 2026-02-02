@@ -13,7 +13,6 @@ interface Props {
 }
 
 export default function Highlights({ highlights }: Props) {
-  console.log(highlights);
   return (
     <section className="relative z-20 -mt-8 md:-mt-16">
       <div className="container mx-auto px-6">

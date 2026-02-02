@@ -34,6 +34,7 @@ export default function HeroBackgroundSlider({ images }: Props) {
           src={image.asset.url}
           alt={image.alt}
           fill
+          loading="eager"
           priority={index === 0}
           className={cn(
             "object-cover transition-opacity duration-1000",

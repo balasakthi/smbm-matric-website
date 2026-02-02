@@ -11,7 +11,7 @@ function SectionHeading({ title, description, className }: Props) {
   return (
     <>
       <FadeUp>
-        <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl">
+        <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl leading-tight">
           {title}
         </h2>
       </FadeUp>

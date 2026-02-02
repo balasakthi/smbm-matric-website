@@ -1,43 +1,22 @@
 import { Button } from "@/components/ui/button";
 import { client } from "@/sanity/client";
+import { heroQuery, actionsQuery, options } from "@/lib/sanityQuery";
 import FadeUp from "@/components/motion/FadeUp";
 import HeroBackgroundSlider from "@/components/hero/HeroBackgroundSlider";
 import Highlights from "@/components/hero/Highlights";
 import Link from "next/link";
 
-const heroQuery = `
-*[_type == "heroSection"][0]{
-  title,
-  subtitle,
-  description,
-  trustLine,
-  admissionOpen,
-  admissionAction,
-  exploreAction,
-  contactAction,
-  slides[]{
-    asset->{url}, 
-    alt
-  },
-  highlights[] {
-    icon,
-    text,
-  }
-}
-`;
-
-const options = { next: { revalidate: 30 } };
-
 export default async function HeroSection() {
   const hero = await client.fetch(heroQuery, {}, options);
+  const actions = await client.fetch(actionsQuery, {}, options);
 
-  const primary = hero.admissionOpen
-    ? hero.admissionAction
-    : hero.exploreAction;
+  const primary = actions.admissionOpen
+    ? actions.admissionAction
+    : actions.exploreAction;
 
-  const secondary = hero.admissionOpen
-    ? hero.exploreAction
-    : hero.contactAction;
+  const secondary = actions.admissionOpen
+    ? actions.exploreAction
+    : actions.contactAction;
 
   return (
     <>

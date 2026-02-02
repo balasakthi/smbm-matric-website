@@ -49,9 +49,10 @@ export default function Footer() {
           <Image
             src="/logo/smbm-matric-dnu-logo.webp"
             alt="SMBM Matriculation Higher Secondary School"
-            width={160}
-            height={70}
-            className="mb-4 h-auto"
+            width={60}
+            height={60}
+            className="mb-4 w-40 h-auto"
+            loading="eager"
           />
           <p className="text-sm leading-relaxed text-primary-foreground/90 max-w-sm">
             A place of learning committed to academic excellence, discipline,

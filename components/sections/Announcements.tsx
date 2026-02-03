@@ -15,7 +15,7 @@ import { client } from "@/sanity/client";
 import { updatesQuery, options } from "@/lib/sanityQuery";
 import FadeUp from "@/components/motion/FadeUp";
 import Link from "next/link";
-import SectionHeading from "./SectionHeading";
+import SectionHeading from "../SectionHeading";
 import Stagger from "@/components/motion/Stagger";
 import StaggerItem from "@/components/motion/StaggerItem";
 

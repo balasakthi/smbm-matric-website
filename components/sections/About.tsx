@@ -9,7 +9,7 @@ import Link from "next/link";
 import SectionHeading from "@/components/SectionHeading";
 import Stagger from "@/components/motion/Stagger";
 
-const AboutSection = async () => {
+const About = async () => {
   const about = await client.fetch(aboutQuery, {}, options);
 
   return (
@@ -52,4 +52,4 @@ const AboutSection = async () => {
   );
 };
 
-export default AboutSection;
+export default About;

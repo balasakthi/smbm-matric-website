@@ -9,12 +9,12 @@ import {
 import { Button } from "@/components/ui/button";
 import { client } from "@/sanity/client";
 import { whyChooseQuery, options } from "@/lib/sanityQuery";
-import FadeUp from "./motion/FadeUp";
+import FadeUp from "../motion/FadeUp";
 import Image from "next/image";
 import Link from "next/link";
-import SectionHeading from "./SectionHeading";
-import Stagger from "./motion/Stagger";
-import StaggerItem from "./motion/StaggerItem";
+import SectionHeading from "../SectionHeading";
+import Stagger from "../motion/Stagger";
+import StaggerItem from "../motion/StaggerItem";
 
 interface FeatureItem {
   id: number;

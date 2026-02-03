@@ -12,7 +12,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { client } from "@/sanity/client";
 import FadeUp from "@/components/motion/FadeUp";
 import Link from "next/link";
-import SectionHeading from "./SectionHeading";
+import SectionHeading from "../SectionHeading";
 import Stagger from "@/components/motion/Stagger";
 import StaggerItem from "@/components/motion/StaggerItem";
 

@@ -1,11 +1,11 @@
-import Image from "next/image";
+import { ArrowRight, Minus } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import Link from "next/link";
-import SectionHeading from "./SectionHeading";
-import FadeUp from "./motion/FadeUp";
 import { client } from "@/sanity/client";
 import { messageQuery, options } from "@/lib/sanityQuery";
-import { ArrowRight, Minus } from "lucide-react";
+import FadeUp from "../motion/FadeUp";
+import Image from "next/image";
+import Link from "next/link";
+import SectionHeading from "../SectionHeading";
 
 export default async function CorrespondentMessage() {
   const correspondentMessage = await client.fetch(messageQuery, {}, options);

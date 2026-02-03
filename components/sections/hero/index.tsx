@@ -2,11 +2,11 @@ import { Button } from "@/components/ui/button";
 import { client } from "@/sanity/client";
 import { heroQuery, actionsQuery, options } from "@/lib/sanityQuery";
 import FadeUp from "@/components/motion/FadeUp";
-import HeroBackgroundSlider from "@/components/hero/HeroBackgroundSlider";
-import Highlights from "@/components/hero/Highlights";
+import HeroBackgroundSlider from "@/components/sections/hero/HeroBackgroundSlider";
+import Highlights from "@/components/sections/hero/Highlights";
 import Link from "next/link";
 
-export default async function HeroSection() {
+export default async function Hero() {
   const hero = await client.fetch(heroQuery, {}, options);
   const actions = await client.fetch(actionsQuery, {}, options);
 

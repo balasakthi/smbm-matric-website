@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import FadeUp from "@/components/motion/FadeUp";
-import HighlightItem from "@/components/hero/HighlightItem";
+import HighlightItem from "@/components/sections/hero/HighlightItem";
 import Stagger from "@/components/motion/Stagger";
 
 interface highlight {

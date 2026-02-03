@@ -3,7 +3,7 @@ import { callToActionQuery, actionsQuery, options } from "@/lib/sanityQuery";
 import { client } from "@/sanity/client";
 import FadeUp from "@/components/motion/FadeUp";
 import Link from "next/link";
-import SectionHeading from "./SectionHeading";
+import SectionHeading from "../SectionHeading";
 
 export default async function CallToAction() {
   const callToAction = await client.fetch(callToActionQuery, {}, options);

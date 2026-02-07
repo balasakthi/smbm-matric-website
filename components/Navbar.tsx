@@ -1,5 +1,3 @@
-import { actionsQuery, options } from "@/lib/sanityQuery";
-import { client } from "@/sanity/client";
 import { defaultMenu, MenuItem } from "@/lib/menuData";
 import { ClientNavbar } from "./ClientNavbar";
 
@@ -20,9 +18,7 @@ const Navbar = async ({
   },
   menu = defaultMenu,
 }: Props) => {
-  const actions = await client.fetch(actionsQuery, {}, options);
-
-  return <ClientNavbar logo={logo} menu={menu} actions={actions} />;
+  return <ClientNavbar logo={logo} menu={menu} />;
 };
 
 export { Navbar };

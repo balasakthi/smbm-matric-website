@@ -7,7 +7,7 @@ import Highlights from "@/components/sections/hero/Highlights";
 import Link from "next/link";
 import { BackgroundPattern } from "@/components/background-pattern";
 import { Badge } from "@/components/ui/badge";
-import { ArrowUpRight, CirclePlay } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 export default async function Hero() {
   const hero = await client.fetch(heroQuery, {}, options);

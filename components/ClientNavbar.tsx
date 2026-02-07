@@ -41,14 +41,6 @@ interface Props {
   menu?: MenuItem[];
 }
 
-interface ClientProps extends Props {
-  actions: {
-    admissionOpen: boolean;
-    admissionAction: { href: string; label: string };
-    exploreAction: { href: string; label: string };
-  };
-}
-
 const Logo = ({
   src,
   alt,
@@ -105,14 +97,8 @@ const ClientNavbar = ({
     alt: "Logo of SMBM Matric School",
   },
   menu = defaultMenu,
-  actions,
-}: ClientProps) => {
+}: Props) => {
   const pathname = usePathname();
-
-  const primary = actions.admissionOpen
-    ? actions.admissionAction
-    : actions.exploreAction;
-
   const renderMenuItem = (item: MenuItem, pathname?: string) => {
     const isActive =
       pathname === item.url ||

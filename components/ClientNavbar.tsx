@@ -339,7 +339,7 @@ const ClientNavbar = ({
                   href={logo.url}
                 />
                 <Button asChild className="w-full">
-                  <Link href={primary.href}>{primary.label}</Link>
+                  <Link href="/admissions">Admissions</Link>
                 </Button>
                 <hr className="my-2 border-muted" />
 

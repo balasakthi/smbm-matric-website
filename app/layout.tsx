@@ -1,8 +1,9 @@
+import Navbar from "@/components/navbar";
+import { SmoothScroll } from "@/components/smoothScroll";
 import type { Metadata } from "next";
 import { Inter, Merriweather } from "next/font/google";
 import "./globals.css";
-import { Navbar } from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import Footer from "@/components/footer";
 
 const inter = Inter({
   variable: "--font-body",
@@ -13,7 +14,6 @@ const inter = Inter({
 const merriweather = Merriweather({
   variable: "--font-heading",
   subsets: ["latin"],
-  weight: ["400", "700", "900"],
   display: "swap",
 });
 
@@ -95,14 +95,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-scroll-behavior="smooth">
+    <html lang="en">
       <body
         className={`${inter.variable} ${merriweather.variable} antialiased`}
       >
-        <header>
-          <Navbar />
-        </header>
-        <main>{children}</main>
+        <Navbar />
+        <main id="main-content">
+          <SmoothScroll>{children}</SmoothScroll>
+        </main>
         <Footer />
       </body>
     </html>

@@ -1,23 +1,29 @@
-import About from "@/components/sections/About";
-import Academics from "@/components/sections/Academics";
-import Announcements from "@/components/sections/Announcements";
-import CallToAction from "@/components/sections/CallToAction";
-import CorrespondentMessage from "@/components/sections/CorrespondentMessage";
-import Hero from "@/components/sections/hero";
-import Stats from "@/components/sections/Stats";
-import WhySMBM from "@/components/sections/WhySMBM";
+import Hero from "@/components/hero";
+import Highlights from "@/components/highlights";
+import SchoolIntro from "@/components/schoolIntro";
+import AcademicLevel from "@/components/academicLevel";
+import Infrastructure from "@/components/infrastructure";
+import Cta from "@/components/cta";
+import ManagementMessage from "@/components/managementMessage";
+import WhyChooseSmbm from "@/components/whyChooseSmbm";
+import Achievements from "@/components/acheivements";
+import Testimonials from "@/components/testimonials";
+import Stats from "@/components/stats";
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <About />
-      <Academics />
-      <WhySMBM />
+      <Highlights />
+      <SchoolIntro />
+      <ManagementMessage />
+      <WhyChooseSmbm />
       <Stats />
-      <Announcements />
-      <CorrespondentMessage />
-      <CallToAction />
+      <AcademicLevel />
+      <Achievements />
+      <Infrastructure />
+      <Testimonials />
+      <Cta />
     </>
   );
 }

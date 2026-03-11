@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -48,81 +49,40 @@
 
 :root {
   --radius: 0;
-
-  /* =========================
-     BASE SURFACES & TEXT
-     ========================= */
-  --background: oklch(99.5% 0 0);
-  --foreground: oklch(20% 0.04 260);
-
-  --card: oklch(99% 0.005 260);
-  --card-foreground: var(--foreground);
-
-  --popover: var(--card);
-  --popover-foreground: var(--foreground);
-
-  /* =========================
-     PRIMARY – SCHOOL BLUE
-     ========================= */
-  --primary: oklch(32% 0.09 250);              /* Logo blue */
-  --primary-foreground: oklch(98% 0.02 250);
-
-  --primary-hover: oklch(38% 0.10 250);
-  --primary-active: oklch(24% 0.08 250);
-  --primary-muted: oklch(60% 0.06 250);
-
-  /* =========================
-     SECONDARY – SOFT SECTIONS
-     ========================= */
-  --secondary: oklch(97.5% 0.015 250);
-  --secondary-foreground: oklch(30% 0.06 260);
-
-  /* =========================
-     ACCENT – GOLD (IMPORTANT)
-     ========================= */
-  --accent: oklch(78% 0.09 75);                
-  --accent-hover: oklch(72% 0.10 75);
-  --accent-foreground: oklch(20% 0.04 260);
-
-  /* =========================
-     SEMANTIC COLORS
-     ========================= */
-  --success: oklch(62% 0.12 150);
-  --success-foreground: oklch(98% 0.02 250);
-
-  --info: oklch(55% 0.08 245);                 /* Info blue (related to primary) */
-  --info-foreground: oklch(98% 0.02 250);
-
-  --warning: oklch(78% 0.15 60);
-  --warning-foreground: oklch(20% 0.04 260);
-
-  --destructive: oklch(58% 0.20 30);
-  --destructive-foreground: oklch(98% 0.02 250);
-
-  /* =========================
-     MUTED & BORDERS
-     ========================= */
-  --muted: oklch(96% 0.012 250);
-  --muted-foreground: oklch(50% 0.03 260);
-
-  --border: oklch(90% 0.01 260);
-  --input: var(--border);
-  --ring: var(--accent);
-
-  /* =========================
-     CHARTS
-     ========================= */
-  --chart-1: var(--primary);
-  --chart-2: var(--accent);
-  --chart-3: oklch(48% 0.08 250);
-  --chart-4: var(--success);
-  --chart-5: var(--info);
+  --accent-foreground: oklch(0.27 0.04 252);
+  --accent: oklch(0.95 0.015 240);
+  --background: oklch(0.99 0 0);
+  --border: oklch(0.9 0.01 252);
+  --card-foreground: oklch(0.15 0 0);
+  --card: oklch(1 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --destructive: oklch(0.62 0.25 25);
+  --foreground: oklch(0.22 0.02 252);
+  --input: oklch(0.9 0.01 252);
+  --muted-foreground: oklch(0.5 0.02 252);
+  --muted: oklch(0.96 0.01 252);
+  --popover-foreground: oklch(0.15 0 0);
+  --popover: oklch(1 0 0);
+  --primary-foreground: oklch(0.98 0 0);
+  --primary: oklch(0.2717 0.0466 252.08);
+  --ring: oklch(0.45 0.18 260);
+  --secondary-foreground: oklch(0.27 0.04 252);
+  --secondary: oklch(0.92 0.02 252);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+  --sidebar: oklch(0.985 0 0);
 }
 
-
-
 .dark {
-  
 }
 
 @layer base {
@@ -140,47 +100,123 @@
   h3,
   h4,
   h5,
-  h6 {
+  h6,
+  a {
     font-family: var(--font-heading), serif;
   }
 
   .font-heading {
     font-family: var(--font-heading), serif;
   }
+  button {
+    cursor: pointer;
+  }
+  .heading-xl {
+    font-family: var(--font-sans);
+    font-size: 3rem;
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .heading-lg {
+    font-family: var(--font-sans);
+    font-size: 2.25rem;
+    line-height: 1.111;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .heading-md {
+    font-family: var(--font-sans);
+    font-size: 1.875rem;
+    line-height: 1.2;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .heading-sm {
+    font-family: var(--font-sans);
+    font-size: 1.5rem;
+    line-height: 1.333;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .container-padding-x {
+    padding-inline: 1.5rem;
+  }
+  .section-padding-y {
+    padding-block: 6rem;
+  }
+  .section-title-gap-xl {
+    gap: 1.5rem;
+  }
+  .section-title-gap-lg {
+    gap: 1.25rem;
+  }
+  .section-title-gap-md {
+    gap: 1.25rem;
+  }
+  .section-title-gap-sm {
+    gap: 1rem;
+  }
 }
 
-@layer utilities {
-  /* Accent / Gold */
-  .bg-accent {
-    background-color: var(--accent);
+@media (max-width: 64rem) {
+  .heading-xl {
+    font-size: 1.875rem;
+    line-height: 1.2;
+  }
+  .heading-lg {
+    font-size: 1.875rem;
+    line-height: 1.2;
+  }
+  .heading-md {
+    font-size: 1.5rem;
+    line-height: 1.2;
+  }
+  .heading-sm {
+    font-size: 1.5rem;
+    line-height: 1.333;
+  }
+  .container-padding-x {
+    padding-inline: 1.5rem;
+  }
+  .section-padding-y {
+    padding-block: 4rem;
+  }
+  .section-title-gap-xl {
+    gap: 1rem;
+  }
+  .section-title-gap-lg {
+    gap: 1rem;
+  }
+  .section-title-gap-md {
+    gap: 1rem;
+  }
+  .section-title-gap-sm {
+    gap: 1rem;
+  }
+}
+
+@theme {
+  /* Register the animation utilities */
+  --animate-marquee: marquee var(--duration) linear infinite;
+  --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+
+  /* Define the keyframes */
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
+    }
   }
 
-  .bg-accent-hover {
-    background-color: var(--accent-hover);
+  @keyframes marquee-vertical {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(calc(-100% - var(--gap)));
+    }
   }
-  .text-accent {
-    color: var(--accent);
-  }
-  .border-accent {
-    border-color: var(--accent);
-  }
-
-  /* Primary */
-  .bg-primary {
-    background-color: var(--primary);
-  }
-  .text-primary {
-    color: var(--primary);
-  }
-
-  /* Semantic helpers */
-  .text-success {
-    color: var(--success);
-  }
-  .text-info {
-    color: var(--info);
-  }
-  .text-warning {
-    color: var(--warning);
-  }   
 }

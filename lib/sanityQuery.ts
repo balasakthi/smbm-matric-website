@@ -1,150 +1,130 @@
-const options = { next: { revalidate: 30 } };
-
-const heroQuery = `
-*[_type == "heroSection"][0]{
+const HERO_QUERY = `
+*[_type == "homeHero"][0]{
   title,
   subtitle,
-  description,
-  trustLine,
-  admissionOpen,
-  admissionAction,
-  exploreAction,
-  contactAction,
-  slides[]{
-    asset->{url}, 
-    alt
-  },
-  highlights[] {
+  established,
+  schoolMotto,
+  buttonText,
+  buttonLink,
+  backgroundImage,
+}
+`;
+
+const HIGHLIGHTS_QUERY = `
+*[_type == "homeQuickHighlight"] | order(order asc) {
+    _id,
+    title,
+    description,
     icon,
-    text,
-  }
-}
-`;
+    order
+  }`;
 
-const actionsQuery = `
-*[_type == "actions"][0]{
-  title,
-  admissionOpen,
-  admissionAction,
-  exploreAction,
-  contactAction,
-}
-`;
-
-const aboutQuery = `
-*[_type == "aboutSection"][0]{
-  title,
-  description,
-  knowMoreAction{
-    label,
-    url
-  },
-  image{
-    asset->{url},
-    alt
-  }
-}`;
-
-const academicsQuery = `
-*[_type == "academicSection"][0]{
-  title,
-  description,
-  features[]{
+const SCHOOL_INTRO_QUERY = `
+*[_type == "schoolIntroduction"][0]{
     title,
     subtitle,
     description,
-    icon
-  },
-  viewCurriculumAction{
-    label,
-    url
-  },
-}
-`;
+    aboutImage,
+    buttonText,
+    buttonLink
+  }`;
 
-const statsQuery = `
-*[_type == "statsSection"]{
-  label,
-  value,
-  suffix,
+const ACADEMICS_LEVEL_QUERY = `
+*[_type == "academicLevel"][0]{
+    title,
+    levels,
+    buttonText,
+    buttonLink
+ }`;
+
+const INFRASTRUCTURE_QUERY = `
+*[_type == "infrastructureHighlight"][0]{
+    title,
+    intro,
+    highlights
+ }`;
+
+const CTA_QUERY = `
+*[_type == "ctaBlock"][0]{
+    title,
+    supportLine,
+    buttonText,
+    buttonLink
 }`;
 
-const whyChooseQuery = `
-*[_type == "whyChooseSection"][0]{
-  title,
-  description,
-  features[]{
+const CORRESPONDENT_MESSAGE_QUERY = `
+*[_type == "managementMessage" && role == "correspondent"][0] {
+    name,
+    designation,
+    highlightQuote,
+    message,
+    photo
+}`;
+
+const WHY_CHOOSE_SMBM_QUERY = `
+*[_type == "whyChooseSMBM"][0] {
     title,
-    description,
-    icon
+    intro,
+    reasons
+}`;
+
+const ACADEMIC_RESULT_QUERY = `
+*[_type == "academicResult" && isCurrent == true][0]{
+  title,
+  intro,
+  year,
+  resultPoster,
+  "class10Students": topStudents[className == "Class 10"] | order(score desc){
+    studentName,
+    className,
+    group,
+    score,
+    centum,
+    achievement,
+    photo
   },
-  exploreCampusAction{
-    label,
-    href
-  },
-  image{
-    asset->{url},
-    alt
+  "class12Students": topStudents[className == "Class 12"] | order(score desc){
+    studentName,
+    className,
+    group,
+    score,
+    centum,
+    achievement,
+    photo
   }
-}
-`;
+}`;
 
-const updatesQuery = `
-*[_type == "updatesSection"][0]{
-  title,
-  description,
-  announcements[]{
+const TESTIMONIAL_QUERY = `
+*[_type == "testimonial" && featured == true] | order(__createdAt desc) {
+    _id,
+    name, 
+    role,
+    organization,
+    quote,
+    photo
+  }`;
+
+const STATS_QUERY = `
+*[_type == "statsSection"][0]{
+    _id,
     title,
-    description,
-    icon
-  },
-  activities[]{
-    title,
-    description,
-    icon
-  },
-  contactAction{
-    label,
-    href
-  },
-}
-`;
-
-const messageQuery = `
-*[_type == "messageSection"][0]{
-  title,
-  description,
-  image{
-    asset->{url},
-    alt
-  },
-  quote,
-  name,
-  designation,
-  message,
-  readMoreAction{
-    label,
-    href
-  }
-}
-`;
-
-const callToActionQuery = `
-*[_type == "callToActionSection"][0]{
-  title,
-  description,
-}
-`;
+    stats[]{
+      value,
+      suffix,
+      label
+    }
+  }`;
 
 export {
-  options,
-  heroQuery,
-  actionsQuery,
-  aboutQuery,
-  academicsQuery,
-  statsQuery,
-  whyChooseQuery,
-  updatesQuery,
-  messageQuery,
-  callToActionQuery,
+  HERO_QUERY,
+  HIGHLIGHTS_QUERY,
+  SCHOOL_INTRO_QUERY,
+  ACADEMICS_LEVEL_QUERY,
+  INFRASTRUCTURE_QUERY,
+  CTA_QUERY,
+  CORRESPONDENT_MESSAGE_QUERY,
+  WHY_CHOOSE_SMBM_QUERY,
+  ACADEMIC_RESULT_QUERY,
+  TESTIMONIAL_QUERY,
+  STATS_QUERY,
 };

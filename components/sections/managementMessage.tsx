@@ -4,7 +4,7 @@ import { CORRESPONDENT_MESSAGE_QUERY } from "@/lib/sanityQuery";
 import { fetchSectionData } from "@/lib/sanityFetch";
 import { Quote, ArrowRight } from "lucide-react";
 import { urlFor } from "@/sanity/sanity-image";
-import Fade from "@/components/motion/Fade";
+import Fade from "@/components/common/Fade";
 import Image from "next/image";
 import Link from "next/link";
 import type { SanityImageSource } from "@sanity/image-url";

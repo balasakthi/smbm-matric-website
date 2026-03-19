@@ -3,7 +3,7 @@ import { BTN_HOVER_SCALE, BTN_ICON_HOVER_SLIDE } from "@/lib/ui-constants";
 import { Button } from "@/components/ui/button";
 import { CTA_QUERY } from "@/lib/sanityQuery";
 import { fetchSectionData } from "@/lib/sanityFetch";
-import Fade from "@/components/motion/Fade";
+import Fade from "@/components/common/Fade";
 import Link from "next/link";
 
 interface CtaBlock {

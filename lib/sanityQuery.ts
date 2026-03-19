@@ -4,6 +4,8 @@ const HERO_QUERY = `
   subtitle,
   established,
   schoolMotto,
+  admissionText,
+  admissionOpen,
   buttonText,
   buttonLink,
   backgroundImage,
@@ -115,6 +117,60 @@ const STATS_QUERY = `
     }
   }`;
 
+const ADMISSION_PAGE_QUERY = `
+*[_type == "admissionPage"][0]{
+  heroTitle,
+  heroSubtitle,
+  backgroundImage{
+    asset,
+    alt
+  },
+
+  overviewTitle,
+  overviewContent,
+
+  classesTitle,
+  classesIntro,
+  classes[]{
+    icon,
+    title,
+    subtitle,
+    description
+  },
+
+  processTitle,
+  processIntro,
+  processSteps[]{
+    title,
+    description
+  },
+
+  documentsTitle,
+  documentsIntro,
+  documents[]{
+    icon,
+    label
+  },
+
+  guidelinesTitle,
+  guidelinesIntro,
+  guidelines,
+
+  contactSection{
+    title,
+    subtitle,
+
+    officeHours[]{
+      days,
+      timing
+    },
+
+    phones,
+    emails,
+    address
+  }
+}
+`;
 export {
   HERO_QUERY,
   HIGHLIGHTS_QUERY,
@@ -127,4 +183,5 @@ export {
   ACADEMIC_RESULT_QUERY,
   TESTIMONIAL_QUERY,
   STATS_QUERY,
+  ADMISSION_PAGE_QUERY,
 };

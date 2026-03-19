@@ -1,6 +1,6 @@
 import { ACADEMICS_LEVEL_QUERY } from "@/lib/sanityQuery";
 import { ArrowUpRight, School } from "lucide-react";
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
 import { fetchSectionData } from "@/lib/sanityFetch";
 import {
   CONTAINER_SITE,
@@ -9,7 +9,7 @@ import {
 } from "@/lib/ui-constants";
 import Link from "next/link";
 import { academicsIconMap, getIcon } from "@/lib/iconMaps";
-import Fade from "@/components/motion/Fade";
+import Fade from "@/components/common/Fade";
 
 interface Level {
   levelName: string;
@@ -34,7 +34,7 @@ const AcademicLevel = async () => {
       aria-labelledby="academics-heading"
       className="flex items-center justify-center bg-secondary py-20 md:py-28"
     >
-      <div className={`${CONTAINER_SITE} max-w-(--breakpoint-lg)`}>
+      <div className={`${CONTAINER_SITE}`}>
         {/* Heading */}
         <Fade direction="up">
           <h2

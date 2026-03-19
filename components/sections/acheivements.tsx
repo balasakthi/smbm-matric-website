@@ -1,12 +1,12 @@
 import { ACADEMIC_RESULT_QUERY } from "@/lib/sanityQuery";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Badge } from "./ui/badge";
+import { Badge } from "@/components/ui/badge";
 import { CONTAINER_SITE } from "@/lib/ui-constants";
 import { fetchSectionData } from "@/lib/sanityFetch";
 import { Marquee } from "@/components/ui/marquee";
 import { SanityImageSource } from "@sanity/image-url";
 import { urlFor } from "@/sanity/sanity-image";
-import Fade from "./motion/Fade";
+import Fade from "@/components/common/Fade";
 
 interface Student {
   studentName: string;

@@ -5,7 +5,7 @@ import { CARD_HOVER_SLIDE, CONTAINER_SITE } from "@/lib/ui-constants";
 import { urlFor } from "@/sanity/sanity-image";
 import Image from "next/image";
 import type { SanityImageSource } from "@sanity/image-url";
-import Fade from "@/components/motion/Fade";
+import Fade from "@/components/common/Fade";
 
 interface Highlight {
   name: string;
@@ -30,7 +30,7 @@ const Infrastructure = async () => {
       aria-labelledby="infrastructure-heading"
       className="bg-secondary py-20 md:py-28"
     >
-      <div className={`${CONTAINER_SITE} max-w-(--breakpoint-lg)`}>
+      <div className={`${CONTAINER_SITE}`}>
         {/* Heading */}
         <div className="max-w-2xl">
           <Fade direction="up">
@@ -79,7 +79,7 @@ const Infrastructure = async () => {
                     />
 
                     {/* Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent transition-opacity duration-300 group-hover:from-black/40" />
+                    <div className="absolute inset-0 bg-linear-to-t from-black/30 to-transparent transition-opacity duration-300 group-hover:from-black/40" />
                   </div>
                 </CardContent>
               </Card>

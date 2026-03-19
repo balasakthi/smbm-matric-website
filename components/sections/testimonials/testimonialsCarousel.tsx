@@ -15,8 +15,8 @@ import { urlFor } from "@/sanity/sanity-image";
 import { Testimonial } from "./index";
 import Image from "next/image";
 import { CONTAINER_SITE } from "@/lib/ui-constants";
-import Fade from "../motion/Fade";
-import { Avatar, AvatarImage } from "../ui/avatar";
+import Fade from "@/components/common/Fade";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
 
 interface Props {
   testimonials: Testimonial[];

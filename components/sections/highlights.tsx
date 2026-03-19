@@ -1,4 +1,4 @@
-import Fade from "./motion/Fade";
+import Fade from "@/components/common/Fade";
 import { fetchSectionData } from "@/lib/sanityFetch";
 import { HIGHLIGHTS_QUERY } from "@/lib/sanityQuery";
 import { quickHighlightIconMap, getIcon } from "@/lib/iconMaps";
@@ -8,7 +8,7 @@ import {
   CARD_HOVER_SLIDE,
   ICON_WRAPPER_CLASS,
 } from "@/lib/ui-constants";
-import { Card, CardHeader, CardContent, CardTitle } from "./ui/card";
+import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
 
 interface HomeQuickHighlight {
   _id: string;

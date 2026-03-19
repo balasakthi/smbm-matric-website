@@ -11,4 +11,4 @@ export const CARD_HOVER_SLIDE =
   "group transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg";
 
 export const ICON_WRAPPER_CLASS =
-  "flex h-14 w-14 items-center justify-center rounded-full border border-border/50 bg-muted transition-all duration-300 group-hover:border-primary/40 group-hover:bg-primary/10";
+  "flex h-14 w-14 items-center justify-center rounded-full border border-border/50 bg-muted transition-all duration-300 group-hover:border-primary/40 group-hover:bg-primary/10 shrink-0";

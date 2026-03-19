@@ -1,22 +1,27 @@
 import {
-  Users,
-  BookOpen,
-  School,
-  Building,
+  Award,
   Baby,
-  GraduationCap,
-  FlaskConical,
   Backpack,
+  BookOpen,
+  Building,
+  Camera,
+  FileCheckCorner,
+  FileUser,
+  FlaskConical,
+  GraduationCap,
   HeartHandshake,
-  Trophy,
+  Home,
+  IdCard,
+  LucideIcon,
+  School,
   ShieldCheck,
+  Star,
+  Trophy,
+  User,
+  Users,
 } from "lucide-react";
 
-type IconComponent = React.ComponentType<{
-  className?: string;
-  strokeWidth?: number;
-  size?: string | number;
-}>;
+type IconComponent = LucideIcon;
 
 export const quickHighlightIconMap: Record<string, IconComponent> = {
   School,
@@ -42,6 +47,26 @@ export const whyChooseSmbmMap: Record<string, IconComponent> = {
   ShieldCheck,
 };
 
+export const classCategoriesMap: Record<string, IconComponent> = {
+  Star,
+  BookOpen,
+  School,
+  GraduationCap,
+  Award,
+};
+
+export const documentIconsMap: Record<string, LucideIcon> = {
+  FileCheckCorner,
+  GraduationCap,
+  BookOpen,
+  Camera,
+  IdCard,
+  User,
+  Home,
+  FileUser,
+  Users,
+};
+
 const toPascalCase = (str: string) =>
   str
     .split(/[-_ ]+/)
@@ -56,6 +81,5 @@ export function getIcon(
   if (!iconName) return fallback;
   if (iconMap[iconName]) return iconMap[iconName];
   const normalizedName = toPascalCase(iconName);
-
   return iconMap[normalizedName] || fallback;
 }

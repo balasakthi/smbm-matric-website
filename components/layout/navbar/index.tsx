@@ -1,7 +1,7 @@
 import { ADMISSIONS_ROUTE } from "@/lib/navigation";
 import { Button } from "@/components/ui/button";
-import { NavigationSheet } from "@/components/navbar/navigation-sheet";
-import { NavMenu } from "@/components/navbar/nav-menu";
+import { NavigationSheet } from "@/components/layout/navbar/navigation-sheet";
+import { NavMenu } from "@/components/layout/navbar/nav-menu";
 import { CONTAINER_SITE } from "@/lib/ui-constants";
 import Image from "next/image";
 import Link from "next/link";

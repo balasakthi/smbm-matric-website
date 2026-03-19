@@ -1,4 +1,4 @@
-import Fade from "./motion/Fade";
+import Fade from "@/components/common/Fade";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { fetchSectionData } from "@/lib/sanityFetch";
@@ -52,7 +52,7 @@ async function SchoolIntro() {
                   fill
                   className="object-cover transition-transform duration-700 hover:scale-105"
                   src={urlFor(intro.aboutImage).url()}
-                  alt="Students and campus facilities at S.M.B.M."
+                  alt="Entrance image of S.M.B.M. Matric."
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>

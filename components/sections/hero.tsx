@@ -67,7 +67,7 @@ export default async function Hero() {
           </Fade>
           <Fade delay={0.4} animateOnMount>
             {hero.admissionOpen ? (
-              <div className="bg-secondary/60 max-w-80 md:max-w-lg mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 backdrop-blur-sm shadow-md hover:shadow-lg p-4 border border-border/50 rounded-xl">
+              <div className="bg-secondary/60 max-w-80 md:max-w-lg mx-auto flex flex-col md:flex-row items-center justify-between gap-4 backdrop-blur-sm shadow-md hover:shadow-lg p-4 border border-border/50 rounded-xl">
                 <div className="flex items-center gap-3 text-left">
                   <div className="flex items-center justify-center rounded-full bg-primary/10 p-2">
                     <Sparkles className="size-4 text-primary" />

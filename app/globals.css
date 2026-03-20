@@ -104,11 +104,11 @@
   a {
     font-family: var(--font-heading), serif;
   }
-
   .font-heading {
     font-family: var(--font-heading), serif;
   }
   button {
+    font-family: var(--font-heading), serif;
     cursor: pointer;
   }
   .heading-xl {

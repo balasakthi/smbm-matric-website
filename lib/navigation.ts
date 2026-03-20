@@ -1,16 +1,23 @@
 export interface NavigationLink {
   label: string;
-  href: string;
+  href?: string;
+  children?: NavigationLink[];
 }
 
 export const PRIMARY_NAV_LINKS: NavigationLink[] = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Academics", href: "/academics" },
-  { label: "Infrastructure", href: "/infrastructure" },
-  { label: "Student Life", href: "/student-life" },
-  { label: "Gallery", href: "/gallery" },
+  { label: "Admissions", href: "/admissions" },
+  {
+    label: "Campus Life",
+    children: [
+      { label: "Infrastructure", href: "/infrastructure" },
+      { label: "Student Life", href: "/student-life" },
+      { label: "Gallery", href: "/gallery" },
+    ],
+  },
   { label: "Contact", href: "/contact" },
 ];
 
-export const ADMISSIONS_ROUTE = "/admissions";
+export const ENQUIRY_ROUTE = "/admissions#enquiry-form";

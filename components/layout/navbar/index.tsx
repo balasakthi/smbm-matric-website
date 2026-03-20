@@ -1,10 +1,10 @@
-import { ADMISSIONS_ROUTE } from "@/lib/navigation";
-import { Button } from "@/components/ui/button";
-import { NavigationSheet } from "@/components/layout/navbar/navigation-sheet";
-import { NavMenu } from "@/components/layout/navbar/nav-menu";
-import { CONTAINER_SITE } from "@/lib/ui-constants";
 import Image from "next/image";
 import Link from "next/link";
+import { ActionButton } from "@/components/layout/actionButton";
+import { CONTAINER_SITE } from "@/lib/ui-constants";
+import { ENQUIRY_ROUTE } from "@/lib/navigation";
+import { NavMenu } from "@/components/layout/navbar/nav-menu";
+import { NavigationSheet } from "@/components/layout/navbar/navigation-sheet";
 
 const Navbar = () => {
   return (
@@ -19,7 +19,7 @@ const Navbar = () => {
         <div
           className={`${CONTAINER_SITE} flex h-full items-center justify-between`}
         >
-          <div className="flex items-center gap-3">
+          <Link href="/" className="flex items-center gap-4">
             <Image
               className="w-16 h-auto"
               src="/logo/smbm-matric-logo.webp"
@@ -32,16 +32,21 @@ const Navbar = () => {
               <p className="font-bold">S.M.B.M. Matric.</p>
               <p className="text-xs">Hr. Sec. School</p>
             </div>
-          </div>
+          </Link>
 
           <div className="flex items-center gap-3">
             {/* Desktop Menu */}
             <NavMenu className="hidden lg:block" />
 
             <div className="flex">
-              <Button className="hidden lg:block">
-                <Link href={ADMISSIONS_ROUTE}>Admissions</Link>
-              </Button>
+              <div className="hidden lg:block">
+                <ActionButton
+                  text="Enquire Now"
+                  href={ENQUIRY_ROUTE}
+                  size="sm"
+                  showIcon={false}
+                />
+              </div>
 
               {/* Mobile Menu */}
               <div className="lg:hidden">

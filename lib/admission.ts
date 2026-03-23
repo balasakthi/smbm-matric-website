@@ -10,6 +10,7 @@ export const admissionSchema = z.object({
     .max(10, "Phone must be 10 digits"),
   grade: z.string().min(1, "Select a grade"),
   message: z.string().optional(),
+  website: z.string().optional(),
 });
 
 export type AdmissionFormData = z.infer<typeof admissionSchema>;

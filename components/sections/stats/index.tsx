@@ -1,6 +1,6 @@
 import StatsItem from "./StatsItem";
-import { fetchSectionData } from "@/lib/sanityFetch";
 import { STATS_QUERY } from "@/lib/sanityQuery";
+import { fetchSectionData } from "@/lib/sanityFetch";
 
 interface Stat {
   label: string;

@@ -1,46 +1,101 @@
+"use client";
+
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { ArrowUpRight, Loader2, LucideIcon } from "lucide-react";
 import { BTN_ICON_HOVER_SLIDE, BTN_HOVER_SCALE } from "@/lib/ui-constants";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-interface Props extends React.ComponentPropsWithoutRef<typeof Button> {
+interface ActionButtonProps extends Omit<
+  React.ComponentPropsWithoutRef<typeof Button>,
+  "onClick"
+> {
   text: string;
   href?: string;
+  formId?: string;
+  targetPage?: string;
+  variant?: "default" | "outline" | "ghost" | "secondary";
   showIcon?: boolean;
-  isLoading?: boolean;
   icon?: LucideIcon;
+  isLoading?: boolean;
   children?: React.ReactNode;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 export function ActionButton({
-  href,
   text,
+  href,
+  formId,
+  targetPage,
+  variant = "default",
   showIcon = true,
-  isLoading = false,
   icon: Icon = ArrowUpRight,
+  isLoading = false,
   className,
   children,
   size,
   ...props
-}: Props) {
-  const buttonContent = (
+}: ActionButtonProps) {
+  const router = useRouter();
+
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    if (formId) {
+      const currentPath = window.location.pathname;
+
+      if (!targetPage || currentPath === targetPage) {
+        const el = document.getElementById(formId);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+        return;
+      }
+
+      router.push(targetPage);
+
+      setTimeout(() => {
+        const el = document.getElementById(formId);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      }, 500);
+
+      return;
+    }
+
+    if (props.onClick) {
+      props.onClick(event);
+    }
+  };
+
+  const content = (
     <>
       {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+
       {text}
+
       {showIcon && !isLoading && (
-        <Icon className={cn(BTN_ICON_HOVER_SLIDE, "size-5 ml-2")} />
+        <Icon className={cn(BTN_ICON_HOVER_SLIDE, "size-5")} />
       )}
+
       {children}
     </>
   );
 
-  const combinedClasses = cn(BTN_HOVER_SCALE, "font-semibold", className);
+  const classes = cn(BTN_HOVER_SCALE, "font-semibold", className);
 
-  if (href) {
+  if (href && !formId) {
     return (
-      <Button asChild size={size} className={combinedClasses} {...props}>
-        <Link href={href}>{buttonContent}</Link>
+      <Button
+        asChild
+        size={size}
+        variant={variant}
+        className={classes}
+        {...props}
+      >
+        <Link href={href} scroll={true}>
+          {content}
+        </Link>
       </Button>
     );
   }
@@ -48,11 +103,14 @@ export function ActionButton({
   return (
     <Button
       size={size}
-      className={combinedClasses}
+      variant={variant}
+      className={classes}
       disabled={isLoading}
+      onClick={handleClick}
+      aria-label={text}
       {...props}
     >
-      {buttonContent}
+      {content}
     </Button>
   );
 }

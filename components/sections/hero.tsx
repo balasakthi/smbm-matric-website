@@ -1,7 +1,6 @@
 import Fade from "@/components/common/Fade";
 import Image from "next/image";
 import Link from "next/link";
-import SectionButton from "@/components/layout/sectionButton";
 import type { SanityImageSource } from "@sanity/image-url";
 import { ArrowUpRight, Sparkles } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
@@ -9,6 +8,7 @@ import { CONTAINER_SITE } from "@/lib/ui-constants";
 import { HERO_QUERY } from "@/lib/sanityQuery";
 import { fetchSectionData } from "@/lib/sanityFetch";
 import { urlFor } from "@/sanity/sanity-image";
+import { ActionButton } from "../layout/actionButton";
 
 interface HeroData {
   title: string;
@@ -17,8 +17,6 @@ interface HeroData {
   schoolMotto: string;
   admissionText: string;
   admissionOpen: boolean;
-  buttonText: string;
-  buttonLink: string;
   backgroundImage: SanityImageSource;
 }
 
@@ -67,7 +65,7 @@ export default async function Hero() {
           </Fade>
           <Fade delay={0.4} animateOnMount>
             {hero.admissionOpen ? (
-              <div className="bg-secondary/60 max-w-80 md:max-w-lg mx-auto flex flex-col md:flex-row items-center justify-between gap-4 backdrop-blur-sm shadow-md hover:shadow-lg p-4 border border-border/50 rounded-xl">
+              <div className="bg-secondary/60 max-w-sm sm:max-w-xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 backdrop-blur-sm shadow-md hover:shadow-lg p-5 border border-border/50 rounded-xl">
                 <div className="flex items-center gap-3 text-left">
                   <div className="flex items-center justify-center rounded-full bg-primary/10 p-2">
                     <Sparkles className="size-4 text-primary" />
@@ -82,10 +80,15 @@ export default async function Hero() {
                     </span>
                   </div>
                 </div>
-                <SectionButton href={hero.buttonLink} text={hero.buttonText} />
+                <ActionButton
+                  text="Enquire Now"
+                  targetPage="/admissions"
+                  formId="admission-enquiry-form"
+                  size="lg"
+                />
               </div>
             ) : (
-              <SectionButton href={hero.buttonLink} text={hero.buttonText} />
+              <ActionButton text="Admissions" href="/admissions" size="lg" />
             )}
           </Fade>
         </div>

@@ -1,14 +1,14 @@
 import Fade from "@/components/common/Fade";
-import { fetchSectionData } from "@/lib/sanityFetch";
-import { HIGHLIGHTS_QUERY } from "@/lib/sanityQuery";
-import { quickHighlightIconMap, getIcon } from "@/lib/iconMaps";
-import { School } from "lucide-react";
 import {
   CONTAINER_SITE,
   CARD_HOVER_SLIDE,
   ICON_WRAPPER_CLASS,
 } from "@/lib/ui-constants";
 import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
+import { HIGHLIGHTS_QUERY } from "@/lib/sanityQuery";
+import { School } from "lucide-react";
+import { fetchSectionData } from "@/lib/sanityFetch";
+import { quickHighlightIconMap, getIcon } from "@/lib/iconMaps";
 
 interface HomeQuickHighlight {
   _id: string;

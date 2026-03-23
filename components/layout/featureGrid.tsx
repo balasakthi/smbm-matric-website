@@ -1,13 +1,13 @@
 import Fade from "@/components/common/Fade";
+import SectionHeading from "./sectionHeading";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { LucideIcon } from "lucide-react";
+import { cn } from "@/lib/utils";
 import {
   CONTAINER_SITE,
   CARD_HOVER_SLIDE,
   ICON_WRAPPER_CLASS,
 } from "@/lib/ui-constants";
-import { LucideIcon } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { cn } from "@/lib/utils";
-import SectionHeading from "./sectionHeading";
 
 interface CardItem {
   title: string;

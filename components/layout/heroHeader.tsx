@@ -1,7 +1,7 @@
+import Fade from "@/components/common/Fade";
 import Image from "next/image";
 import type { SanityImageSource } from "@sanity/image-url";
 import { urlFor } from "@/sanity/sanity-image";
-import Fade from "@/components/common/Fade";
 
 interface HeroHeaderProps {
   label: string;

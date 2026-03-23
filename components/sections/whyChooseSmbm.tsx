@@ -1,9 +1,9 @@
+import FeatureGrid from "@/components/layout/featureGrid";
 import { School } from "lucide-react";
 import { WHY_CHOOSE_SMBM_QUERY } from "@/lib/sanityQuery";
 import { fetchSectionData } from "@/lib/sanityFetch";
 import { getIcon } from "@/lib/iconMaps";
 import { whyChooseSmbmMap } from "@/lib/iconMaps";
-import FeatureGrid from "@/components/layout/featureGrid";
 
 interface Reason {
   title: string;

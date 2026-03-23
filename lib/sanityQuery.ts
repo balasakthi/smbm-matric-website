@@ -6,8 +6,6 @@ const HERO_QUERY = `
   schoolMotto,
   admissionText,
   admissionOpen,
-  buttonText,
-  buttonLink,
   backgroundImage,
 }
 `;
@@ -50,8 +48,6 @@ const CTA_QUERY = `
 *[_type == "ctaBlock"][0]{
     title,
     supportLine,
-    buttonText,
-    buttonLink
 }`;
 
 const CORRESPONDENT_MESSAGE_QUERY = `

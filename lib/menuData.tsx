@@ -1,22 +1,22 @@
 import React from "react";
 import {
+  Baby,
   Book,
-  School,
-  Home,
-  Info,
-  Target,
-  Users,
+  BookOpen,
   Briefcase,
   Building2,
-  Image as ImageIcon,
-  Scale,
-  Shirt,
-  HandHelping,
   Clock,
+  HandHelping,
+  Home,
+  Image as ImageIcon,
+  Info,
   MessageSquareText,
-  BookOpen,
+  Scale,
+  School,
   ScrollText,
-  Baby,
+  Shirt,
+  Target,
+  Users,
 } from "lucide-react";
 
 export interface MenuItem {

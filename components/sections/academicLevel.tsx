@@ -1,15 +1,15 @@
+import Fade from "@/components/common/Fade";
+import Link from "next/link";
 import { ACADEMICS_LEVEL_QUERY } from "@/lib/sanityQuery";
 import { ArrowUpRight, School } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { fetchSectionData } from "@/lib/sanityFetch";
 import {
   CONTAINER_SITE,
   ICON_WRAPPER_CLASS,
   BTN_HOVER_SCALE,
 } from "@/lib/ui-constants";
-import Link from "next/link";
 import { academicsIconMap, getIcon } from "@/lib/iconMaps";
-import Fade from "@/components/common/Fade";
+import { fetchSectionData } from "@/lib/sanityFetch";
 
 interface Level {
   levelName: string;

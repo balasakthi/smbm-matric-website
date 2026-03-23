@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { ActionButton } from "@/components/layout/actionButton";
 import { CONTAINER_SITE } from "@/lib/ui-constants";
-import { ENQUIRY_ROUTE } from "@/lib/navigation";
 import { NavMenu } from "@/components/layout/navbar/nav-menu";
 import { NavigationSheet } from "@/components/layout/navbar/navigation-sheet";
 
@@ -41,10 +40,10 @@ const Navbar = () => {
             <div className="flex">
               <div className="hidden lg:block">
                 <ActionButton
-                  text="Enquire Now"
-                  href={ENQUIRY_ROUTE}
+                  text="Admissions"
                   size="sm"
                   showIcon={false}
+                  href="/admissions"
                 />
               </div>
 

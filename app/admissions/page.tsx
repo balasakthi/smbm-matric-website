@@ -1,16 +1,16 @@
+import Contact from "@/components/sections/admission/contact";
+import Documents from "@/components/sections/admission/documents";
+import FeatureGrid from "@/components/layout/featureGrid";
+import Guidelines from "@/components/sections/admission/guidelines";
 import HeroHeader from "@/components/layout/heroHeader";
 import Overview from "@/components/sections/admission/overview";
+import Process from "@/components/sections/admission/process";
 import type { SanityImageSource } from "@sanity/image-url";
 import { ADMISSION_PAGE_QUERY } from "@/lib/sanityQuery";
 import { FileCheck, School } from "lucide-react";
 import { PortableTextBlock } from "next-sanity";
 import { classCategoriesMap, documentIconsMap, getIcon } from "@/lib/iconMaps";
 import { fetchSectionData } from "@/lib/sanityFetch";
-import FeatureGrid from "@/components/layout/featureGrid";
-import Process from "@/components/sections/admission/process";
-import Documents from "@/components/sections/admission/documents";
-import Guidelines from "@/components/sections/admission/guidelines";
-import Contact from "@/components/sections/admission/contact";
 
 interface AdmissionPage {
   heroTitle: string;

@@ -1,9 +1,9 @@
+import EnquiryForm from "./enquiryForm";
 import Fade from "@/components/common/Fade";
+import SectionHeading from "@/components/layout/sectionHeading";
 import { CONTAINER_SITE } from "@/lib/ui-constants";
 import { Plus } from "lucide-react";
 import { cn } from "@/lib/utils";
-import SectionHeading from "@/components/layout/sectionHeading";
-import EnquiryForm from "./enquiryForm";
 
 interface Props {
   title: string;

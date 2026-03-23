@@ -3,3 +3,5 @@ export const apiVersion =
 
 export const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!;
 export const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET!;
+
+export const enquiryUrl = process.env.NEXT_PUBLIC_ENQUIRY_URL!;

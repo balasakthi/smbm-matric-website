@@ -2,7 +2,7 @@ import Fade from "@/components/common/Fade";
 import type { PortableTextBlock } from "@portabletext/types";
 import { CONTAINER_SITE } from "@/lib/ui-constants";
 import { PortableText } from "@portabletext/react";
-import AdmissionHero from "./admissionHero";
+import { ActionButton } from "@/components/layout/actionButton";
 
 interface Props {
   title: string;
@@ -42,8 +42,11 @@ function Overview({ title, content }: Props) {
                 )}
               </div>
             </Fade>
-
-            <AdmissionHero />
+            <ActionButton
+              text="Enquire Now"
+              formId="admission-enquiry-form"
+              size="lg"
+            />
           </div>
         </div>
       </div>

@@ -1,7 +1,6 @@
-import { ArrowRight } from "lucide-react";
 import Image from "next/image";
-import { ActionButton } from "@/components/layout/actionButton";
 import QuickLinks from "@/components/layout/footer/quickLinks";
+import { ActionButton } from "@/components/layout/actionButton";
 
 const PROGRAMS = [
   "Kindergarten",
@@ -33,10 +32,9 @@ export default function Footer() {
             </p>
             <div className="mb-10">
               <ActionButton
-                href="/admissions#enquiry-form"
-                text="Enquire For Admission"
+                text="Admissions"
+                href="/admissions"
                 variant="secondary"
-                icon={ArrowRight}
               />
             </div>
           </div>

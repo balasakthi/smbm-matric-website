@@ -1,13 +1,13 @@
-import { Button } from "@/components/ui/button";
-import { CONTAINER_SITE, BTN_HOVER_SCALE } from "@/lib/ui-constants";
-import { CORRESPONDENT_MESSAGE_QUERY } from "@/lib/sanityQuery";
-import { fetchSectionData } from "@/lib/sanityFetch";
-import { Quote, ArrowRight } from "lucide-react";
-import { urlFor } from "@/sanity/sanity-image";
 import Fade from "@/components/common/Fade";
 import Image from "next/image";
 import Link from "next/link";
 import type { SanityImageSource } from "@sanity/image-url";
+import { Button } from "@/components/ui/button";
+import { CONTAINER_SITE, BTN_HOVER_SCALE } from "@/lib/ui-constants";
+import { CORRESPONDENT_MESSAGE_QUERY } from "@/lib/sanityQuery";
+import { Quote, ArrowRight } from "lucide-react";
+import { fetchSectionData } from "@/lib/sanityFetch";
+import { urlFor } from "@/sanity/sanity-image";
 
 interface ManagementMessageData {
   name: string;

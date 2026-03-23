@@ -1,7 +1,7 @@
-import { fetchSectionData } from "@/lib/sanityFetch";
-import { TESTIMONIAL_QUERY } from "@/lib/sanityQuery";
 import TestimonialsCarousel from "./testimonialsCarousel";
 import { SanityImageSource } from "@sanity/image-url";
+import { TESTIMONIAL_QUERY } from "@/lib/sanityQuery";
+import { fetchSectionData } from "@/lib/sanityFetch";
 
 export interface Testimonial {
   _id: string;

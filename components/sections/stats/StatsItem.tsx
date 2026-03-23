@@ -1,8 +1,8 @@
 "use client";
 
-import { useInView } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
 import Fade from "@/components/common/Fade";
+import { useEffect, useRef, useState } from "react";
+import { useInView } from "framer-motion";
 
 function useCountUp(target: number, duration = 1200, shouldStart = true) {
   const [value, setValue] = useState(0);

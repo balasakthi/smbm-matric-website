@@ -1,11 +1,11 @@
-import { INFRASTRUCTURE_QUERY } from "@/lib/sanityQuery";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { fetchSectionData } from "@/lib/sanityFetch";
-import { CARD_HOVER_SLIDE, CONTAINER_SITE } from "@/lib/ui-constants";
-import { urlFor } from "@/sanity/sanity-image";
+import Fade from "@/components/common/Fade";
 import Image from "next/image";
 import type { SanityImageSource } from "@sanity/image-url";
-import Fade from "@/components/common/Fade";
+import { CARD_HOVER_SLIDE, CONTAINER_SITE } from "@/lib/ui-constants";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { INFRASTRUCTURE_QUERY } from "@/lib/sanityQuery";
+import { fetchSectionData } from "@/lib/sanityFetch";
+import { urlFor } from "@/sanity/sanity-image";
 
 interface Highlight {
   name: string;

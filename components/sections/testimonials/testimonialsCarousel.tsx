@@ -1,6 +1,14 @@
 "use client";
 
+import AutoPlay from "embla-carousel-autoplay";
+import Fade from "@/components/common/Fade";
+import Image from "next/image";
 import React from "react";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
+import { CONTAINER_SITE } from "@/lib/ui-constants";
+import { Testimonial } from "./index";
+import { cn } from "@/lib/utils";
+import { urlFor } from "@/sanity/sanity-image";
 import {
   Carousel,
   type CarouselApi,
@@ -9,14 +17,6 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import AutoPlay from "embla-carousel-autoplay";
-import { cn } from "@/lib/utils";
-import { urlFor } from "@/sanity/sanity-image";
-import { Testimonial } from "./index";
-import Image from "next/image";
-import { CONTAINER_SITE } from "@/lib/ui-constants";
-import Fade from "@/components/common/Fade";
-import { Avatar, AvatarImage } from "@/components/ui/avatar";
 
 interface Props {
   testimonials: Testimonial[];

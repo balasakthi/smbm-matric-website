@@ -1,12 +1,12 @@
 import Fade from "@/components/common/Fade";
 import SectionHeading from "@/components/layout/sectionHeading";
+import { ArrowUpRight } from "lucide-react";
 import {
   CONTAINER_SITE,
   ICON_WRAPPER_CLASS,
   CARD_HOVER_SLIDE,
 } from "@/lib/ui-constants";
 import { cn } from "@/lib/utils";
-import { ArrowUpRight } from "lucide-react";
 
 interface Props {
   title: string;

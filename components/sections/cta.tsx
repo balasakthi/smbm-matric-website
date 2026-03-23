@@ -1,16 +1,11 @@
-import { ArrowUpRight } from "lucide-react";
-import { BTN_HOVER_SCALE, BTN_ICON_HOVER_SLIDE } from "@/lib/ui-constants";
-import { Button } from "@/components/ui/button";
+import Fade from "@/components/common/Fade";
 import { CTA_QUERY } from "@/lib/sanityQuery";
 import { fetchSectionData } from "@/lib/sanityFetch";
-import Fade from "@/components/common/Fade";
-import Link from "next/link";
+import { ActionButton } from "../layout/actionButton";
 
 interface CtaBlock {
   title: string;
   supportLine: string;
-  buttonText: string;
-  buttonLink: string;
 }
 
 async function Cta() {
@@ -46,12 +41,7 @@ async function Cta() {
           {/* Right Button */}
           <Fade direction="up" delay={0.3}>
             <div className="flex justify-center lg:shrink-0 lg:justify-end">
-              <Button asChild size="lg" className={`${BTN_HOVER_SCALE} group`}>
-                <Link href={cta.buttonLink}>
-                  {cta.buttonText}
-                  <ArrowUpRight className={`${BTN_ICON_HOVER_SLIDE} size-5`} />
-                </Link>
-              </Button>
+              <ActionButton text="Admissions" href="/admissions" size="lg" />
             </div>
           </Fade>
         </div>

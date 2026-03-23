@@ -8,7 +8,6 @@ export const PRIMARY_NAV_LINKS: NavigationLink[] = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Academics", href: "/academics" },
-  { label: "Admissions", href: "/admissions" },
   {
     label: "Campus Life",
     children: [
@@ -20,4 +19,4 @@ export const PRIMARY_NAV_LINKS: NavigationLink[] = [
   { label: "Contact", href: "/contact" },
 ];
 
-export const ENQUIRY_ROUTE = "/admissions#enquiry-form";
+export const ENQUIRY_ROUTE = "/admissions#admission-enquiry-form";

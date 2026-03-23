@@ -8,9 +8,10 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { ActionButton } from "../actionButton";
 import { Button } from "@/components/ui/button";
-import { ENQUIRY_ROUTE, PRIMARY_NAV_LINKS } from "@/lib/navigation";
-import { Menu } from "lucide-react";
+import { PRIMARY_NAV_LINKS } from "@/lib/navigation";
+import { ArrowRight, Menu } from "lucide-react";
 import { useState } from "react";
 import {
   Sheet,
@@ -101,15 +102,14 @@ export const NavigationSheet = () => {
 
         {/* Action Button */}
         <div className="mt-auto pt-6">
-          <Button
-            asChild
-            className="w-full font-semibold bg-white text-primary hover:bg-gray-100"
+          <ActionButton
+            text="Admissions"
             size="lg"
-          >
-            <Link href={ENQUIRY_ROUTE} onClick={() => setOpen(false)}>
-              Enquire Now →
-            </Link>
-          </Button>
+            href="/admissions"
+            icon={ArrowRight}
+            variant="secondary"
+            className="w-full"
+          />
         </div>
       </SheetContent>
     </Sheet>

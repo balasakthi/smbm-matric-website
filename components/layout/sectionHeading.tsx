@@ -1,4 +1,4 @@
-import Fade from "@/components/common/Fade";
+import { Fade } from "@/components/common/Fade";
 import { cn } from "@/lib/utils";
 
 interface Props {
@@ -32,4 +32,4 @@ function SectionHeading({ title, intro, headingId, titleClassName }: Props) {
   );
 }
 
-export default SectionHeading;
+export { SectionHeading };

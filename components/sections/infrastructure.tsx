@@ -1,8 +1,8 @@
-import Fade from "@/components/common/Fade";
 import Image from "next/image";
 import type { SanityImageSource } from "@sanity/image-url";
 import { CARD_HOVER_SLIDE, CONTAINER_SITE } from "@/lib/ui-constants";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Fade } from "@/components/common/Fade";
 import { INFRASTRUCTURE_QUERY } from "@/lib/sanityQuery";
 import { fetchSectionData } from "@/lib/sanityFetch";
 import { urlFor } from "@/sanity/sanity-image";
@@ -19,7 +19,7 @@ interface Infrastructure {
   highlights: Highlight[];
 }
 
-const Infrastructure = async () => {
+async function Infrastructure() {
   const infrastructure =
     await fetchSectionData<Infrastructure>(INFRASTRUCTURE_QUERY);
 
@@ -89,6 +89,6 @@ const Infrastructure = async () => {
       </div>
     </section>
   );
-};
+}
 
-export default Infrastructure;
+export { Infrastructure };

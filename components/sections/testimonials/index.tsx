@@ -1,7 +1,7 @@
-import TestimonialsCarousel from "./testimonialsCarousel";
 import { SanityImageSource } from "@sanity/image-url";
 import { TESTIMONIAL_QUERY } from "@/lib/sanityQuery";
 import { fetchSectionData } from "@/lib/sanityFetch";
+import { TestimonialsCarousel } from "./testimonialsCarousel";
 
 export interface Testimonial {
   _id: string;
@@ -12,10 +12,10 @@ export interface Testimonial {
   photo?: SanityImageSource;
 }
 
-const Testimonials = async () => {
+async function Testimonials() {
   const testimonials = await fetchSectionData<Testimonial[]>(TESTIMONIAL_QUERY);
 
   return <TestimonialsCarousel testimonials={testimonials || []} />;
-};
+}
 
-export default Testimonials;
+export { Testimonials };

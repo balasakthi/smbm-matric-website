@@ -1,5 +1,5 @@
 import Image from "next/image";
-import QuickLinks from "@/components/layout/footer/quickLinks";
+import { QuickLinks } from "@/components/layout/footer/quickLinks";
 import { ActionButton } from "@/components/layout/actionButton";
 
 const PROGRAMS = [
@@ -10,7 +10,7 @@ const PROGRAMS = [
   "Higher Secondary",
 ];
 
-export default function Footer() {
+function Footer() {
   return (
     <footer className="bg-primary text-primary-foreground">
       <div className="max-w-7xl mx-auto px-5 py-12 sm:px-6 lg:px-8 lg:py-14">
@@ -144,3 +144,5 @@ export default function Footer() {
     </footer>
   );
 }
+
+export { Footer };

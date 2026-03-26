@@ -1,4 +1,4 @@
-import FeatureGrid from "@/components/layout/featureGrid";
+import { FeatureGrid } from "@/components/layout/featureGrid";
 import { School } from "lucide-react";
 import { WHY_CHOOSE_SMBM_QUERY } from "@/lib/sanityQuery";
 import { fetchSectionData } from "@/lib/sanityFetch";
@@ -35,4 +35,4 @@ async function WhyChooseSmbm() {
   );
 }
 
-export default WhyChooseSmbm;
+export { WhyChooseSmbm };

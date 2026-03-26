@@ -22,7 +22,7 @@ import {
   SheetDescription,
 } from "@/components/ui/sheet";
 
-export const NavigationSheet = () => {
+function NavigationSheet() {
   const [open, setOpen] = useState(false);
 
   return (
@@ -114,4 +114,6 @@ export const NavigationSheet = () => {
       </SheetContent>
     </Sheet>
   );
-};
+}
+
+export { NavigationSheet };

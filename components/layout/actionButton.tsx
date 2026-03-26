@@ -1,11 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { ArrowUpRight, Loader2, LucideIcon } from "lucide-react";
 import { BTN_ICON_HOVER_SLIDE, BTN_HOVER_SCALE } from "@/lib/ui-constants";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { useRouter } from "next/navigation";
 
 interface ActionButtonProps extends Omit<
   React.ComponentPropsWithoutRef<typeof Button>,
@@ -23,7 +23,7 @@ interface ActionButtonProps extends Omit<
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-export function ActionButton({
+function ActionButton({
   text,
   href,
   formId,
@@ -93,9 +93,7 @@ export function ActionButton({
         className={classes}
         {...props}
       >
-        <Link href={href} scroll={true}>
-          {content}
-        </Link>
+        <Link href={href}>{content}</Link>
       </Button>
     );
   }
@@ -114,3 +112,5 @@ export function ActionButton({
     </Button>
   );
 }
+
+export { ActionButton };

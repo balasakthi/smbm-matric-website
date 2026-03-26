@@ -1,8 +1,8 @@
 "use client";
 
-import Fade from "@/components/common/Fade";
 import { useEffect, useRef, useState } from "react";
 import { useInView } from "framer-motion";
+import { Fade } from "@/components/common/Fade";
 
 function useCountUp(target: number, duration = 1200, shouldStart = true) {
   const [value, setValue] = useState(0);
@@ -32,12 +32,7 @@ interface Props {
   delay?: number;
 }
 
-export default function StatsItem({
-  value = 0,
-  suffix = "",
-  label,
-  delay = 0,
-}: Props) {
+function StatsItem({ value = 0, suffix = "", label, delay = 0 }: Props) {
   const ref = useRef<HTMLDivElement | null>(null);
   const isInView = useInView(ref, { once: true });
 
@@ -56,3 +51,5 @@ export default function StatsItem({
     </Fade>
   );
 }
+
+export { StatsItem };

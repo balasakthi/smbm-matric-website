@@ -5,7 +5,7 @@ import { CONTAINER_SITE } from "@/lib/ui-constants";
 import { NavMenu } from "@/components/layout/navbar/nav-menu";
 import { NavigationSheet } from "@/components/layout/navbar/navigation-sheet";
 
-const Navbar = () => {
+function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-sm">
       <a
@@ -57,6 +57,6 @@ const Navbar = () => {
       </nav>
     </header>
   );
-};
+}
 
-export default Navbar;
+export { Navbar };

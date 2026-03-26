@@ -1,6 +1,6 @@
-import StatsItem from "./StatsItem";
 import { STATS_QUERY } from "@/lib/sanityQuery";
 import { fetchSectionData } from "@/lib/sanityFetch";
+import { StatsItem } from "./StatsItem";
 
 interface Stat {
   label: string;
@@ -13,7 +13,7 @@ interface StatsSection {
   stats: Stat[];
 }
 
-export default async function Stats() {
+async function Stats() {
   const data = await fetchSectionData<StatsSection>(STATS_QUERY);
 
   const stats = data?.stats ?? [];
@@ -36,3 +36,5 @@ export default async function Stats() {
     </section>
   );
 }
+
+export { Stats };

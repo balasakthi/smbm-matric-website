@@ -1,10 +1,10 @@
 import "./globals.css";
-import Footer from "@/components/layout/footer";
-import Navbar from "@/components/layout/navbar";
 import type { Metadata } from "next";
 import { Inter, Merriweather } from "next/font/google";
 import { SmoothScroll } from "@/components/common/smoothScroll";
 import { Toaster } from "@/components/ui/sonner";
+import { Footer } from "@/components/layout/footer";
+import { Navbar } from "@/components/layout/navbar";
 
 const inter = Inter({
   variable: "--font-body",

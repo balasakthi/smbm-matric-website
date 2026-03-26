@@ -1,12 +1,12 @@
-import Fade from "@/components/common/Fade";
-import SectionHeading from "@/components/layout/sectionHeading";
-import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
-import { Clock2, Phone, Mail, MapPin } from "lucide-react";
 import {
   CONTAINER_SITE,
   CARD_HOVER_SLIDE,
   ICON_WRAPPER_CLASS,
 } from "@/lib/ui-constants";
+import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
+import { Clock2, Phone, Mail, MapPin } from "lucide-react";
+import { Fade } from "@/components/common/Fade";
+import { SectionHeading } from "@/components/layout/sectionHeading";
 
 interface OfficeHour {
   days?: string;
@@ -29,14 +29,14 @@ const CONTACT_CARDS = [
   { icon: MapPin, key: "address", label: "Address" },
 ] as const;
 
-const Contact = ({
+function Contact({
   title,
   subtitle,
   officeHours,
   phones,
   emails,
   address,
-}: Props) => {
+}: Props) {
   const contactData = {
     hours: officeHours,
     phone: phones,
@@ -119,6 +119,6 @@ const Contact = ({
       </div>
     </section>
   );
-};
+}
 
-export default Contact;
+export { Contact };

@@ -1,9 +1,9 @@
-import EnquiryForm from "./enquiryForm";
-import Fade from "@/components/common/Fade";
-import SectionHeading from "@/components/layout/sectionHeading";
 import { CONTAINER_SITE } from "@/lib/ui-constants";
 import { Plus } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { EnquiryForm } from "./enquiryForm";
+import { Fade } from "@/components/common/Fade";
+import { SectionHeading } from "@/components/layout/sectionHeading";
 
 interface Props {
   title: string;
@@ -24,7 +24,7 @@ function Guidelines({ title, intro, guidelines, containerClassName }: Props) {
           headingId="guidelines-heading"
         />
 
-        <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24">
+        <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-28">
           <Fade direction="up" delay={0.3}>
             <div className="bg-secondary/50 rounded-2xl p-8">
               <ul className="space-y-5" role="list">
@@ -51,4 +51,4 @@ function Guidelines({ title, intro, guidelines, containerClassName }: Props) {
     </section>
   );
 }
-export default Guidelines;
+export { Guidelines };

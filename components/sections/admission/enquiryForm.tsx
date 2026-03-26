@@ -21,7 +21,7 @@ import {
 } from "@/components/ui/select";
 import { ActionButton } from "@/components/layout/actionButton";
 
-export default function EnquiryForm() {
+function EnquiryForm() {
   const {
     register,
     handleSubmit,
@@ -264,3 +264,5 @@ export default function EnquiryForm() {
     </section>
   );
 }
+
+export { EnquiryForm };

@@ -1,17 +1,17 @@
-import Fade from "@/components/common/Fade";
 import Image from "next/image";
 import Link from "next/link";
 import type { SanityImageSource } from "@sanity/image-url";
-import { ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import {
   CONTAINER_SITE,
   BTN_HOVER_SCALE,
   BTN_ICON_HOVER_SLIDE,
 } from "@/lib/ui-constants";
+import { ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { SCHOOL_INTRO_QUERY } from "@/lib/sanityQuery";
 import { fetchSectionData } from "@/lib/sanityFetch";
 import { urlFor } from "@/sanity/sanity-image";
+import { Fade } from "@/components/common/Fade";
 
 interface SchoolIntroData {
   title: string;
@@ -86,4 +86,4 @@ async function SchoolIntro() {
   );
 }
 
-export default SchoolIntro;
+export { SchoolIntro };

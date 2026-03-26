@@ -25,7 +25,7 @@ const directionValues: Record<Direction, { x: number; y: number }> = {
   none: { x: 0, y: 0 },
 };
 
-export default function Fade({
+function Fade({
   children,
   delay = 0,
   duration = 0.6,
@@ -73,3 +73,5 @@ export default function Fade({
     </motion.div>
   );
 }
+
+export { Fade };

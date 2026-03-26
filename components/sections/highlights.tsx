@@ -1,4 +1,3 @@
-import Fade from "@/components/common/Fade";
 import {
   CONTAINER_SITE,
   CARD_HOVER_SLIDE,
@@ -9,6 +8,7 @@ import { HIGHLIGHTS_QUERY } from "@/lib/sanityQuery";
 import { School } from "lucide-react";
 import { fetchSectionData } from "@/lib/sanityFetch";
 import { quickHighlightIconMap, getIcon } from "@/lib/iconMaps";
+import { Fade } from "@/components/common/Fade";
 
 interface HomeQuickHighlight {
   _id: string;
@@ -18,7 +18,7 @@ interface HomeQuickHighlight {
   order: number;
 }
 
-const Highlights = async () => {
+async function Highlights() {
   const quickHighlights =
     await fetchSectionData<HomeQuickHighlight[]>(HIGHLIGHTS_QUERY);
 
@@ -71,6 +71,6 @@ const Highlights = async () => {
       </div>
     </section>
   );
-};
+}
 
-export default Highlights;
+export { Highlights };

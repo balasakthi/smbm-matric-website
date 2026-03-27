@@ -1,14 +1,14 @@
-import Fade from "@/components/common/Fade";
 import Image from "next/image";
 import Link from "next/link";
 import type { SanityImageSource } from "@sanity/image-url";
+import { ActionButton } from "@/components/layout/actionButton";
 import { ArrowUpRight, Sparkles } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { CONTAINER_SITE } from "@/lib/ui-constants";
 import { HERO_QUERY } from "@/lib/sanityQuery";
 import { fetchSectionData } from "@/lib/sanityFetch";
 import { urlFor } from "@/sanity/sanity-image";
-import { ActionButton } from "../layout/actionButton";
+import { Fade } from "@/components/common/Fade";
 
 interface HeroData {
   title: string;
@@ -20,7 +20,7 @@ interface HeroData {
   backgroundImage: SanityImageSource;
 }
 
-export default async function Hero() {
+async function Hero() {
   const hero = await fetchSectionData<HeroData>(HERO_QUERY);
   return (
     <section aria-labelledby="home-hero-title" className="flex flex-col">
@@ -115,3 +115,5 @@ export default async function Hero() {
     </section>
   );
 }
+
+export { Hero };

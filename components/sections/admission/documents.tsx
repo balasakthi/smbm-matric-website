@@ -1,8 +1,8 @@
-import Fade from "@/components/common/Fade";
-import SectionHeading from "@/components/layout/sectionHeading";
 import { CONTAINER_SITE } from "@/lib/ui-constants";
 import { LucideIcon, AlertCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Fade } from "@/components/common/Fade";
+import { SectionHeading } from "@/components/layout/sectionHeading";
 
 interface Document {
   label?: string;
@@ -122,4 +122,4 @@ function Documents({
   );
 }
 
-export default Documents;
+export { Documents };

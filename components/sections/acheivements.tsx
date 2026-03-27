@@ -1,4 +1,3 @@
-import Fade from "@/components/common/Fade";
 import { ACADEMIC_RESULT_QUERY } from "@/lib/sanityQuery";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
@@ -7,6 +6,7 @@ import { Marquee } from "@/components/ui/marquee";
 import { SanityImageSource } from "@sanity/image-url";
 import { fetchSectionData } from "@/lib/sanityFetch";
 import { urlFor } from "@/sanity/sanity-image";
+import { Fade } from "@/components/common/Fade";
 
 interface Student {
   studentName: string;
@@ -93,7 +93,7 @@ const StudentList = ({ students }: { students: Student[] }) =>
     );
   });
 
-const Achievements = async () => {
+async function Achievements() {
   const academics = await fetchSectionData<AcademicResultData>(
     ACADEMIC_RESULT_QUERY,
   );
@@ -137,6 +137,6 @@ const Achievements = async () => {
       </div>
     </section>
   );
-};
+}
 
-export default Achievements;
+export { Achievements };

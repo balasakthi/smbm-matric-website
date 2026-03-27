@@ -55,8 +55,36 @@ const CORRESPONDENT_MESSAGE_QUERY = `
     name,
     designation,
     highlightQuote,
-    message,
-    photo
+    previewMessage,
+    fullMessage,
+    photo,
+    slug{
+      current,
+    },
+}`;
+const PRINCIPAL_MESSAGE_QUERY = `
+*[_type == "managementMessage" && role == "principal"][0] {
+    name,
+    designation,
+    highlightQuote,
+    previewMessage,
+    fullMessage,
+    photo,
+    slug{
+      current,
+    },
+}`;
+const VICE_PRINCIPAL_MESSAGE_QUERY = `
+*[_type == "managementMessage" && role == "vicePrincipal"][0] {
+    name,
+    designation,
+    highlightQuote,
+    previewMessage,
+    fullMessage,
+    photo,
+    slug{
+      current,
+    },
 }`;
 
 const WHY_CHOOSE_SMBM_QUERY = `
@@ -167,6 +195,80 @@ const ADMISSION_PAGE_QUERY = `
   }
 }
 `;
+
+const ABOUT_PAGE_QUERY = `
+*[_type == "aboutPage"][0]{
+  hero{
+    title,
+    subtitle,
+    label,
+    backgroundImage{
+      asset,
+      alt
+    },
+  },
+
+  overview{
+    title,
+    content,
+    image{
+      asset,
+      alt
+    }
+  },
+
+  missionVision{
+    title,
+    description,
+    mission,
+    vision,
+    coreValues,
+    quote
+  },
+
+  heritage{
+    label,
+    title,
+    description,
+    
+    aphorism,
+    leadershipMission,
+
+    leadership[]{
+      name,
+      position
+    },
+    coreFocus{
+      title,
+      content
+    },
+    socialVision{
+      title,
+      content
+    },
+    schools[]{
+      year,
+      name,
+      type
+    },
+    motto,
+  },
+
+  studentLife{
+    title,
+    description,
+    items[]{
+      title,
+      description,
+      image{
+        asset,
+        alt
+      }
+    }
+  },
+}
+`;
+
 export {
   HERO_QUERY,
   HIGHLIGHTS_QUERY,
@@ -175,9 +277,12 @@ export {
   INFRASTRUCTURE_QUERY,
   CTA_QUERY,
   CORRESPONDENT_MESSAGE_QUERY,
+  PRINCIPAL_MESSAGE_QUERY,
+  VICE_PRINCIPAL_MESSAGE_QUERY,
   WHY_CHOOSE_SMBM_QUERY,
   ACADEMIC_RESULT_QUERY,
   TESTIMONIAL_QUERY,
   STATS_QUERY,
   ADMISSION_PAGE_QUERY,
+  ABOUT_PAGE_QUERY,
 };

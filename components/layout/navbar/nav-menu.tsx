@@ -20,16 +20,24 @@ import { PRIMARY_NAV_LINKS } from "@/lib/navigation";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 
-export const NavMenu = (props: ComponentProps<typeof NavigationMenu>) => {
+function NavMenu(props: ComponentProps<typeof NavigationMenu>) {
   const pathname = usePathname();
 
   return (
     <NavigationMenu {...props}>
       <NavigationMenuList>
         {PRIMARY_NAV_LINKS.map((link) => {
-          const isActive =
-            pathname === link.href ||
-            link.children?.some((child) => pathname === child.href);
+          const normalize = (path?: string) => path?.replace(/\/$/, "") || "";
+          const current = normalize(pathname);
+
+          const isActive = link.children
+            ? link.children.some((child) =>
+                current.startsWith(normalize(child.href)),
+              )
+            : normalize(link.href) === ""
+              ? current === ""
+              : current === normalize(link.href) ||
+                current.startsWith(normalize(link.href) + "/");
 
           return (
             <NavigationMenuItem key={link.label}>
@@ -80,4 +88,6 @@ export const NavMenu = (props: ComponentProps<typeof NavigationMenu>) => {
       </NavigationMenuList>
     </NavigationMenu>
   );
-};
+}
+
+export { NavMenu };

@@ -1,7 +1,7 @@
-import Fade from "@/components/common/Fade";
-import SectionHeading from "./sectionHeading";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Fade } from "@/components/common/Fade";
 import { LucideIcon } from "lucide-react";
+import { SectionHeading } from "./sectionHeading";
 import { cn } from "@/lib/utils";
 import {
   CONTAINER_SITE,
@@ -111,4 +111,4 @@ function FeatureGrid({
   );
 }
 
-export default FeatureGrid;
+export { FeatureGrid };

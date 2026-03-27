@@ -1,11 +1,11 @@
-import Fade from "@/components/common/Fade";
-import SectionHeading from "@/components/layout/sectionHeading";
-import { ArrowUpRight } from "lucide-react";
 import {
   CONTAINER_SITE,
   ICON_WRAPPER_CLASS,
   CARD_HOVER_SLIDE,
 } from "@/lib/ui-constants";
+import { ArrowUpRight } from "lucide-react";
+import { Fade } from "@/components/common/Fade";
+import { SectionHeading } from "@/components/layout/sectionHeading";
 import { cn } from "@/lib/utils";
 
 interface Props {
@@ -84,4 +84,4 @@ function Process({ title, intro, steps }: Props) {
   );
 }
 
-export default Process;
+export { Process };

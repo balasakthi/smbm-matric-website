@@ -1,7 +1,7 @@
-import Fade from "@/components/common/Fade";
-import { CTA_QUERY } from "@/lib/sanityQuery";
-import { fetchSectionData } from "@/lib/sanityFetch";
 import { ActionButton } from "../layout/actionButton";
+import { CTA_QUERY } from "@/lib/sanityQuery";
+import { Fade } from "@/components/common/Fade";
+import { fetchSectionData } from "@/lib/sanityFetch";
 
 interface CtaBlock {
   title: string;
@@ -50,4 +50,4 @@ async function Cta() {
   );
 }
 
-export default Cta;
+export { Cta };

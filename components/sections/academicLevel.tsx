@@ -1,13 +1,13 @@
-import Fade from "@/components/common/Fade";
 import Link from "next/link";
-import { ACADEMICS_LEVEL_QUERY } from "@/lib/sanityQuery";
-import { ArrowUpRight, School } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import {
   CONTAINER_SITE,
   ICON_WRAPPER_CLASS,
   BTN_HOVER_SCALE,
 } from "@/lib/ui-constants";
+import { ACADEMICS_LEVEL_QUERY } from "@/lib/sanityQuery";
+import { ArrowUpRight, School } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Fade } from "@/components/common/Fade";
 import { academicsIconMap, getIcon } from "@/lib/iconMaps";
 import { fetchSectionData } from "@/lib/sanityFetch";
 
@@ -24,7 +24,7 @@ interface Academic {
   buttonText: string;
 }
 
-const AcademicLevel = async () => {
+async function AcademicLevel() {
   const academics = await fetchSectionData<Academic>(ACADEMICS_LEVEL_QUERY);
 
   if (!academics) return null;
@@ -101,6 +101,6 @@ const AcademicLevel = async () => {
       </div>
     </section>
   );
-};
+}
 
-export default AcademicLevel;
+export { AcademicLevel };

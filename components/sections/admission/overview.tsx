@@ -1,8 +1,8 @@
-import Fade from "@/components/common/Fade";
 import type { PortableTextBlock } from "@portabletext/types";
+import { ActionButton } from "@/components/layout/actionButton";
 import { CONTAINER_SITE } from "@/lib/ui-constants";
 import { PortableText } from "@portabletext/react";
-import { ActionButton } from "@/components/layout/actionButton";
+import { Fade } from "@/components/common/Fade";
 
 interface Props {
   title: string;
@@ -54,4 +54,4 @@ function Overview({ title, content }: Props) {
   );
 }
 
-export default Overview;
+export { Overview };

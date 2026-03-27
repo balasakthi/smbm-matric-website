@@ -11,7 +11,7 @@ const QUICK_LINKS = [
   { label: "Contact", href: "/contact" },
 ];
 
-export default function QuickLinks() {
+function QuickLinks() {
   const pathname = usePathname();
 
   return (
@@ -44,3 +44,5 @@ export default function QuickLinks() {
     </nav>
   );
 }
+
+export { QuickLinks };

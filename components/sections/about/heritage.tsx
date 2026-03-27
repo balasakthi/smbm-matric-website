@@ -57,10 +57,11 @@ function Heritage({
 
   return (
     <SectionWithHeader
-      id="about-dnuheading"
+      id="about-dnu-heading"
       label={label}
       title={title}
       description={description}
+      headingAlign="center"
     >
       {/* 🔷 APHORISM & MISSION */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -202,7 +203,7 @@ function Heritage({
       {/* 🔷 MOTTO */}
       {motto?.length && (
         <Fade direction="up" delay={0.45}>
-          <div className="mt-16 flex flex-wrap justify-center gap-x-10 gap-y-3">
+          <div className=" bg-secondary/50 p-4 mt-16 flex flex-wrap justify-center gap-x-10 gap-y-3">
             {motto.map((line, i) => (
               <span
                 key={i}

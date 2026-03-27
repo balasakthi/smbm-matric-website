@@ -36,12 +36,12 @@ function LeadershipMessage({
   if (variant === "full") {
     return (
       <section className="py-20 md:py-28">
-        <div className={`${CONTAINER_SITE} max-w-3xl`}>
+        <div className={`${CONTAINER_SITE}`}>
           {/* Image */}
           <div className="mx-auto mb-8 w-40 h-40 relative overflow-hidden rounded-full">
             <Image
               src={urlFor(photo).url()}
-              alt={name}
+              alt={`${name}, ${designation}, seated at desk in office setting.`}
               fill
               className="object-cover"
             />
@@ -86,12 +86,12 @@ function LeadershipMessage({
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Image */}
           <Fade direction="left">
-            <div className="relative mx-auto aspect-square w-full max-w-md overflow-hidden shadow-xl hover:scale-[1.02] transition">
+            <div className="relative mx-auto aspect-square w-full max-w-md overflow-hidden shadow-xl">
               <Image
                 fill
                 src={urlFor(photo).url()}
-                alt={name}
-                className="object-cover"
+                alt={`${name}, ${designation}, seated at desk in office setting.`}
+                className="object-cover transition-transform duration-700 hover:scale-105"
               />
             </div>
           </Fade>

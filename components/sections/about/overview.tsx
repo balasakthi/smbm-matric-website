@@ -14,11 +14,7 @@ interface Props {
 
 function Overview({ title, content, image }: Props) {
   return (
-    <SectionWithHeader
-      id="about-overview-heading"
-      headerClassName="text-left"
-      title={title}
-    >
+    <SectionWithHeader id="about-overview-heading" title={title}>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
         {/* LEFT → IMAGE */}
         <Fade direction="up" delay={0.15}>

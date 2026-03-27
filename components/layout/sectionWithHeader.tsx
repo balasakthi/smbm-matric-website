@@ -12,6 +12,7 @@ interface Props {
   contentClassName?: string;
   sectionClassName?: string;
   headerClassName?: string;
+  headingAlign?: "left" | "center";
   children: React.ReactNode;
 }
 
@@ -24,9 +25,13 @@ function SectionWithHeader({
   descriptionClassName = "mt-3 text-lg text-muted-foreground leading-relaxed",
   contentClassName = "mt-8 md:mt-14",
   sectionClassName,
-  headerClassName = "mx-auto max-w-2xl text-center",
+  headerClassName,
+  headingAlign = "left",
   children,
 }: Props) {
+  const alignmentClasses =
+    headingAlign === "center" ? "mx-auto text-center" : "text-left";
+
   return (
     <section
       id={id}
@@ -34,7 +39,7 @@ function SectionWithHeader({
       aria-labelledby={id}
     >
       <div className={CONTAINER_SITE}>
-        <div className={cn(headerClassName)}>
+        <div className={cn(headerClassName, "max-w-2xl", alignmentClasses)}>
           {label && (
             <Fade direction="up">
               <p className="text-sm uppercase tracking-wider text-muted-foreground mb-2">
@@ -54,7 +59,7 @@ function SectionWithHeader({
               <p className={cn(descriptionClassName)}>{description}</p>
             </Fade>
           )}
-        </div>{" "}
+        </div>
         <div className={cn(contentClassName)}>{children}</div>
       </div>
     </section>

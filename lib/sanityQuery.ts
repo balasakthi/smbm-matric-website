@@ -211,7 +211,10 @@ const ABOUT_PAGE_QUERY = `
   overview{
     title,
     content,
-    image
+    image{
+      asset,
+      alt
+    }
   },
 
   missionVision{
@@ -249,6 +252,19 @@ const ABOUT_PAGE_QUERY = `
       type
     },
     motto,
+  },
+
+  studentLife{
+    title,
+    description,
+    items[]{
+      title,
+      description,
+      image{
+        asset,
+        alt
+      }
+    }
   },
 }
 `;

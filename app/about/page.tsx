@@ -1,94 +1,22 @@
-import type { SanityImageSource } from "@sanity/image-url";
+import type { AboutPage } from "./types";
+import type { ManagementMessageData } from "@/types/message";
 import { ABOUT_PAGE_QUERY, PRINCIPAL_MESSAGE_QUERY } from "@/lib/sanityQuery";
-import { MissionVision } from "@/components/sections/about/missionVision";
-import { PortableTextBlock } from "next-sanity";
-import { fetchSectionData } from "@/lib/sanityFetch";
-import { HeroHeader } from "@/components/layout/heroHeader";
-import { Overview } from "@/components/sections/about/overview";
 import { Heritage } from "@/components/sections/about/heritage";
+import { HeroHeader } from "@/components/layout/heroHeader";
 import { LeadershipMessage } from "@/components/layout/leadershipMessage";
-
-interface AboutPage {
-  hero: {
-    title: string;
-    subtitle?: string;
-    label?: string;
-    backgroundImage?: SanityImageSource & {
-      alt?: string;
-    };
-  };
-
-  overview: {
-    title: string;
-    content: PortableTextBlock[];
-    image: SanityImageSource & {
-      alt?: string;
-    };
-  };
-
-  missionVision: {
-    title: string;
-    description: string;
-    mission: PortableTextBlock[];
-    vision: PortableTextBlock[];
-    coreValues?: string;
-    quote?: string;
-  };
-
-  heritage: {
-    label?: string;
-    title: string;
-    description: string;
-
-    aphorism?: string;
-    leadershipMission?: PortableTextBlock[];
-
-    leadership?: {
-      name?: string;
-      position?: string;
-    }[];
-
-    coreFocus?: {
-      title?: string;
-      content?: PortableTextBlock[];
-    };
-
-    schools?: {
-      year?: number;
-      name?: string;
-      type?: string;
-    }[];
-
-    socialVision?: {
-      title?: string;
-      content?: PortableTextBlock[];
-    };
-
-    motto?: string[];
-  };
-}
-
-interface ManagementMessageData {
-  name: string;
-  designation: string;
-  highlightQuote?: string;
-  previewMessage?: PortableTextBlock[];
-  fullMessage: PortableTextBlock[];
-  photo: SanityImageSource;
-  slug: {
-    current: string;
-  };
-}
+import { MissionVision } from "@/components/sections/about/missionVision";
+import { Overview } from "@/components/sections/about/overview";
+import { fetchSectionData } from "@/lib/sanityFetch";
+import { Stats } from "@/components/sections/stats";
+import { Cta } from "@/components/sections/cta";
+import { CardGrid } from "@/components/layout/cardGrid";
 
 async function About() {
   const about = await fetchSectionData<AboutPage>(ABOUT_PAGE_QUERY);
-  console.log(about);
 
-  const data = await fetchSectionData<ManagementMessageData>(
+  const principal = await fetchSectionData<ManagementMessageData>(
     PRINCIPAL_MESSAGE_QUERY,
   );
-
-  console.log(data);
 
   return (
     <>
@@ -128,13 +56,23 @@ async function About() {
       />
 
       <LeadershipMessage
-        name={data.name}
-        designation={data.designation}
-        highlightQuote={data.highlightQuote}
-        previewMessage={data.previewMessage}
-        photo={data.photo}
-        slug={data.slug.current}
+        name={principal.name}
+        designation={principal.designation}
+        highlightQuote={principal.highlightQuote}
+        previewMessage={principal.previewMessage}
+        photo={principal.photo}
+        slug={principal.slug.current}
       />
+
+      <CardGrid
+        sectionId="studentLife"
+        title={about.studentLife.title}
+        intro={about.studentLife?.description}
+        items={about.studentLife?.items}
+      />
+
+      <Stats />
+      <Cta />
     </>
   );
 }

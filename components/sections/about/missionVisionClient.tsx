@@ -37,6 +37,7 @@ function MissionVisionClient({
       title={title}
       description={description}
       sectionClassName="bg-secondary"
+      headingAlign="center"
     >
       {/* 🔹 Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10">

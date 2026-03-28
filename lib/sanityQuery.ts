@@ -259,6 +259,7 @@ const ABOUT_PAGE_QUERY = `
     description,
     items[]{
       title,
+      badge,
       description,
       image{
         asset,

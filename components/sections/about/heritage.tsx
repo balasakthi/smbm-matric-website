@@ -1,10 +1,10 @@
-import { ICON_WRAPPER_CLASS, CARD_HOVER_SLIDE } from "@/lib/ui-constants";
 import { Fade } from "@/components/common/Fade";
+import { ICON_WRAPPER_CLASS, CARD_HOVER_SLIDE } from "@/lib/ui-constants";
 import { PortableText } from "@portabletext/react";
 import { PortableTextBlock } from "next-sanity";
 import { SectionWithHeader } from "@/components/layout/sectionWithHeader";
-import { User, Quote, GraduationCap } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
+import { User, Quote, GraduationCap } from "lucide-react";
 
 interface Props {
   title: string;
@@ -116,26 +116,9 @@ function Heritage({
 
       <Separator className="mb-12" />
 
-      {/* 🔷 CORE FOCUS */}
-      {coreFocus?.content && (
-        <Fade direction="up" delay={0.25}>
-          <div className="max-w-3xl mx-auto space-y-3">
-            {coreFocus.title && (
-              <h3 className="text-xl font-semibold text-center">
-                {coreFocus.title}
-              </h3>
-            )}
-
-            <div className="text-muted-foreground leading-relaxed space-y-2 text-left">
-              <PortableText value={coreFocus.content} />
-            </div>
-          </div>
-        </Fade>
-      )}
-
-      {/* 🔷 GRID SECTION */}
-      <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-        {/* LEFT: Schools */}
+      {/* 🔷 GRID SECTION - Timeline LEFT, Core Focus & Vision RIGHT */}
+      <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-12">
+        {/* LEFT: Schools Timeline */}
         <div className="space-y-8">
           <Fade direction="up" delay={0.3}>
             <div className="flex items-center gap-3">
@@ -176,10 +159,26 @@ function Heritage({
           )}
         </div>
 
-        {/* RIGHT: Vision */}
-        <div className="flex flex-col justify-center">
-          {socialVision && (
+        {/* RIGHT: Core Focus & Vision Stacked */}
+        <div className="space-y-8">
+          {/* Core Focus */}
+          {coreFocus?.content && (
             <Fade direction="up" delay={0.4}>
+              <div className="space-y-3">
+                {coreFocus.title && (
+                  <h3 className="text-xl font-semibold">{coreFocus.title}</h3>
+                )}
+
+                <div className="text-muted-foreground leading-relaxed space-y-2">
+                  <PortableText value={coreFocus.content} />
+                </div>
+              </div>
+            </Fade>
+          )}
+
+          {/* Vision */}
+          {socialVision && (
+            <Fade direction="up" delay={0.45}>
               <div className="bg-secondary/40 border border-border p-6 md:p-8 rounded-2xl relative overflow-hidden">
                 <div className="absolute top-0 right-0 p-4 opacity-10">
                   <GraduationCap size={120} />
@@ -202,8 +201,8 @@ function Heritage({
 
       {/* 🔷 MOTTO */}
       {motto?.length && (
-        <Fade direction="up" delay={0.45}>
-          <div className=" bg-secondary/50 p-4 mt-16 flex flex-wrap justify-center gap-x-10 gap-y-3">
+        <Fade direction="up" delay={0.5}>
+          <div className="bg-secondary/50 p-4 mt-18 flex flex-wrap justify-center gap-x-10 gap-y-3">
             {motto.map((line, i) => (
               <span
                 key={i}

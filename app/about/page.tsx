@@ -69,6 +69,7 @@ async function About() {
         title={about.studentLife.title}
         intro={about.studentLife?.description}
         items={about.studentLife?.items}
+        cardBgColor="bg-secondary/50"
       />
 
       <Stats />

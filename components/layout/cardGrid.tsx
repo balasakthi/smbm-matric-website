@@ -1,9 +1,11 @@
 import Image from "next/image";
 import type { SanityImageSource } from "@sanity/image-url";
+import { Badge } from "@/components/ui/badge";
 import { CARD_HOVER_SLIDE } from "@/lib/ui-constants";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Fade } from "@/components/common/Fade";
 import { SectionWithHeader } from "./sectionWithHeader";
+import { Separator } from "@/components/ui/separator";
 import { urlFor } from "@/sanity/sanity-image";
 
 interface CardItem {
@@ -12,6 +14,8 @@ interface CardItem {
   image?: SanityImageSource & {
     alt?: string;
   };
+  bgColor?: string;
+  badge?: string;
 }
 
 interface CardGridProps {
@@ -26,6 +30,7 @@ interface CardGridProps {
     lg?: number;
   };
   imageAspectRatio?: string;
+  cardBgColor?: string;
 }
 
 async function CardGrid({
@@ -35,7 +40,7 @@ async function CardGrid({
   sectionId,
   bgColor,
   gridCols = { sm: 2, md: 2, lg: 3 },
-  imageAspectRatio = "h-44",
+  cardBgColor = "bg-secondary/50",
 }: CardGridProps) {
   if (!items?.length) return null;
 
@@ -64,37 +69,35 @@ async function CardGrid({
             delay={index * 0.12}
           >
             <Card
-              className={`${CARD_HOVER_SLIDE} pb-0 overflow-hidden h-full flex flex-col`}
+              className={`${CARD_HOVER_SLIDE} ${item.bgColor || cardBgColor} py-0 gap-2 overflow-hidden h-full flex flex-col`}
             >
-              <CardHeader className="flex-1">
-                <h3 className="text-xl font-semibold tracking-tight">
-                  {item.title}
-                </h3>
-                {item.description && (
-                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-                    {item.description}
-                  </p>
-                )}
-              </CardHeader>
-
-              {item.image && (
-                <CardContent className="mt-auto px-0 pb-0">
-                  <div
-                    className={`relative mt-4 ${imageAspectRatio} w-full overflow-hidden`}
-                  >
+              <CardHeader className="relative p-0 group">
+                {item.image && (
+                  <div className="relative aspect-video w-full overflow-hidden">
                     <Image
                       className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                       src={urlFor(item.image).url()}
                       alt={item.image?.alt || item.title}
-                      width={600}
-                      height={400}
                       sizes="(max-width: 1024px) 100vw, 33vw"
                       loading="lazy"
+                      fill
                     />
+                    {item.badge && (
+                      <Badge className="absolute top-3 left-3 rounded-none opacity-100 group-hover:opacity-0 transition-opacity duration-300">
+                        {item.badge}
+                      </Badge>
+                    )}
                     <div className="absolute inset-0 bg-linear-to-t from-black/30 to-transparent transition-opacity duration-300 group-hover:from-black/40" />
                   </div>
-                </CardContent>
-              )}
+                )}
+              </CardHeader>
+              <CardContent className="px-6 pb-6">
+                <h3 className="font-semibold text-[1.4rem] tracking-tight line-clamp-1">
+                  {item.title}
+                </h3>
+                <Separator className="mb-3 mt-4" />
+                <p className="mt-2 text-muted-foreground">{item.description}</p>
+              </CardContent>
             </Card>
           </Fade>
         ))}

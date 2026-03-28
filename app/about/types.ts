@@ -65,6 +65,7 @@ interface AboutPage {
     description?: string;
     items?: {
       title: string;
+      badge?: string;
       description?: string;
       image?: SanityImageSource & {
         alt?: string;

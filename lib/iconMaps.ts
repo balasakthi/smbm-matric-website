@@ -9,13 +9,18 @@ import {
   FileUser,
   FlaskConical,
   GraduationCap,
+  Handshake,
   HeartHandshake,
   Home,
   IdCard,
+  Laptop,
+  Lightbulb,
   LucideIcon,
+  Palette,
   School,
   ShieldCheck,
   Star,
+  TestTubeDiagonal,
   Trophy,
   User,
   Users,
@@ -24,47 +29,56 @@ import {
 type IconComponent = LucideIcon;
 
 export const quickHighlightIconMap: Record<string, IconComponent> = {
+  BookOpen,
+  Building,
   School,
   Users,
-  Building,
-  BookOpen,
 };
 
 export const academicsIconMap: Record<string, IconComponent> = {
   Baby,
-  BookOpen,
   Backpack,
-  GraduationCap,
+  BookOpen,
   FlaskConical,
+  GraduationCap,
 };
 
-export const whyChooseSmbmMap: Record<string, IconComponent> = {
-  GraduationCap,
-  Users,
+export const whyChooseSmbmIconMap: Record<string, IconComponent> = {
   BookOpen,
+  GraduationCap,
   HeartHandshake,
-  Trophy,
   ShieldCheck,
+  Trophy,
+  Users,
 };
 
-export const classCategoriesMap: Record<string, IconComponent> = {
-  Star,
-  BookOpen,
-  School,
-  GraduationCap,
+export const classCategoriesIconMap: Record<string, IconComponent> = {
   Award,
+  BookOpen,
+  GraduationCap,
+  School,
+  Star,
 };
 
-export const documentIconsMap: Record<string, LucideIcon> = {
-  FileCheckCorner,
-  GraduationCap,
+export const documentIconMap: Record<string, LucideIcon> = {
   BookOpen,
   Camera,
+  FileCheckCorner,
+  FileUser,
+  GraduationCap,
+  Home,
   IdCard,
   User,
-  Home,
-  FileUser,
   Users,
+};
+
+export const learningApproachIconMap: Record<string, LucideIcon> = {
+  GraduationCap,
+  Handshake,
+  Laptop,
+  Lightbulb,
+  Palette,
+  TestTubeDiagonal,
 };
 
 const toPascalCase = (str: string) =>

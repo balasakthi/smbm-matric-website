@@ -9,7 +9,11 @@ import { HeroHeader } from "@/components/layout/heroHeader";
 import { Overview } from "@/components/sections/admission/overview";
 import { PortableTextBlock } from "next-sanity";
 import { Process } from "@/components/sections/admission/process";
-import { classCategoriesMap, documentIconsMap, getIcon } from "@/lib/iconMaps";
+import {
+  classCategoriesIconMap,
+  documentIconMap,
+  getIcon,
+} from "@/lib/iconMaps";
 import { fetchSectionData } from "@/lib/sanityFetch";
 
 interface AdmissionPage {
@@ -81,7 +85,7 @@ async function Admission() {
         intro={admission.classesIntro}
         items={admission.classes}
         getIcon={getIcon}
-        iconMap={classCategoriesMap}
+        iconMap={classCategoriesIconMap}
         fallbackIcon={School}
         headingId="class-categories-heading"
       />
@@ -97,7 +101,7 @@ async function Admission() {
         intro={admission.documentsIntro}
         documents={admission.documents || []}
         getIcon={getIcon}
-        iconMap={documentIconsMap}
+        iconMap={documentIconMap}
         fallbackIcon={FileCheck}
       />
 

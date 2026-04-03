@@ -270,6 +270,64 @@ const ABOUT_PAGE_QUERY = `
 }
 `;
 
+const ACADEMICS_PAGE_QUERY = `
+*[_type == "academicsPage"][0]{
+  hero{
+    title,
+    subtitle,
+    label,
+    backgroundImage{
+      asset,
+      alt
+    },
+  },
+
+  overview{
+    title,
+    content,
+  },
+
+  learningApproach{
+    title,
+    subtitle,
+    points[]{
+      title,
+      description,
+      icon,
+    },
+  },
+  
+  kindergarten{
+    title,
+    content,
+  },
+  
+  curriculum{
+    title,
+    subtitle,
+    levels[]{
+      level,
+      type,
+      description,
+      subjects,
+      streams[]{
+        streamName,
+        coreSubjects,
+        groupOptions,
+        languages
+      }
+    }
+  },
+
+  teachingMethodology{
+    title,
+    description,
+    methodologies[],
+    image,
+  }
+ }
+`;
+
 export {
   HERO_QUERY,
   HIGHLIGHTS_QUERY,
@@ -286,4 +344,5 @@ export {
   STATS_QUERY,
   ADMISSION_PAGE_QUERY,
   ABOUT_PAGE_QUERY,
+  ACADEMICS_PAGE_QUERY,
 };

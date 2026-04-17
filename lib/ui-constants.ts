@@ -8,7 +8,7 @@ export const BTN_ICON_HOVER_SLIDE =
   "transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1";
 
 export const CARD_HOVER_SLIDE =
-  "group transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg";
+  "group transition-all duration-300 ease-out shadow-none border-0 hover:-translate-y-1";
 
 export const ICON_WRAPPER_CLASS =
-  "flex h-14 w-14 items-center justify-center rounded-full border border-border/50 bg-muted transition-all duration-300 group-hover:border-primary/40 group-hover:bg-primary/10 shrink-0";
+  "flex h-16 w-16 items-center justify-center rounded-full border border-primary bg-background transition-all duration-300 group-hover:bg-primary/10 shrink-0";

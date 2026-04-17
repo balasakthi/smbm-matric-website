@@ -81,8 +81,8 @@ function EnquiryForm() {
       setStatus("error");
       setMessage("Could not connect to server");
 
-      toast.error("Network Error", {
-        description: "Could not connect to server",
+      toast.error("Error", {
+        description: "Something went wrong",
       });
     }
   };

@@ -26,7 +26,7 @@ function TeachingMethodology({
     <SectionWithHeader
       id="teaching-methodology"
       title={title}
-      description={description}
+      subtitle={description}
     >
       <div className="mt-12 md:mt-20 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
         {/* LEFT: Content */}

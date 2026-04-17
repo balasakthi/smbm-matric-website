@@ -6,9 +6,9 @@ interface Props {
   id: string;
   label?: string;
   title: string;
-  description?: string;
+  subtitle?: string;
   titleClassName?: string;
-  descriptionClassName?: string;
+  subtitleClassName?: string;
   contentClassName?: string;
   sectionClassName?: string;
   headerClassName?: string;
@@ -20,9 +20,9 @@ function SectionWithHeader({
   id,
   label,
   title,
-  description,
+  subtitle,
   titleClassName = "text-3xl md:text-4xl font-semibold tracking-tight leading-tight",
-  descriptionClassName = "mt-3 text-lg text-muted-foreground leading-relaxed",
+  subtitleClassName = "mt-3 text-lg text-muted-foreground leading-relaxed",
   contentClassName = "mt-8 md:mt-14",
   sectionClassName,
   headerClassName,
@@ -54,9 +54,9 @@ function SectionWithHeader({
             </h2>
           </Fade>
 
-          {description && (
+          {subtitle && (
             <Fade direction="up" delay={0.15}>
-              <p className={cn(descriptionClassName)}>{description}</p>
+              <p className={cn(subtitleClassName)}>{subtitle}</p>
             </Fade>
           )}
         </div>

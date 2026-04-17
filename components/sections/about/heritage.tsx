@@ -60,7 +60,7 @@ function Heritage({
       id="about-dnu-heading"
       label={label}
       title={title}
-      description={description}
+      subtitle={description}
       headingAlign="center"
     >
       {/* 🔷 APHORISM & MISSION */}

@@ -8,7 +8,7 @@ import { School } from "lucide-react";
 import { Curriculum } from "@/components/sections/academics/curriculum";
 import { TeachingMethodology } from "@/components/sections/academics/teachingMethodology";
 import { Overview } from "@/components/sections/academics/overview";
-import { Cta } from "@/components/sections/cta";
+import { CTA } from "@/components/sections/cta";
 
 async function Academics() {
   const academicPage =
@@ -59,7 +59,7 @@ async function Academics() {
         image={academicPage.teachingMethodology.image}
       />
 
-      <Cta />
+      <CTA />
     </>
   );
 }

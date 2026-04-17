@@ -39,7 +39,7 @@ export function Curriculum({ title, subtitle, levels }: Props) {
     <SectionWithHeader
       id="curriculum-heading"
       title={title}
-      description={subtitle}
+      subtitle={subtitle}
       headingAlign="center"
       sectionClassName="bg-secondary"
     >

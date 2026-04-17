@@ -57,7 +57,7 @@ async function CardGrid({
     <SectionWithHeader
       title={title}
       id={`${sectionId}-heading`}
-      description={intro}
+      subtitle={intro}
       sectionClassName={bgColor}
     >
       {/* Grid Section */}

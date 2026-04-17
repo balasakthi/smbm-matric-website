@@ -1,7 +1,9 @@
-import Image from "next/image";
 import type { SanityImageSource } from "@sanity/image-url";
-import { Fade } from "@/components/common/Fade";
+
+import Image from "next/image";
 import { urlFor } from "@/sanity/sanity-image";
+
+import { Fade } from "@/components/common/Fade";
 
 interface HeroHeaderProps {
   label?: string;
@@ -56,7 +58,7 @@ function HeroHeader({
             {/* Title */}
             <Fade direction="right" delay={0.2}>
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white leading-tight">
-                {title}
+                {title || "Untitled Page"}
               </h1>
             </Fade>
 

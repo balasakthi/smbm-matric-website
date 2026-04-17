@@ -35,7 +35,7 @@ function MissionVisionClient({
     <SectionWithHeader
       id="principles-heading"
       title={title}
-      description={description}
+      subtitle={description}
       sectionClassName="bg-secondary"
       headingAlign="center"
     >

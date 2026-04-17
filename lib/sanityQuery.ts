@@ -328,21 +328,63 @@ const ACADEMICS_PAGE_QUERY = `
  }
 `;
 
+const CONTACT_PAGE_QUERY = `
+*[_type == "contactPage"][0]{
+  hero{
+    title,
+    subtitle,
+    label,
+    backgroundImage{
+      asset,
+      alt
+    }
+  }, 
+  contactSection{
+    title,
+    subtitle,
+    contactInfo->{
+      officeHours[]{
+        days,
+        timing
+      },
+      phones,
+      emails,
+      address
+    }
+  },
+  formSection{
+    title,
+    subtitle,
+    mapUrl,
+    formTitle,
+  },
+  faqSection{
+    title,
+    subtitle,
+    faq[]{
+      question,
+      answer
+    }
+  },
+}
+`;
+
 export {
+  ABOUT_PAGE_QUERY,
+  ACADEMICS_LEVEL_QUERY,
+  ACADEMICS_PAGE_QUERY,
+  ACADEMIC_RESULT_QUERY,
+  ADMISSION_PAGE_QUERY,
+  CONTACT_PAGE_QUERY,
+  CORRESPONDENT_MESSAGE_QUERY,
+  CTA_QUERY,
   HERO_QUERY,
   HIGHLIGHTS_QUERY,
-  SCHOOL_INTRO_QUERY,
-  ACADEMICS_LEVEL_QUERY,
   INFRASTRUCTURE_QUERY,
-  CTA_QUERY,
-  CORRESPONDENT_MESSAGE_QUERY,
   PRINCIPAL_MESSAGE_QUERY,
+  SCHOOL_INTRO_QUERY,
+  STATS_QUERY,
+  TESTIMONIAL_QUERY,
   VICE_PRINCIPAL_MESSAGE_QUERY,
   WHY_CHOOSE_SMBM_QUERY,
-  ACADEMIC_RESULT_QUERY,
-  TESTIMONIAL_QUERY,
-  STATS_QUERY,
-  ADMISSION_PAGE_QUERY,
-  ABOUT_PAGE_QUERY,
-  ACADEMICS_PAGE_QUERY,
 };

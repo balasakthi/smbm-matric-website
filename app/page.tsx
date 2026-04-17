@@ -1,7 +1,7 @@
 import { LeadershipMessage } from "@/components/layout/leadershipMessage";
 import { AcademicLevel } from "@/components/sections/academicLevel";
 import { Achievements } from "@/components/sections/acheivements";
-import { Cta } from "@/components/sections/cta";
+import { CTA } from "@/components/sections/cta";
 import { Hero } from "@/components/sections/hero";
 import { Highlights } from "@/components/sections/highlights";
 import { Infrastructure } from "@/components/sections/infrastructure";
@@ -50,7 +50,7 @@ export default async function Home() {
       <Achievements />
       <Infrastructure />
       <Testimonials />
-      <Cta />
+      <CTA />
     </>
   );
 }

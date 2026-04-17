@@ -3,20 +3,20 @@ import { CTA_QUERY } from "@/lib/sanityQuery";
 import { Fade } from "@/components/common/Fade";
 import { fetchSectionData } from "@/lib/sanityFetch";
 
-interface CtaBlock {
+interface CTABlock {
   title: string;
   supportLine: string;
 }
 
-async function Cta() {
-  const cta = await fetchSectionData<CtaBlock>(CTA_QUERY);
+async function CTA() {
+  const cta = await fetchSectionData<CTABlock>(CTA_QUERY);
 
   if (!cta) return null;
 
   return (
     <section
       aria-labelledby="cta-heading"
-      className="relative overflow-hidden bg-secondary py-24"
+      className="relative overflow-hidden bg-secondary/50 py-24"
     >
       <div className="relative mx-auto max-w-7xl px-6">
         <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between lg:gap-16">
@@ -50,4 +50,4 @@ async function Cta() {
   );
 }
 
-export { Cta };
+export { CTA };

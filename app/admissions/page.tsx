@@ -1,6 +1,5 @@
 import type { SanityImageSource } from "@sanity/image-url";
 import { ADMISSION_PAGE_QUERY } from "@/lib/sanityQuery";
-import { Contact } from "@/components/sections/admission/contact";
 import { Documents } from "@/components/sections/admission/documents";
 import { FeatureGrid } from "@/components/layout/featureGrid";
 import { FileCheck, School } from "lucide-react";
@@ -15,6 +14,7 @@ import {
   getIcon,
 } from "@/lib/iconMaps";
 import { fetchSectionData } from "@/lib/sanityFetch";
+import { ContactInfo } from "@/components/sections/contact/contactInfo";
 
 interface AdmissionPage {
   heroTitle: string;
@@ -54,13 +54,15 @@ interface AdmissionPage {
   contactSection?: {
     title?: string;
     subtitle?: string;
-    officeHours?: {
-      days?: string;
-      timing?: string;
-    }[];
-    phones?: string[];
-    emails?: string[];
-    address?: string;
+    contactInfo?: {
+      officeHours?: {
+        days?: string;
+        timing?: string;
+      }[];
+      phones?: string[];
+      emails?: string[];
+      address?: PortableTextBlock[];
+    };
   };
 }
 
@@ -111,13 +113,14 @@ async function Admission() {
         guidelines={admission.guidelines || []}
       />
 
-      <Contact
+      <ContactInfo
         title={admission.contactSection?.title || ""}
         subtitle={admission.contactSection?.subtitle || ""}
-        officeHours={admission.contactSection?.officeHours}
-        emails={admission.contactSection?.emails || []}
-        phones={admission.contactSection?.phones || []}
-        address={admission.contactSection?.address || ""}
+        officeHours={admission.contactSection?.contactInfo?.officeHours}
+        emails={admission.contactSection?.contactInfo?.emails || []}
+        phones={admission.contactSection?.contactInfo?.phones || []}
+        address={admission.contactSection?.contactInfo?.address || []}
+        className="bg-secondary"
       />
     </>
   );

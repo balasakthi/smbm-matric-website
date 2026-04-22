@@ -57,7 +57,7 @@ const FAQ = ({ title, subtitle, faq }: Props) => {
 function AccordionItemList({ faqs }: { faqs: FrequentlyAskedQuestion[] }) {
   return faqs.map((faq, index) => (
     <AccordionItem
-      className="rounded-xl border-none bg-secondary/50 px-4"
+      className="mb-4 rounded-xl bg-secondary border border-border/40 hover:border-border transition-all duration-200 shadow-sm px-4 last:mb-0"
       key={faq.question}
       value={`${index}-${faq.question}`}
     >

@@ -19,16 +19,16 @@ function ContactWithMap({
       id="contact-with-map"
       title={title}
       subtitle={subtitle}
-      sectionClassName="bg-secondary/50"
+      sectionClassName="bg-secondary"
     >
       <Fade direction="up" delay={0.3}>
-        <Card className="py-0 mt-10 md:mt-16 overflow-hidden shadow-none border-0">
+        <Card className="py-0 mt-10 md:mt-16 overflow-hidden border border-border/40 shadow-sm">
           <CardContent className="p-0 flex flex-col-reverse lg:grid lg:grid-cols-2 items-stretch">
             <div className="w-full h-64 lg:h-auto min-h-75">
               {mapUrl && (
                 <iframe
                   src={mapUrl}
-                  className="w-full h-full border-0"
+                  className="w-full h-full border-none"
                   loading="lazy"
                   title="School Location Map"
                   referrerPolicy="no-referrer-when-downgrade"

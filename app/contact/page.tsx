@@ -36,6 +36,7 @@ async function Contact() {
         emails={emails}
         phones={phones}
         address={address}
+        variant="secondary"
       />
 
       <ContactWithMap

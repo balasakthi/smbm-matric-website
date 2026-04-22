@@ -1,19 +1,15 @@
 import type { PortableTextBlock } from "@portabletext/types";
 
-import {
-  CONTAINER_SITE,
-  CARD_HOVER_SLIDE,
-  ICON_WRAPPER_CLASS,
-} from "@/lib/ui-constants";
+import { CONTAINER_SITE } from "@/lib/ui-constants";
 
 import { Clock2, Phone, Mail, MapPin } from "lucide-react";
 
 import { PortableText } from "@portabletext/react";
 import { cn } from "@/lib/utils";
 
-import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
 import { Fade } from "@/components/common/Fade";
 import { SectionHeading } from "@/components/layout/sectionHeading";
+import { FeatureCard } from "@/components/layout/featureCard";
 
 interface OfficeHour {
   days?: string;
@@ -28,6 +24,7 @@ interface Props {
   emails?: string[];
   address?: PortableTextBlock[];
   className?: string;
+  variant?: "white" | "secondary";
 }
 
 const CONTACT_CARDS = [
@@ -45,6 +42,7 @@ function ContactInfo({
   emails,
   address,
   className,
+  variant = "white",
 }: Props) {
   const contactData = {
     hours: officeHours,
@@ -123,18 +121,9 @@ function ContactInfo({
           {CONTACT_CARDS.map(({ icon: Icon, key, label }, index) =>
             hasContent(key) ? (
               <Fade key={key} direction="up" delay={index * 0.15}>
-                <Card className={`${CARD_HOVER_SLIDE} h-full bg-secondary/45`}>
-                  <CardHeader className="text-center">
-                    <div className={`${ICON_WRAPPER_CLASS} mb-6 mx-auto`}>
-                      <Icon strokeWidth={1.2} className="size-7" />
-                    </div>
-                    <CardTitle className="text-base">{label}</CardTitle>
-                  </CardHeader>
-
-                  <CardContent className="space-y-2 text-center">
-                    {renderCardContent(key)}
-                  </CardContent>
-                </Card>
+                <FeatureCard icon={Icon} title={label} variant={variant}>
+                  {renderCardContent(key)}
+                </FeatureCard>
               </Fade>
             ) : null,
           )}

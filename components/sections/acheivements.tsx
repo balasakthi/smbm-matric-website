@@ -1,140 +1,118 @@
-import { ACADEMIC_RESULT_QUERY } from "@/lib/sanityQuery";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
-import { CONTAINER_SITE } from "@/lib/ui-constants";
-import { Marquee } from "@/components/ui/marquee";
-import { SanityImageSource } from "@sanity/image-url";
-import { fetchSectionData } from "@/lib/sanityFetch";
-import { urlFor } from "@/sanity/sanity-image";
 import { Fade } from "@/components/common/Fade";
+import { Marquee } from "@/components/ui/marquee";
 
-interface Student {
-  studentName: string;
-  className: "Class 10" | "Class 12";
-  group?: string;
-  centum?: number;
-  score: number;
-  achievement?: string;
-  photo?: SanityImageSource;
+import { urlFor } from "@/sanity/sanity-image";
+import { Card, CardContent, CardFooter } from "../ui/card";
+
+import type { Student, AcademicResult } from "@/app/types";
+
+interface Props {
+  academicResults?: AcademicResult[];
 }
 
-interface AcademicResultData {
-  title: string;
-  intro: string;
-  year: string;
-  class10Students: Student[];
-  class12Students: Student[];
-}
+const extractStudents = (
+  results: AcademicResult[] = [],
+  className: "Class 10" | "Class 12",
+) =>
+  results.flatMap(
+    (r) => r.topStudents?.filter((s) => s.className === className) || [],
+  );
 
-const StudentList = ({ students }: { students: Student[] }) =>
-  students.map((student, index) => {
-    const total = student.className === "Class 10" ? 500 : 600;
+const StudentCard = ({ student }: { student: Student }) => {
+  const total = student.className === "Class 10" ? 500 : 600;
 
-    return (
-      <div
-        key={index}
-        className="min-w-96 max-w-sm rounded-2xl border bg-secondary/50 shadow-sm hover:shadow-lg transition-all duration-300 p-6 m-2"
-      >
-        {/* Top Section */}
-        <div className="flex items-center gap-4">
-          <Avatar className="size-20 border">
+  return (
+    <Card className="group relative w-80 shrink-0 overflow-hidden bg-secondary p-6 transition-all duration-500 hover:-translate-y-1 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5">
+      <div className="absolute -right-4 -top-4 size-24 rounded-full bg-primary/5 blur-3xl transition-opacity group-hover:opacity-100" />
+
+      <CardContent className="p-0 flex items-center gap-4">
+        <div className="relative">
+          <Avatar className="size-16 ring-2 ring-background ring-offset-2 ring-offset-border/50 group-hover:ring-primary/20 transition-all">
             {student.photo && (
               <AvatarImage
                 src={urlFor(student.photo).url()}
                 alt={student.studentName}
+                className="object-cover"
               />
             )}
-            <AvatarFallback className="bg-primary text-primary-foreground font-semibold text-lg">
+            <AvatarFallback className="bg-secondary text-secondary-foreground uppercase">
               {student.studentName?.charAt(0)}
             </AvatarFallback>
           </Avatar>
-
-          <div className="flex flex-col">
-            <p className="font-semibold text-lg leading-none">
-              {student.studentName}
-            </p>
-
-            <p className="text-sm text-muted-foreground mt-1">
-              {student.className}
-            </p>
-
-            <p className="text-sm text-muted-foreground">
-              {student.group && `${student.group}`}
-            </p>
-          </div>
-        </div>
-
-        {/* Marks Section */}
-        <div className="mt-6 flex items-center justify-between">
-          <div>
-            <p className="text-xs text-muted-foreground uppercase tracking-wide">
-              Marks
-            </p>
-            <p className="text-2xl font-bold">
-              {student.score}
-              <span className="text-sm font-medium text-muted-foreground">
-                /{total}
-              </span>
-            </p>
-          </div>
-
           {student.centum && (
-            <Badge variant="secondary">{student.centum} Centum</Badge>
+            <div className="absolute -bottom-1 -right-1 flex size-6 items-center justify-center rounded-full bg-amber-500 text-[10px] font-bold text-white shadow-sm">
+              100
+            </div>
           )}
         </div>
 
-        {/* Achievement */}
-        {student.achievement && (
-          <div className="mt-5">
-            <Badge className="text-sm px-4">{student.achievement}</Badge>
+        <div className="space-y-1">
+          <h4 className="font-bold leading-tight tracking-tight text-foreground">
+            {student.studentName}
+          </h4>
+          <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
+            {student.className} {student.group ? `• ${student.group}` : ""}
+          </p>
+        </div>
+      </CardContent>
+
+      <CardFooter className="p-0 mt-6 flex items-end justify-between">
+        <div>
+          <span className="block text-[10px] font-bold uppercase tracking-widest text-muted-foreground/70">
+            Total Score
+          </span>
+          <div className="flex items-baseline gap-1">
+            <span className="text-3xl font-black tracking-tighter text-primary">
+              {student.score}
+            </span>
+            <span className="text-sm font-semibold text-muted-foreground/50">
+              /{total}
+            </span>
           </div>
+        </div>
+
+        {student.achievement && (
+          <Badge className="bg-background text-foreground px-2 py-0.5 text-[10px] font-bold uppercase">
+            {student.achievement}
+          </Badge>
         )}
-      </div>
-    );
-  });
-
-async function Achievements() {
-  const academics = await fetchSectionData<AcademicResultData>(
-    ACADEMIC_RESULT_QUERY,
+      </CardFooter>
+    </Card>
   );
+};
 
-  const class10Students = academics?.class10Students || [];
-  const class12Students = academics?.class12Students || [];
+function Achievements({ academicResults = [] }: Props) {
+  const class10Students = extractStudents(academicResults, "Class 10");
+  const class12Students = extractStudents(academicResults, "Class 12");
+
+  if (!academicResults.length) return null;
 
   return (
-    <section aria-labelledby="achievements-heading" className="py-20 md:py-28">
-      <div className={`${CONTAINER_SITE} max-w-7xl`}>
-        <Fade direction="up">
-          <h2
-            id="achievements-heading"
-            className="text-3xl md:text-4xl font-semibold tracking-tight leading-tight text-center"
-          >
-            {academics?.title}
-          </h2>
-        </Fade>
+    <section className="relative w-full space-y-4 overflow-hidden">
+      <div className="pointer-events-none absolute inset-y-0 left-0 z-20 w-32 bg-linear-to-r from-background to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 z-20 w-32 bg-linear-to-l from-background to-transparent" />
 
-        <Fade direction="up" delay={0.15}>
-          <p className="mt-4 text-lg text-muted-foreground leading-relaxed text-center">
-            {academics?.intro}
-          </p>
-        </Fade>
+      <Fade direction="up" delay={0.1}>
+        <Marquee className="py-4 [--gap:1.5rem] [--duration:40s]" pauseOnHover>
+          {class10Students.map((s, i) => (
+            <StudentCard key={i} student={s} />
+          ))}
+        </Marquee>
+      </Fade>
 
-        <div className="relative mt-14">
-          <div className="absolute inset-y-0 left-0 z-10 w-[15%] bg-linear-to-r from-background to-transparent" />
-          <div className="absolute inset-y-0 right-0 z-10 w-[15%] bg-linear-to-l from-background to-transparent" />
-          <Fade direction="up" delay={0.2}>
-            <Marquee pauseOnHover className="[--duration:30s]">
-              <StudentList students={class10Students} />
-            </Marquee>
-          </Fade>
-
-          <Fade direction="up" delay={0.25}>
-            <Marquee pauseOnHover reverse className="[--duration:30s]">
-              <StudentList students={class12Students} />
-            </Marquee>
-          </Fade>
-        </div>
-      </div>
+      <Fade direction="up" delay={0.2}>
+        <Marquee
+          reverse
+          className="py-4 [--gap:1.5rem] [--duration:45s]"
+          pauseOnHover
+        >
+          {class12Students.map((s, i) => (
+            <StudentCard key={i} student={s} />
+          ))}
+        </Marquee>
+      </Fade>
     </section>
   );
 }

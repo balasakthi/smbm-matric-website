@@ -183,16 +183,16 @@ const ADMISSION_PAGE_QUERY = `
   contactSection{
     title,
     subtitle,
-
-    officeHours[]{
-      days,
-      timing
-    },
-
-    phones,
-    emails,
-    address
-  }
+    contactInfo->{
+      officeHours[]{
+        days,
+        timing
+      },
+      phones,
+      emails,
+      address
+    }
+  },
 }
 `;
 
@@ -368,6 +368,141 @@ const CONTACT_PAGE_QUERY = `
   },
 }
 `;
+const HOME_PAGE_QUERY = `
+*[_type == "homePage"][0]{
+  hero{
+    title,
+    established,
+    schoolMotto,
+    subtitle,
+    admissionText,
+    admissionOpen,
+    backgroundImage{
+      asset,
+      alt
+    }
+  },
+
+  quickHighlights[] | order(order asc){
+    title,
+    description,
+    icon,
+    order
+  },
+
+  schoolIntroduction{
+    title,
+    subtitle,
+    description,
+    aboutImage{
+      asset,
+      alt
+    },
+    buttonText,
+    buttonLink
+  },
+
+  managementMessage[]->{
+    role,
+    name,
+    designation,
+    highlightQuote,
+    previewMessage,
+    photo{
+      asset,
+      alt
+    },
+    order,
+    slug{
+      current
+    }
+  } | order(order asc),
+
+  whyChooseSMBM{
+    title,
+    subtitle,
+    reasons
+  },
+
+  statsBlock->{
+    stats[] | order(order asc){
+      value,
+      suffix,
+      label,
+      order
+    }
+  },
+
+  academicLevels{
+    title,
+    subtitle,
+    levels[]{
+      icon,
+      levelName,
+      shortDescription
+    },
+    buttonText,
+    buttonLink
+  },
+
+  academicResults[]->{
+    title,
+    subtitle,
+    year,
+    isCurrent,
+    resultPoster{
+      asset,
+      alt
+    },
+    topStudents[]{
+      studentName,
+      photo{
+        asset,
+        alt
+      },
+      className,
+      group,
+      centum,
+      score,
+      achievement
+    }
+  } | order(year desc),
+
+  infrastructureHighlights{
+    title,
+    subtitle,
+    highlights[]{
+      title,
+      description,
+      image{
+        asset,
+        alt
+      }
+    }
+  },
+
+  testimonials{
+    title,
+    subtitle,
+    testimonialsList[]->{
+      name,
+      role,
+      organization,
+      batch,
+      quote,
+      photo{
+        asset,
+        alt
+      },
+    },
+  },
+
+  ctaBlock->{
+    title,
+    supportLine
+  }
+}
+`;
 
 export {
   ABOUT_PAGE_QUERY,
@@ -380,6 +515,7 @@ export {
   CTA_QUERY,
   HERO_QUERY,
   HIGHLIGHTS_QUERY,
+  HOME_PAGE_QUERY,
   INFRASTRUCTURE_QUERY,
   PRINCIPAL_MESSAGE_QUERY,
   SCHOOL_INTRO_QUERY,

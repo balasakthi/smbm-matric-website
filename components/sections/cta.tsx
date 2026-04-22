@@ -1,22 +1,16 @@
-import { ActionButton } from "../layout/actionButton";
-import { CTA_QUERY } from "@/lib/sanityQuery";
+import { ActionButton } from "@/components/layout/actionButton";
 import { Fade } from "@/components/common/Fade";
-import { fetchSectionData } from "@/lib/sanityFetch";
 
-interface CTABlock {
+interface Props {
   title: string;
   supportLine: string;
 }
 
-async function CTA() {
-  const cta = await fetchSectionData<CTABlock>(CTA_QUERY);
-
-  if (!cta) return null;
-
+async function CTA({ title, supportLine }: Props) {
   return (
     <section
       aria-labelledby="cta-heading"
-      className="relative overflow-hidden bg-secondary/50 py-24"
+      className="relative overflow-hidden bg-secondary py-24"
     >
       <div className="relative mx-auto max-w-7xl px-6">
         <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between lg:gap-16">
@@ -27,13 +21,13 @@ async function CTA() {
                 id="cta-heading"
                 className="text-3xl md:text-4xl font-semibold tracking-tight leading-tight"
               >
-                {cta.title}
+                {title}
               </h2>
             </Fade>
 
             <Fade direction="up" delay={0.15}>
               <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-                {cta.supportLine}
+                {supportLine}
               </p>
             </Fade>
           </div>

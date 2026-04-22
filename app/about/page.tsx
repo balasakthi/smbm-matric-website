@@ -7,7 +7,6 @@ import { LeadershipMessage } from "@/components/layout/leadershipMessage";
 import { MissionVision } from "@/components/sections/about/missionVision";
 import { Overview } from "@/components/sections/about/overview";
 import { fetchSectionData } from "@/lib/sanityFetch";
-import { Stats } from "@/components/sections/stats";
 import { CTA } from "@/components/sections/cta";
 import { CardGrid } from "@/components/layout/cardGrid";
 
@@ -72,7 +71,6 @@ async function About() {
         cardBgColor="bg-secondary/50"
       />
 
-      <Stats />
       <CTA />
     </>
   );

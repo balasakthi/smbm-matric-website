@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useInView } from "framer-motion";
+
 import { Fade } from "@/components/common/Fade";
 
 function useCountUp(target: number, duration = 1200, shouldStart = true) {

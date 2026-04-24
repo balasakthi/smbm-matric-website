@@ -1,26 +1,20 @@
-import type { SanityImageSource } from "@sanity/image-url";
 import { PortableTextBlock } from "next-sanity";
 
-export interface OrderedItem {
-  order?: number;
-}
+import type {
+  BaseHero,
+  ButtonActions,
+  CTABlock,
+  ImageWithAlt,
+  ManagementMessage,
+  OrderedItem,
+  StatsBlock,
+} from "./shared-types";
 
-export interface ButtonActions {
-  buttonText?: string;
-  buttonLink?: string;
-}
-
-export interface HeroSection {
-  title?: string;
-  subtitle?: string;
-  label?: string;
+export interface HeroSection extends BaseHero {
   established?: string;
   schoolMotto?: string;
   admissionText?: string;
   admissionOpen?: boolean;
-  backgroundImage?: SanityImageSource & {
-    alt?: string;
-  };
 }
 
 export interface QuickHighlight extends OrderedItem {
@@ -33,24 +27,7 @@ export interface SchoolIntroduction extends ButtonActions {
   title?: string;
   subtitle?: string;
   description?: PortableTextBlock[];
-  aboutImage?: SanityImageSource & {
-    alt?: string;
-  };
-}
-
-export interface ManagementMessage extends OrderedItem {
-  role?: string;
-  name?: string;
-  designation?: string;
-  highlightQuote?: string;
-  previewMessage?: PortableTextBlock[];
-  fullMessage?: PortableTextBlock[];
-  photo?: SanityImageSource & {
-    alt?: string;
-  };
-  slug?: {
-    current?: string;
-  };
+  aboutImage?: ImageWithAlt;
 }
 
 export interface Reason {
@@ -63,16 +40,6 @@ export interface WhyChooseSMBM {
   title?: string;
   subtitle?: string;
   reasons?: Reason[];
-}
-
-export interface StatItem extends OrderedItem {
-  value?: number;
-  suffix?: string;
-  label?: string;
-}
-
-export interface StatsBlock {
-  stats?: StatItem[];
 }
 
 export interface AcademicLevel {
@@ -89,9 +56,7 @@ export interface AcademicLevels extends ButtonActions {
 
 export interface Student {
   studentName?: string;
-  photo?: SanityImageSource & {
-    alt?: string;
-  };
+  photo?: ImageWithAlt;
   className?: string;
   group?: string;
   centum?: number;
@@ -104,18 +69,14 @@ export interface AcademicResult {
   subtitle?: string;
   year?: string;
   isCurrent?: boolean;
-  resultPoster?: SanityImageSource & {
-    alt?: string;
-  };
+  resultPoster?: ImageWithAlt;
   topStudents?: Student[];
 }
 
 export interface InfrastructureItem {
   title?: string;
   description?: string;
-  image?: SanityImageSource & {
-    alt?: string;
-  };
+  image?: ImageWithAlt;
 }
 
 export interface InfrastructureHighlights {
@@ -130,20 +91,13 @@ export interface Testimonial {
   organization?: string;
   batch?: string;
   quote?: string;
-  photo?: SanityImageSource & {
-    alt?: string;
-  };
+  photo?: ImageWithAlt;
 }
 
 export interface Testimonials {
   title?: string;
   subtitle?: string;
   testimonialsList?: Testimonial[];
-}
-
-export interface CTABlock {
-  title?: string;
-  supportLine?: string;
 }
 
 export interface HomePage {

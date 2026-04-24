@@ -1,5 +1,6 @@
 import { ActionButton } from "@/components/layout/actionButton";
 import { Fade } from "@/components/common/Fade";
+import { SectionWithHeader } from "@/components/layout/sectionWithHeader";
 
 interface Props {
   title: string;
@@ -8,10 +9,7 @@ interface Props {
 
 async function CTA({ title, supportLine }: Props) {
   return (
-    <section
-      aria-labelledby="cta-heading"
-      className="relative overflow-hidden bg-secondary py-24"
-    >
+    <SectionWithHeader sectionClassName="bg-secondary" spacing="sm">
       <div className="relative mx-auto max-w-7xl px-6">
         <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between lg:gap-16">
           {/* Left Content */}
@@ -40,7 +38,7 @@ async function CTA({ title, supportLine }: Props) {
           </Fade>
         </div>
       </div>
-    </section>
+    </SectionWithHeader>
   );
 }
 

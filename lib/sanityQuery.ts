@@ -196,80 +196,6 @@ const ADMISSION_PAGE_QUERY = `
 }
 `;
 
-const ABOUT_PAGE_QUERY = `
-*[_type == "aboutPage"][0]{
-  hero{
-    title,
-    subtitle,
-    label,
-    backgroundImage{
-      asset,
-      alt
-    },
-  },
-
-  overview{
-    title,
-    content,
-    image{
-      asset,
-      alt
-    }
-  },
-
-  missionVision{
-    title,
-    description,
-    mission,
-    vision,
-    coreValues,
-    quote
-  },
-
-  heritage{
-    label,
-    title,
-    description,
-    
-    aphorism,
-    leadershipMission,
-
-    leadership[]{
-      name,
-      position
-    },
-    coreFocus{
-      title,
-      content
-    },
-    socialVision{
-      title,
-      content
-    },
-    schools[]{
-      year,
-      name,
-      type
-    },
-    motto,
-  },
-
-  studentLife{
-    title,
-    description,
-    items[]{
-      title,
-      badge,
-      description,
-      image{
-        asset,
-        alt
-      }
-    }
-  },
-}
-`;
-
 const ACADEMICS_PAGE_QUERY = `
 *[_type == "academicsPage"][0]{
   hero{
@@ -501,6 +427,115 @@ const HOME_PAGE_QUERY = `
     title,
     supportLine
   }
+}
+`;
+
+const ABOUT_PAGE_QUERY = `
+*[_type == "aboutPage"][0]{
+  hero{
+    title,
+    subtitle,
+    label,
+    backgroundImage{
+      asset,
+      alt
+    },
+  },
+
+  overview{
+    title,
+    subtitle,
+    content,
+    image{
+      asset,
+      alt
+    }
+  },
+
+  missionVision{
+    title,
+    subtitle,
+    mission,
+    vision,
+    coreValues,
+    missionStatement,
+  },
+
+  managementMessage[]->{
+    role,
+    name,
+    designation,
+    highlightQuote,
+    previewMessage,
+    photo{
+      asset,
+      alt
+    },
+    order,
+    slug{
+      current
+    }
+  } | order(order asc),
+
+  heritage{
+    label,
+    title,
+    subtitle,
+    image{
+      asset,
+      alt
+    },
+    aphorism,
+    leadershipMission,
+
+    leadership[]{
+      name,
+      position
+    },
+    coreFocus{
+      title,
+      content
+    },
+    socialVision{
+      title,
+      content
+    },
+    schools[]{
+      year,
+      name,
+      type
+    },
+    motto,
+  },
+
+  studentLife{
+    title,
+    subtitle,
+    items[]{
+      title,
+      badge,
+      description,
+      image{
+        asset,
+        alt
+      }
+    }
+  },
+
+  statsBlock->{
+    stats[] | order(order asc){
+      value,
+      suffix,
+      label,
+      order
+    }
+  },
+
+  ctaBlock->{
+    title,
+    supportLine
+  }
+
 }
 `;
 

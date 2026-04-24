@@ -29,15 +29,25 @@ export function TwoColumn({
   );
 }
 
+interface TwoColumnMediaProps {
+  children?: React.ReactNode;
+  bannerText?: string;
+  bannerTitle?: string;
+  aspect?: "square" | "video" | "4/3";
+}
+
+const aspectRatios = {
+  square: "aspect-square",
+  video: "aspect-video",
+  "4/3": "aspect-4/3",
+};
+
 export function TwoColumnMedia({
   children,
   bannerText,
   bannerTitle,
-}: {
-  children?: React.ReactNode;
-  bannerText?: string;
-  bannerTitle?: string;
-}) {
+  aspect = "4/3",
+}: TwoColumnMediaProps) {
   return (
     <Fade direction="left">
       <div className="relative w-full">
@@ -53,7 +63,13 @@ export function TwoColumnMedia({
           </div>
         )}
 
-        <div className="relative aspect-4/3 w-full overflow-hidden rounded-xl border border-border/50 bg-muted lg:-right-12">
+        <div
+          className={cn(
+            "relative w-full overflow-hidden rounded-xl border border-border/50 bg-muted",
+            aspectRatios[aspect],
+            bannerTitle && "lg:-right-12",
+          )}
+        >
           {children}
         </div>
       </div>

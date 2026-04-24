@@ -1,21 +1,23 @@
 import { PortableText } from "next-sanity";
 import Image from "next/image";
 
-import { Achievements } from "@/components/sections/acheivements";
 import { ActionButton } from "@/components/layout/actionButton";
-import { ContentGrid } from "@/components/layout/contentGrid";
+import { CTA } from "@/components/sections/cta";
 import { FeatureList } from "@/components/layout/featureList";
+import { GridSection } from "@/components/layout/gridSection";
 import { HeroHeader } from "@/components/layout/heroHeader";
 import { IconGridSection } from "@/components/layout/iconGridSection";
 import { LeadershipMessage } from "@/components/layout/leadershipMessage";
 import { SectionWithHeader } from "@/components/layout/sectionWithHeader";
-import { StatsItem } from "@/components/sections/StatsItem";
-import { TestimonialsCarousel } from "@/components/sections/testimonialsCarousel";
 import {
   TwoColumn,
   TwoColumnContent,
   TwoColumnMedia,
 } from "@/components/layout/twoColumn";
+
+import { Achievements } from "@/components/sections/acheivements";
+import { StatsItem } from "@/components/sections/StatsItem";
+import { TestimonialsCarousel } from "@/components/sections/testimonialsCarousel";
 
 import { fetchSectionData } from "@/lib/sanityFetch";
 import { HOME_PAGE_QUERY } from "@/lib/sanityQuery";
@@ -28,7 +30,6 @@ import {
 } from "@/lib/iconMaps";
 
 import type { HomePage } from "./types";
-import { CTA } from "@/components/sections/cta";
 
 export default async function Home() {
   const home = await fetchSectionData<HomePage>(HOME_PAGE_QUERY);
@@ -66,7 +67,7 @@ export default async function Home() {
         />
       </SectionWithHeader>
 
-      <SectionWithHeader id="school-intro">
+      <SectionWithHeader id="school-intro" spacing="lg">
         <TwoColumn>
           <TwoColumnMedia
             bannerTitle={intro?.title}
@@ -168,7 +169,11 @@ export default async function Home() {
         subtitle={home.infrastructureHighlights?.subtitle}
         sectionClassName="bg-secondary"
       >
-        <ContentGrid items={home.infrastructureHighlights?.highlights} />
+        <GridSection
+          items={home.infrastructureHighlights?.highlights}
+          imagePosition="bottom"
+          cardBgColor="bg-background"
+        />
       </SectionWithHeader>
 
       <SectionWithHeader

@@ -38,7 +38,7 @@ function IconGridSection({ items, columns = 2, button, iconMap }: Props) {
                 <div
                   className={cn(
                     ICON_WRAPPER_BASE,
-                    "border-white bg-white shadow-sm group-hover:border-primary shrink-0",
+                    "border-white bg-white shadow-sm group-hover:border-primary",
                   )}
                 >
                   <IconComponent

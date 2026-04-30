@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ActionButton } from "@/components/layout/actionButton";
+import { ActionButton } from "@/components/common/actionButton";
 import { CONTAINER_SITE } from "@/lib/ui-constants";
 import { NavMenu } from "@/components/layout/navbar/nav-menu";
 import { NavigationSheet } from "@/components/layout/navbar/navigation-sheet";

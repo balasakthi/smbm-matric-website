@@ -1,13 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { SanityImageSource } from "@sanity/image-url";
-import { Button } from "@/components/ui/button";
-import { CONTAINER_SITE, BTN_HOVER_SCALE } from "@/lib/ui-constants";
-import { Fade } from "@/components/common/Fade";
-import { Quote, ArrowRight } from "lucide-react";
-import { urlFor } from "@/sanity/sanity-image";
 import { PortableText } from "next-sanity";
+import { Quote, ArrowRight } from "lucide-react";
+
+import { Button } from "@/components/ui/button";
+import { Fade } from "@/components/common/Fade";
+
+import { CONTAINER_SITE, BTN_HOVER_SCALE } from "@/lib/ui-constants";
+import { urlFor } from "@/sanity/sanity-image";
+
 import type { PortableTextBlock } from "@portabletext/types";
+import type { SanityImageSource } from "@sanity/image-url";
 
 interface LeadershipMessageProps {
   name: string;
@@ -86,7 +89,7 @@ function LeadershipMessage({
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Image */}
           <Fade direction="left">
-            <div className="relative mx-auto aspect-square w-full max-w-md overflow-hidden shadow-xl">
+            <div className="relative rounded-xl mx-auto aspect-square w-full max-w-md overflow-hidden shadow-xl">
               <Image
                 fill
                 src={urlFor(photo).url()}

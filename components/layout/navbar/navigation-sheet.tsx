@@ -8,7 +8,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { ActionButton } from "../actionButton";
+import { ActionButton } from "@/components/common/actionButton";
 import { Button } from "@/components/ui/button";
 import { PRIMARY_NAV_LINKS } from "@/lib/navigation";
 import { ArrowRight, Menu } from "lucide-react";

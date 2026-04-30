@@ -1,11 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowUpRight, Loader2, LucideIcon } from "lucide-react";
-import { BTN_ICON_HOVER_SLIDE, BTN_HOVER_SCALE } from "@/lib/ui-constants";
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 import { useRouter } from "next/navigation";
+
+import { ArrowUpRight, Loader2, LucideIcon } from "lucide-react";
+
+import { BTN_ICON_HOVER_SLIDE, BTN_HOVER_SCALE } from "@/lib/ui-constants";
+import { cn } from "@/lib/utils";
+
+import { Button } from "@/components/ui/button";
 
 interface ActionButtonProps extends Omit<
   React.ComponentPropsWithoutRef<typeof Button>,
@@ -72,12 +75,10 @@ function ActionButton({
     <>
       {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
 
-      {text}
-
+      <span>{text}</span>
       {showIcon && !isLoading && (
         <Icon className={cn(BTN_ICON_HOVER_SLIDE, "size-5")} />
       )}
-
       {children}
     </>
   );

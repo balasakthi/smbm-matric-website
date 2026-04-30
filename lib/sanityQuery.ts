@@ -1,55 +1,3 @@
-const HERO_QUERY = `
-*[_type == "homeHero"][0]{
-  title,
-  subtitle,
-  established,
-  schoolMotto,
-  admissionText,
-  admissionOpen,
-  backgroundImage,
-}
-`;
-
-const HIGHLIGHTS_QUERY = `
-*[_type == "homeQuickHighlight"] | order(order asc) {
-    _id,
-    title,
-    description,
-    icon,
-    order
-  }`;
-
-const SCHOOL_INTRO_QUERY = `
-*[_type == "schoolIntroduction"][0]{
-    title,
-    subtitle,
-    description,
-    aboutImage,
-    buttonText,
-    buttonLink
-  }`;
-
-const ACADEMICS_LEVEL_QUERY = `
-*[_type == "academicLevel"][0]{
-    title,
-    levels,
-    buttonText,
-    buttonLink
- }`;
-
-const INFRASTRUCTURE_QUERY = `
-*[_type == "infrastructureHighlight"][0]{
-    title,
-    intro,
-    highlights
- }`;
-
-const CTA_QUERY = `
-*[_type == "ctaBlock"][0]{
-    title,
-    supportLine,
-}`;
-
 const CORRESPONDENT_MESSAGE_QUERY = `
 *[_type == "managementMessage" && role == "correspondent"][0] {
     name,
@@ -87,111 +35,138 @@ const VICE_PRINCIPAL_MESSAGE_QUERY = `
     },
 }`;
 
-const WHY_CHOOSE_SMBM_QUERY = `
-*[_type == "whyChooseSMBM"][0] {
+const HOME_PAGE_QUERY = `
+*[_type == "homePage"][0]{
+  hero{
     title,
-    intro,
-    reasons
-}`;
-
-const ACADEMIC_RESULT_QUERY = `
-*[_type == "academicResult" && isCurrent == true][0]{
-  title,
-  intro,
-  year,
-  resultPoster,
-  "class10Students": topStudents[className == "Class 10"] | order(score desc){
-    studentName,
-    className,
-    group,
-    score,
-    centum,
-    achievement,
-    photo
+    established,
+    schoolMotto,
+    subtitle,
+    admissionText,
+    admissionOpen,
+    backgroundImage{
+      asset,
+      alt
+    }
   },
-  "class12Students": topStudents[className == "Class 12"] | order(score desc){
-    studentName,
-    className,
-    group,
-    score,
-    centum,
-    achievement,
-    photo
-  }
-}`;
 
-const TESTIMONIAL_QUERY = `
-*[_type == "testimonial" && featured == true] | order(__createdAt desc) {
-    _id,
-    name, 
-    role,
-    organization,
-    quote,
-    photo
-  }`;
-
-const STATS_QUERY = `
-*[_type == "statsSection"][0]{
-    _id,
+  quickHighlights[] | order(order asc){
     title,
-    stats[]{
+    description,
+    icon,
+    order
+  },
+
+  schoolIntroduction{
+    title,
+    subtitle,
+    description,
+    aboutImage{
+      asset,
+      alt
+    },
+    buttonText,
+    buttonLink
+  },
+
+  managementMessage[]->{
+    role,
+    name,
+    designation,
+    highlightQuote,
+    previewMessage,
+    photo{
+      asset,
+      alt
+    },
+    order,
+    slug{
+      current
+    }
+  } | order(order asc),
+
+  whyChooseSMBM{
+    title,
+    subtitle,
+    reasons
+  },
+
+  statsBlock->{
+    stats[] | order(order asc){
       value,
       suffix,
-      label
+      label,
+      order
     }
-  }`;
-
-const ADMISSION_PAGE_QUERY = `
-*[_type == "admissionPage"][0]{
-  heroTitle,
-  heroSubtitle,
-  backgroundImage{
-    asset,
-    alt
   },
 
-  overviewTitle,
-  overviewContent,
-
-  classesTitle,
-  classesIntro,
-  classes[]{
-    icon,
+  academicLevels{
     title,
     subtitle,
-    description
-  },
-
-  processTitle,
-  processIntro,
-  processSteps[]{
-    title,
-    description
-  },
-
-  documentsTitle,
-  documentsIntro,
-  documents[]{
-    icon,
-    label
-  },
-
-  guidelinesTitle,
-  guidelinesIntro,
-  guidelines,
-
-  contactSection{
-    title,
-    subtitle,
-
-    officeHours[]{
-      days,
-      timing
+    levels[]{
+      icon,
+      title,
+      description
     },
+    buttonText,
+    buttonLink
+  },
 
-    phones,
-    emails,
-    address
+  academicResults[]->{
+    title,
+    subtitle,
+    year,
+    isCurrent,
+    resultPoster{
+      asset,
+      alt
+    },
+    topStudents[]{
+      studentName,
+      photo{
+        asset,
+        alt
+      },
+      className,
+      group,
+      centum,
+      score,
+      achievement
+    }
+  } | order(year desc),
+
+  infrastructureHighlights{
+    title,
+    subtitle,
+    highlights[]{
+      title,
+      description,
+      image{
+        asset,
+        alt
+      }
+    }
+  },
+
+  testimonials{
+    title,
+    subtitle,
+    testimonialsList[]->{
+      name,
+      role,
+      organization,
+      batch,
+      quote,
+      photo{
+        asset,
+        alt
+      },
+    },
+  },
+
+  ctaBlock->{
+    title,
+    supportLine
   }
 }
 `;
@@ -210,6 +185,7 @@ const ABOUT_PAGE_QUERY = `
 
   overview{
     title,
+    subtitle,
     content,
     image{
       asset,
@@ -219,18 +195,37 @@ const ABOUT_PAGE_QUERY = `
 
   missionVision{
     title,
-    description,
+    subtitle,
     mission,
     vision,
     coreValues,
-    quote
+    missionStatement,
   },
+
+  managementMessage[]->{
+    role,
+    name,
+    designation,
+    highlightQuote,
+    previewMessage,
+    photo{
+      asset,
+      alt
+    },
+    order,
+    slug{
+      current
+    }
+  } | order(order asc),
 
   heritage{
     label,
     title,
-    description,
-    
+    subtitle,
+    image{
+      asset,
+      alt
+    },
     aphorism,
     leadershipMission,
 
@@ -256,7 +251,7 @@ const ABOUT_PAGE_QUERY = `
 
   studentLife{
     title,
-    description,
+    subtitle,
     items[]{
       title,
       badge,
@@ -267,6 +262,21 @@ const ABOUT_PAGE_QUERY = `
       }
     }
   },
+
+  statsBlock->{
+    stats[] | order(order asc){
+      value,
+      suffix,
+      label,
+      order
+    }
+  },
+
+  ctaBlock->{
+    title,
+    supportLine
+  }
+
 }
 `;
 
@@ -284,7 +294,13 @@ const ACADEMICS_PAGE_QUERY = `
 
   overview{
     title,
+    subtitle,
     content,
+    image{
+      asset,
+      alt
+    },
+    highlights,
   },
 
   learningApproach{
@@ -296,37 +312,155 @@ const ACADEMICS_PAGE_QUERY = `
       icon,
     },
   },
-  
+
   kindergarten{
     title,
-    content,
-  },
-  
-  curriculum{
-    title,
-    subtitle,
-    levels[]{
-      level,
-      type,
+    subtitle, 
+    sections[]{
+      title,
       description,
-      subjects,
-      streams[]{
-        streamName,
-        coreSubjects,
-        groupOptions,
-        languages
-      }
+    },
+    image{
+      asset,
+      alt
     }
   },
 
+  curriculum{
+  title,
+  subtitle,
+  groups[]{
+    _type,
+
+    _type == "kgGroup" => {
+      groupName,
+      icon,
+      description,
+      type,
+      categories[]{
+        title,
+        icon,
+        subjects
+      }
+    },
+
+    _type == "standardGroup" => {
+      groupName, 
+      icon,
+      description,
+      type,
+      categories[]{
+        title,
+        icon,
+        subjects
+      }
+    },
+
+    _type == "higherSecondaryGroup" => {
+      groupName,
+      icon,  
+      description,
+      type,
+      streams[]{
+        streamName,
+        icon,
+        languages,
+        coreSubjects,
+        groupOptions
+      }
+    }
+  }
+},
+  
   teachingMethodology{
     title,
+    subtitle,
     description,
-    methodologies[],
-    image,
+    image{
+      asset,
+      alt
+    },
+    content[]{
+      title,
+      icon,
+      description,
+    }
+    
+  },
+
+  ctaBlock->{
+    title,
+    supportLine
   }
- }
+
+}
 `;
+
+const ADMISSION_PAGE_QUERY = `
+*[_type == "admissionPage"][0] {
+  hero{
+    title,
+    subtitle,
+    label,
+    backgroundImage{
+      asset,
+      alt
+    }
+  },
+  overview{
+    title,
+    subtitle,
+    content,
+    image{
+      asset,
+      alt
+    }
+  },
+  classSections{
+    title,
+    subtitle,
+    classes[] {
+      icon,
+      title,
+      subtitle,
+      description
+    },
+  },
+  admissionProcess{
+    title,
+    subtitle,
+    steps[] {
+      title,
+      description
+    },
+  },
+  requiredDocuments{
+    title,
+    subtitle,
+    documents[] {
+      icon,
+      label
+    },
+  },
+  admissionGuidelines{
+    title,
+    subtitle,
+    guidelines,
+  },
+  contactSection{
+    title,
+    subtitle,
+    contactInfo -> {
+      officeHours[] {
+        days,
+        timing
+      },
+      phones,
+      emails,
+      address
+    }
+  }
+}`;
 
 const CONTACT_PAGE_QUERY = `
 *[_type == "contactPage"][0]{
@@ -352,7 +486,7 @@ const CONTACT_PAGE_QUERY = `
       address
     }
   },
-  formSection{
+  contactForm{
     title,
     subtitle,
     mapUrl,
@@ -366,25 +500,22 @@ const CONTACT_PAGE_QUERY = `
       answer
     }
   },
+
+  ctaBlock->{
+    title,
+    supportLine
+  }
+
 }
 `;
 
 export {
   ABOUT_PAGE_QUERY,
-  ACADEMICS_LEVEL_QUERY,
   ACADEMICS_PAGE_QUERY,
-  ACADEMIC_RESULT_QUERY,
   ADMISSION_PAGE_QUERY,
   CONTACT_PAGE_QUERY,
   CORRESPONDENT_MESSAGE_QUERY,
-  CTA_QUERY,
-  HERO_QUERY,
-  HIGHLIGHTS_QUERY,
-  INFRASTRUCTURE_QUERY,
+  HOME_PAGE_QUERY,
   PRINCIPAL_MESSAGE_QUERY,
-  SCHOOL_INTRO_QUERY,
-  STATS_QUERY,
-  TESTIMONIAL_QUERY,
   VICE_PRINCIPAL_MESSAGE_QUERY,
-  WHY_CHOOSE_SMBM_QUERY,
 };

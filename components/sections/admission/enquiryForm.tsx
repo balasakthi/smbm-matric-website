@@ -1,15 +1,16 @@
 "use client";
 
+import { useForm } from "react-hook-form";
+import { useState, useEffect } from "react";
+import { toast } from "sonner";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+import { ActionButton } from "@/components/common/actionButton";
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { admissionSchema, AdmissionFormData } from "@/lib/admission";
-import { enquiryUrl } from "@/lib/env";
-import { toast } from "sonner";
-import { useForm } from "react-hook-form";
-import { useState, useEffect } from "react";
-import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Select,
   SelectContent,
@@ -19,7 +20,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { ActionButton } from "@/components/layout/actionButton";
+
+import { admissionSchema, AdmissionFormData } from "@/lib/admission";
+import { enquiryUrl } from "@/lib/env";
 
 function EnquiryForm() {
   const {

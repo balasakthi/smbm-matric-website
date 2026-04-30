@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { QuickLinks } from "@/components/layout/footer/quickLinks";
-import { ActionButton } from "@/components/layout/actionButton";
+import { ActionButton } from "@/components/common/actionButton";
 
 const PROGRAMS = [
   "Kindergarten",

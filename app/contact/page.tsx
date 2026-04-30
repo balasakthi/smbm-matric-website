@@ -1,56 +1,79 @@
-import type { ContactPage } from "./types";
-
-import { CONTACT_PAGE_QUERY } from "@/lib/sanityQuery";
-import { fetchSectionData } from "@/lib/sanityFetch";
+import { SectionWithHeader } from "@/components/layout/sectionWithHeader";
 
 import { CTA } from "@/components/sections/cta";
 import { ContactInfo } from "@/components/sections/contact/contactInfo";
 import { ContactWithMap } from "@/components/sections/contact/contactWithMap";
 import { FAQ } from "@/components/sections/contact/faq";
-import { HeroHeader } from "@/components/layout/heroHeader";
-import { Spinner } from "@/components/ui/spinner";
+import { HeroHeader } from "@/components/sections/heroHeader";
+
+import { CONTACT_PAGE_QUERY } from "@/lib/sanityQuery";
+import { fetchSectionData } from "@/lib/sanityFetch";
+
+import type { ContactPage } from "./types";
 
 async function Contact() {
   const contact = await fetchSectionData<ContactPage>(CONTACT_PAGE_QUERY);
 
+  const { hero, contactSection, contactForm, faqSection, ctaBlock } = contact;
+
   const { officeHours, emails, phones, address } =
     contact.contactSection?.contactInfo || {};
-
-  if (!contact) {
-    return <Spinner className="size-14 h-screen flex mx-auto" />;
-  }
 
   return (
     <>
       <HeroHeader
-        label={contact.hero?.label}
-        title={contact.hero?.title || ""}
-        subtitle={contact.hero?.subtitle}
-        backgroundImage={contact.hero?.backgroundImage}
+        label={hero?.label}
+        title={hero?.title || ""}
+        subtitle={hero?.subtitle}
+        backgroundImage={hero?.backgroundImage}
       />
 
-      <ContactInfo
-        title={contact.contactSection?.title || ""}
-        subtitle={contact.contactSection?.subtitle || ""}
-        officeHours={officeHours}
-        emails={emails}
-        phones={phones}
-        address={address}
-      />
+      {contactSection && (
+        <SectionWithHeader
+          id="contact-info"
+          title={contactSection.title}
+          subtitle={contactSection.subtitle}
+        >
+          <ContactInfo
+            title={contactSection?.title || ""}
+            subtitle={contactSection?.subtitle || ""}
+            officeHours={officeHours}
+            emails={emails || []}
+            phones={phones || []}
+            address={address || []}
+            variant="secondary"
+          />
+        </SectionWithHeader>
+      )}
 
-      <ContactWithMap
-        title={contact.formSection?.title || ""}
-        subtitle={contact.formSection?.subtitle}
-        mapUrl={contact.formSection?.mapUrl}
-      />
+      {contactForm && (
+        <SectionWithHeader
+          id="contact-form"
+          title={contactForm?.title}
+          subtitle={contactForm?.subtitle}
+          sectionClassName="bg-secondary"
+        >
+          <ContactWithMap mapUrl={contactForm?.mapUrl} />
+        </SectionWithHeader>
+      )}
 
-      <FAQ
-        title={contact.faqSection?.title || ""}
-        subtitle={contact.faqSection?.subtitle || ""}
-        faq={contact.faqSection?.faq || []}
-      />
+      {faqSection && (
+        <SectionWithHeader
+          id="faq"
+          title={faqSection?.title || ""}
+          subtitle={faqSection?.subtitle || ""}
+          headingAlign="center"
+        >
+          <FAQ faq={faqSection?.faq || []} />
+        </SectionWithHeader>
+      )}
 
-      <CTA />
+      {ctaBlock && (
+        <CTA
+          title={ctaBlock?.title || ""}
+          supportLine={ctaBlock?.supportLine || ""}
+        />
+      )}
     </>
   );
 }

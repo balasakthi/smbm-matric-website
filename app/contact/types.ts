@@ -1,10 +1,6 @@
-import type { SanityImageSource } from "@sanity/image-url";
 import { PortableTextBlock } from "next-sanity";
 
-interface SectionHeader {
-  title?: string;
-  subtitle?: string;
-}
+import type { BaseHero, CTABlock } from "../shared-types";
 
 interface ContactInfo {
   officeHours?: {
@@ -22,22 +18,24 @@ interface FAQItem {
 }
 
 interface ContactPage {
-  hero: SectionHeader & {
-    label?: string;
-    backgroundImage?: SanityImageSource & {
-      alt?: string;
-    };
-  };
-  contactSection?: SectionHeader & {
+  hero?: BaseHero;
+  contactSection?: {
+    title?: string;
+    subtitle?: string;
     contactInfo?: ContactInfo;
   };
-  formSection?: SectionHeader & {
+  contactForm?: {
+    title?: string;
+    subtitle?: string;
     mapUrl?: string;
     formTitle?: string;
   };
-  faqSection?: SectionHeader & {
+  faqSection?: {
+    title?: string;
+    subtitle?: string;
     faq?: FAQItem[];
   };
+  ctaBlock?: CTABlock;
 }
 
 export type { ContactPage };

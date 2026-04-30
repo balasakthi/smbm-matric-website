@@ -1,4 +1,4 @@
-import { ActionButton } from "@/components/layout/actionButton";
+import { ActionButton } from "@/components/common/actionButton";
 import { Fade } from "@/components/common/Fade";
 import { SectionWithHeader } from "@/components/layout/sectionWithHeader";
 

@@ -4,16 +4,20 @@ import Link from "next/link";
 
 import { Fade } from "@/components/common/Fade";
 import { Badge } from "@/components/ui/badge";
-import { ActionButton } from "@/components/layout/actionButton";
+import { ActionButton } from "@/components/common/actionButton";
 
 import { urlFor } from "@/sanity/sanity-image";
 
-import type { HeroSection } from "@/app/types";
+import type { BaseHero } from "@/app/shared-types";
 import { CONTAINER_SITE } from "@/lib/ui-constants";
 
-interface Props extends HeroSection {
+interface Props extends BaseHero {
   overlayOpacity?: number;
   isHome?: boolean;
+  established?: string;
+  schoolMotto?: string;
+  admissionText?: string;
+  admissionOpen?: boolean;
 }
 
 function HeroHeader({
@@ -160,17 +164,17 @@ function HeroHeader({
 
         {/* Content */}
         <div className="absolute mx-6 md:mx-0 md:left-12 lg:left-20 bottom-0 translate-y-1/2 z-10">
-          <div className="bg-primary rounded-xl p-8 md:p-14 max-w-xl lg:max-w-2xl space-y-4">
+          <div className="bg-primary rounded-xl p-8 md:p-14 lg:px-16 space-y-4">
             {label && (
               <Fade direction="right">
-                <p className="text-sm tracking-[0.35em] text-primary-foreground/80 uppercase">
+                <p className="text-xs md:text-sm tracking-[0.35em] text-primary-foreground/80 uppercase">
                   {label}
                 </p>
               </Fade>
             )}
 
             <Fade direction="right" delay={0.2}>
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-primary-foreground leading-tight">
+              <h1 className="text-2xl md:text-4xl lg:text-5xl font-semibold text-primary-foreground leading-tight">
                 {title || "Untitled Page"}
               </h1>
             </Fade>

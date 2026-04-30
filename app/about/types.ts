@@ -9,20 +9,20 @@ import type {
   StatsBlock,
 } from "../shared-types";
 
-export interface OverviewSection extends ButtonActions {
+interface OverviewSection extends ButtonActions {
   title?: string;
   subtitle?: string;
   content?: PortableTextBlock[];
   image?: ImageWithAlt;
 }
 
-export interface MissionVisionItem {
+interface MissionVisionItem {
   title?: string;
   description?: PortableTextBlock[];
   icon?: string;
 }
 
-export interface MissionVisionSection {
+interface MissionVisionSection {
   title?: string;
   subtitle?: string;
   mission?: PortableTextBlock[];
@@ -32,21 +32,17 @@ export interface MissionVisionSection {
   items?: MissionVisionItem[];
 }
 
-export interface LeadershipMember {
+interface LeadershipMember {
   name?: string;
   position?: string;
-  bio?: PortableTextBlock[];
-  photo?: ImageWithAlt;
-  order?: number;
 }
 
-export interface CoreFocusItem {
+interface CoreFocusItem {
   title?: string;
   content?: PortableTextBlock[];
-  icon?: string;
 }
 
-export interface SchoolHistoryItem {
+interface SchoolHistoryItem {
   year?: number;
   name?: string;
   type?: string;
@@ -54,13 +50,13 @@ export interface SchoolHistoryItem {
   image?: ImageWithAlt;
 }
 
-export interface SocialVisionItem {
+interface SocialVisionItem {
   title?: string;
   content?: PortableTextBlock[];
   icon?: string;
 }
 
-export interface HeritageSection {
+interface HeritageSection {
   label?: string;
   title?: string;
   subtitle?: string;
@@ -69,12 +65,12 @@ export interface HeritageSection {
   motto?: string[];
   leadershipMission?: PortableTextBlock[];
   leadership?: LeadershipMember[];
-  coreFocus?: CoreFocusItem[];
+  coreFocus?: CoreFocusItem;
   schools?: SchoolHistoryItem[];
-  socialVision?: SocialVisionItem[];
+  socialVision?: SocialVisionItem;
 }
 
-export interface StudentLifeItem {
+interface StudentLifeItem {
   title?: string;
   badge?: string;
   description?: string;
@@ -82,13 +78,13 @@ export interface StudentLifeItem {
   order?: number;
 }
 
-export interface StudentLifeSection {
+interface StudentLifeSection {
   title?: string;
   subtitle?: string;
   items?: StudentLifeItem[];
 }
 
-export interface AboutPage {
+interface AboutPage {
   hero?: BaseHero;
   overview?: OverviewSection;
   missionVision?: MissionVisionSection;
@@ -98,3 +94,5 @@ export interface AboutPage {
   statsBlock?: StatsBlock;
   ctaBlock?: CTABlock;
 }
+
+export type { AboutPage };

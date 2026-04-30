@@ -1,24 +1,22 @@
+import { Fade } from "@/components/common/Fade";
+
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
-import { Fade } from "@/components/common/Fade";
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Marquee } from "@/components/ui/marquee";
 
 import { urlFor } from "@/sanity/sanity-image";
-import { Card, CardContent, CardFooter } from "../ui/card";
 
-import type { Student, AcademicResult } from "@/app/types";
+import type { Student, AcademicResult } from "@/app/shared-types";
 
 interface Props {
-  academicResults?: AcademicResult[];
+  academicResults?: AcademicResult;
 }
 
 const extractStudents = (
-  results: AcademicResult[] = [],
+  results: AcademicResult = {},
   className: "Class 10" | "Class 12",
-) =>
-  results.flatMap(
-    (r) => r.topStudents?.filter((s) => s.className === className) || [],
-  );
+) => results.topStudents?.filter((student) => student.className === className);
 
 const StudentCard = ({ student }: { student: Student }) => {
   const total = student.className === "Class 10" ? 500 : 600;
@@ -49,9 +47,9 @@ const StudentCard = ({ student }: { student: Student }) => {
         </div>
 
         <div className="space-y-1">
-          <h4 className="font-bold leading-tight tracking-tight text-foreground">
+          <h3 className="font-bold leading-tight tracking-tight text-foreground">
             {student.studentName}
-          </h4>
+          </h3>
           <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
             {student.className} {student.group ? `• ${student.group}` : ""}
           </p>
@@ -83,11 +81,11 @@ const StudentCard = ({ student }: { student: Student }) => {
   );
 };
 
-function Achievements({ academicResults = [] }: Props) {
+function Achievements({ academicResults }: Props) {
   const class10Students = extractStudents(academicResults, "Class 10");
   const class12Students = extractStudents(academicResults, "Class 12");
 
-  if (!academicResults.length) return null;
+  if (!academicResults) return null;
 
   return (
     <section className="relative w-full space-y-4 overflow-hidden">
@@ -96,9 +94,8 @@ function Achievements({ academicResults = [] }: Props) {
 
       <Fade direction="up" delay={0.1}>
         <Marquee className="py-4 [--gap:1.5rem] [--duration:40s]" pauseOnHover>
-          {class10Students.map((s, i) => (
-            <StudentCard key={i} student={s} />
-          ))}
+          {class10Students &&
+            class10Students.map((s, i) => <StudentCard key={i} student={s} />)}
         </Marquee>
       </Fade>
 
@@ -108,9 +105,8 @@ function Achievements({ academicResults = [] }: Props) {
           className="py-4 [--gap:1.5rem] [--duration:45s]"
           pauseOnHover
         >
-          {class12Students.map((s, i) => (
-            <StudentCard key={i} student={s} />
-          ))}
+          {class12Students &&
+            class12Students.map((s, i) => <StudentCard key={i} student={s} />)}
         </Marquee>
       </Fade>
     </section>

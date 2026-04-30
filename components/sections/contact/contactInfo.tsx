@@ -1,15 +1,10 @@
-import type { PortableTextBlock } from "@portabletext/types";
-
-import { CONTAINER_SITE } from "@/lib/ui-constants";
-
-import { Clock2, Phone, Mail, MapPin } from "lucide-react";
-
 import { PortableText } from "@portabletext/react";
-import { cn } from "@/lib/utils";
 
 import { Fade } from "@/components/common/Fade";
-import { SectionHeading } from "@/components/layout/sectionHeading";
-import { FeatureCard } from "@/components/layout/featureCard";
+import { FeatureCard } from "@/components/common/featureCard";
+import { SimpleIcon } from "@/components/common/simpleIcon";
+
+import type { PortableTextBlock } from "@portabletext/types";
 
 interface OfficeHour {
   days?: string;
@@ -28,20 +23,17 @@ interface Props {
 }
 
 const CONTACT_CARDS = [
-  { icon: Clock2, key: "hours", label: "Office Hours" },
-  { icon: Phone, key: "phone", label: "Call Us" },
-  { icon: Mail, key: "email", label: "Email Us" },
-  { icon: MapPin, key: "address", label: "Visit Us" },
+  { icon: "Clock8", key: "hours", label: "Office Hours" },
+  { icon: "Phone", key: "phone", label: "Call Us" },
+  { icon: "Mail", key: "email", label: "Email Us" },
+  { icon: "MapPin", key: "address", label: "Visit Us" },
 ] as const;
 
 function ContactInfo({
-  title,
-  subtitle,
   officeHours,
   phones,
   emails,
   address,
-  className,
   variant = "white",
 }: Props) {
   const contactData = {
@@ -103,33 +95,28 @@ function ContactInfo({
   };
 
   return (
-    <section
-      aria-labelledby="contact-heading"
-      className={cn("py-20 md:py-24", className)}
-    >
-      <div className={CONTAINER_SITE}>
-        <SectionHeading
-          title={title || "Get in Touch"}
-          intro={
-            subtitle ||
-            "Reach us anytime for admissions, enquiries, or support."
-          }
-          headingId="contact-heading"
-        />
-
-        <div className="mt-14 md:mt-16 grid gap-6 md:gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {CONTACT_CARDS.map(({ icon: Icon, key, label }, index) =>
-            hasContent(key) ? (
-              <Fade key={key} direction="up" delay={index * 0.15}>
-                <FeatureCard icon={Icon} title={label} variant={variant}>
-                  {renderCardContent(key)}
-                </FeatureCard>
-              </Fade>
-            ) : null,
-          )}
-        </div>
-      </div>
-    </section>
+    <div className="mt-14 md:mt-16 grid gap-6 md:gap-8 sm:grid-cols-2 lg:grid-cols-4">
+      {CONTACT_CARDS.map(({ icon: Icon, key, label }, index) =>
+        hasContent(key) ? (
+          <Fade key={key} direction="up" delay={index * 0.15}>
+            <FeatureCard
+              icon={
+                <SimpleIcon
+                  icon={Icon}
+                  category="contact"
+                  isLeft={false}
+                  isWhite={variant !== "white"}
+                />
+              }
+              title={label}
+              variant={variant}
+            >
+              {renderCardContent(key)}
+            </FeatureCard>
+          </Fade>
+        ) : null,
+      )}
+    </div>
   );
 }
 

@@ -1,19 +1,17 @@
-import { cn } from "@/lib/utils";
+import { Accordion as AccordionPrimitive } from "radix-ui";
 
 import { PlusIcon } from "lucide-react";
 
-import { Accordion as AccordionPrimitive } from "radix-ui";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
 } from "@/components/ui/accordion";
 import { Fade } from "@/components/common/Fade";
-import { SectionWithHeader } from "@/components/layout/sectionWithHeader";
+
+import { cn } from "@/lib/utils";
 
 interface Props {
-  title: string;
-  subtitle: string;
   faq: FrequentlyAskedQuestion[];
 }
 
@@ -22,35 +20,28 @@ type FrequentlyAskedQuestion = {
   answer?: string;
 };
 
-const FAQ = ({ title, subtitle, faq }: Props) => {
+const FAQ = ({ faq }: Props) => {
   const totalFaqs = faq.length;
   const firstHalfFaqs = faq.slice(0, Math.ceil(totalFaqs / 2));
   const secondHalfFaqs = faq.slice(Math.ceil(totalFaqs / 2));
 
   return (
-    <SectionWithHeader
-      title={title}
-      subtitle={subtitle}
-      id="faq"
-      headingAlign="center"
-    >
-      <div className="mx-auto mt-16 max-w-5xl">
-        <Fade direction="up" delay={0.3}>
-          <Accordion
-            className="grid grid-cols-1 gap-4 md:grid-cols-2"
-            collapsible
-            type="single"
-          >
-            <div className="space-y-4">
-              <AccordionItemList faqs={firstHalfFaqs} />
-            </div>
-            <div className="space-y-4">
-              <AccordionItemList faqs={secondHalfFaqs} />
-            </div>
-          </Accordion>
-        </Fade>
-      </div>
-    </SectionWithHeader>
+    <div className="mx-auto mt-16 max-w-5xl">
+      <Fade direction="up" delay={0.3}>
+        <Accordion
+          className="grid grid-cols-1 gap-4 md:grid-cols-2"
+          collapsible
+          type="single"
+        >
+          <div className="space-y-4">
+            <AccordionItemList faqs={firstHalfFaqs} />
+          </div>
+          <div className="space-y-4">
+            <AccordionItemList faqs={secondHalfFaqs} />
+          </div>
+        </Accordion>
+      </Fade>
+    </div>
   );
 };
 

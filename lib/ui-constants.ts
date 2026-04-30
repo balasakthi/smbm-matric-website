@@ -11,11 +11,7 @@ export const CARD_HOVER_SLIDE =
   "hover:shadow-md hover:-translate-y-1 transition-all duration-300 ease-out";
 
 export const ICON_WRAPPER_BASE =
-  "flex h-16 w-16 items-center justify-center rounded-full border transition-all duration-300 shrink-0 mx-auto overflow-hidden";
+  "flex items-center justify-center rounded-full border transition-all duration-300 shrink-0 overflow-hidden";
 
 export const ICON_ANIMATION =
   "group-hover:scale-110 transition-transform duration-500 ease-out";
-
-//dummy deletethis
-export const ICON_WRAPPER_CLASS =
-  "flex h-16 w-16 items-center justify-center rounded-full border transition-all duration-300 shrink-0 mx-auto mb-6";

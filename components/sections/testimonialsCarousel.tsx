@@ -1,8 +1,8 @@
 "use client";
 
-import AutoPlay from "embla-carousel-autoplay";
-import Image from "next/image";
 import React from "react";
+import Image from "next/image";
+import AutoPlay from "embla-carousel-autoplay";
 import { Quote } from "lucide-react";
 
 import {
@@ -15,9 +15,9 @@ import {
 } from "@/components/ui/carousel";
 import { Fade } from "@/components/common/Fade";
 
-import { Testimonial } from "@/app/types";
-import { cn } from "@/lib/utils";
 import { urlFor } from "@/sanity/sanity-image";
+import { cn } from "@/lib/utils";
+import type { Testimonial } from "@/app/shared-types";
 
 interface Props {
   testimonials: Testimonial[];
@@ -87,9 +87,9 @@ function TestimonialsCarousel({ testimonials }: Props) {
                     </p>
 
                     <div className="mt-8">
-                      <h4 className="text-lg font-bold text-primary">
+                      <h3 className="text-lg font-bold text-primary">
                         {item.name}
-                      </h4>
+                      </h3>
                       <p className="text-sm font-medium uppercase tracking-widest text-muted-foreground/70">
                         {item.role}{" "}
                         {item.organization && `• ${item.organization}`}

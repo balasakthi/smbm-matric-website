@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form";
 import { useState, useEffect } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { ActionButton } from "@/components/layout/actionButton";
+import { ActionButton } from "@/components/common/actionButton";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";

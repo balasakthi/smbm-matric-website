@@ -1,71 +1,106 @@
-import type { SanityImageSource } from "@sanity/image-url";
 import { PortableTextBlock } from "next-sanity";
+import type {
+  BaseHero,
+  CTABlock,
+  ImageWithAlt,
+  OverviewSection,
+} from "../shared-types";
 
-interface AcademicsPage {
-  hero: {
-    title: string;
-    subtitle?: string;
-    label?: string;
-    backgroundImage?: SanityImageSource & {
-      alt?: string;
-    };
-  };
-
-  overview: {
-    title: string;
-    content: PortableTextBlock[];
-  };
-
-  kindergarten: {
-    title: string;
-    content: PortableTextBlock[];
-  };
-
-  learningApproach: {
-    title: string;
-    subtitle: string;
-    points: {
-      title: string;
-      description: string;
-      icon?: string;
-    }[];
-  };
-
-  curriculum: {
-    title: string;
-    subtitle: string;
-    levels: CurriculumLevel[];
-  };
-
-  teachingMethodology: {
-    title: string;
-    description: string;
-    methodologies: string[];
-    image?: SanityImageSource & { alt?: string };
-  };
-}
-
-type CurriculumLevel = StandardLevel | HigherSecondaryLevel;
-
-// 🔹 KG → X
-interface StandardLevel {
-  level: string;
-  type: "standard";
-  description?: string;
+interface CurriculumCategory {
+  title: string;
+  icon?: string;
   subjects: string[];
 }
 
-// 🔹 XI–XII
-interface HigherSecondaryLevel {
-  level: string;
+interface KGGroup {
+  _type: "kgGroup";
+  groupName: string;
+  icon?: string;
+  description: string;
+  type: "kg";
+  categories: CurriculumCategory[];
+}
+
+interface StandardGroup {
+  _type: "standardGroup";
+  groupName: string;
+  icon?: string;
+  description: string;
+  type: "standard";
+  categories: CurriculumCategory[];
+}
+
+interface HigherSecondaryStream {
+  streamName: string;
+  icon?: string;
+  languages: string[];
+  coreSubjects: string[];
+  groupOptions: string[];
+}
+
+interface HigherSecondaryGroup {
+  _type: "higherSecondaryGroup";
+  groupName: string;
+  icon?: string;
+  description: string;
   type: "higherSecondary";
-  description?: string;
-  streams: {
-    streamName: string;
-    coreSubjects: string[];
-    groupOptions: string[];
-    languages: string[];
+  streams: HigherSecondaryStream[];
+}
+
+type CurriculumGroup = KGGroup | StandardGroup | HigherSecondaryGroup;
+
+interface ContentBlock {
+  title: string;
+  icon?: string;
+  description: PortableTextBlock[];
+}
+
+interface AcademicsOverviewSection extends OverviewSection {
+  highlights?: string[];
+}
+
+interface LearningApproachSection {
+  title: string;
+  subtitle?: string;
+  points?: {
+    title: string;
+    description: string;
+    icon?: string;
   }[];
+}
+
+interface CurriculumSection {
+  title: string;
+  subtitle?: string;
+  groups: CurriculumGroup[];
+}
+
+interface kindergartenSection {
+  title: string;
+  subtitle?: string;
+  sections?: {
+    title: string;
+    description: PortableTextBlock[];
+  }[];
+  image?: ImageWithAlt;
+}
+
+interface TeachingMethodologySection {
+  title: string;
+  subtitle?: string;
+  description?: PortableTextBlock[];
+  content?: ContentBlock[];
+  image?: ImageWithAlt;
+}
+
+interface AcademicsPage {
+  hero?: BaseHero;
+  overview?: AcademicsOverviewSection;
+  kindergarten?: kindergartenSection;
+  learningApproach?: LearningApproachSection;
+  curriculum?: CurriculumSection;
+  teachingMethodology?: TeachingMethodologySection;
+  ctaBlock?: CTABlock;
 }
 
 export type { AcademicsPage };

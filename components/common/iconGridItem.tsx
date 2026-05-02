@@ -14,7 +14,7 @@ export function IconGridItem({
   className,
 }: IconGridItemProps) {
   return (
-    <article className={cn("group flex gap-6 items-start", className)}>
+    <article className={cn("group flex gap-8 items-start", className)}>
       {icon && <div className="shrink-0">{icon}</div>}
 
       <div className="flex flex-col justify-center w-full">

@@ -199,10 +199,20 @@ async function Academics() {
         </SectionWithHeader>
       )}
 
-      <CTA
-        title={ctaBlock?.title || ""}
-        supportLine={ctaBlock?.supportLine || ""}
-      />
+      {ctaBlock && (
+        <SectionWithHeader
+          id="cta-block"
+          sectionClassName="bg-secondary"
+          spacing="sm"
+        >
+          <CTA
+            title={ctaBlock?.title}
+            supportLine={ctaBlock?.supportLine}
+            buttonLink={ctaBlock?.buttonLink}
+            buttonText={ctaBlock?.buttonText}
+          />
+        </SectionWithHeader>
+      )}
     </>
   );
 }

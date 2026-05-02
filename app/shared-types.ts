@@ -1,6 +1,12 @@
 import type { SanityImageSource } from "@sanity/image-url";
 import { PortableTextBlock } from "next-sanity";
 
+export interface SectionHeader {
+  label?: string;
+  title: string;
+  subtitle?: string;
+}
+
 export interface Student {
   studentName?: string;
   photo?: ImageWithAlt;
@@ -95,6 +101,8 @@ export interface StatsBlock {
 }
 
 export interface CTABlock {
-  title?: string;
-  supportLine?: string;
+  title: string;
+  supportLine: string;
+  buttonLink: string;
+  buttonText: string;
 }

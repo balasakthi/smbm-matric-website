@@ -34,7 +34,7 @@ function SectionWithHeader({
   subtitle,
   titleClassName = "text-3xl md:text-4xl font-semibold tracking-tight leading-tight",
   subtitleClassName = "mt-3 text-lg text-muted-foreground leading-relaxed",
-  contentClassName = "mt-8 md:mt-14",
+  contentClassName = "mt-8 md:mt-20",
   sectionClassName,
   headerClassName,
   headingAlign = "left",

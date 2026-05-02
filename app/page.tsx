@@ -39,6 +39,7 @@ export default async function Home() {
     statsBlock,
     infrastructureHighlights,
     testimonials,
+    ctaBlock,
   } = home;
 
   const academicResult =
@@ -249,10 +250,20 @@ export default async function Home() {
         </SectionWithHeader>
       )}
 
-      <CTA
-        title={home.ctaBlock?.title || ""}
-        supportLine={home.ctaBlock?.supportLine || ""}
-      />
+      {ctaBlock && (
+        <SectionWithHeader
+          id="cta-block"
+          sectionClassName="bg-secondary"
+          spacing="sm"
+        >
+          <CTA
+            title={ctaBlock?.title}
+            supportLine={ctaBlock?.supportLine}
+            buttonLink={ctaBlock?.buttonLink}
+            buttonText={ctaBlock?.buttonText}
+          />
+        </SectionWithHeader>
+      )}
     </>
   );
 }

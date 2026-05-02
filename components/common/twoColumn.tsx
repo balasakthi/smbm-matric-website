@@ -1,12 +1,11 @@
 import { Fade } from "@/components/common/Fade";
-
 import { cn } from "@/lib/utils";
 
 interface Props {
   children: React.ReactNode;
   className?: string;
   reverse?: boolean;
-  align?: "center" | "start";
+  align?: "center" | "start" | "stretch";
 }
 
 export function TwoColumn({
@@ -18,8 +17,10 @@ export function TwoColumn({
   return (
     <div
       className={cn(
-        "grid gap-10 lg:grid-cols-2 lg:gap-24",
-        align === "center" ? "items-center" : "items-start",
+        "grid gap-10 lg:grid-cols-2 lg:gap-14",
+        align === "center" && "items-center",
+        align === "start" && "items-start",
+        align === "stretch" && "items-stretch",
         reverse && "direction-rtl",
         className,
       )}
@@ -33,13 +34,14 @@ interface TwoColumnMediaProps {
   children?: React.ReactNode;
   bannerText?: string;
   bannerTitle?: string;
-  aspect?: "square" | "video" | "4/3";
+  aspect?: "square" | "video" | "4/3" | "auto";
+  className?: string;
 }
 
 const aspectRatios = {
   square: "aspect-square",
   video: "aspect-video",
-  "4/3": "aspect-4/3",
+  "4/3": "aspect-[4/3]",
 };
 
 export function TwoColumnMedia({
@@ -47,12 +49,18 @@ export function TwoColumnMedia({
   bannerText,
   bannerTitle,
   aspect = "4/3",
+  className,
 }: TwoColumnMediaProps) {
+  const aspectClass =
+    aspect === "auto"
+      ? "h-full min-h-[350px] lg:min-h-[500px]"
+      : aspectRatios[aspect];
+
   return (
     <Fade direction="left">
-      <div className="relative w-full">
+      <div className="relative w-full h-full">
         {bannerTitle && (
-          <div className="relative z-10 mb-4 w-full bg-primary p-6 text-right text-primary-foreground shadow-lg rounded-xl md:absolute md:-top-12 md:max-w-lg md:p-10">
+          <div className="lg:-left-6 relative z-10 mb-4 w-full bg-primary p-6 text-right text-primary-foreground shadow-lg rounded-xl md:absolute md:-top-16 md:max-w-lg md:p-10">
             <p className="text-xs uppercase tracking-widest opacity-80">
               {bannerText}
             </p>
@@ -66,8 +74,8 @@ export function TwoColumnMedia({
         <div
           className={cn(
             "relative w-full overflow-hidden rounded-xl border border-border/50 bg-muted",
-            aspectRatios[aspect],
-            bannerTitle && "lg:-right-12",
+            aspectClass,
+            className,
           )}
         >
           {children}
@@ -77,10 +85,18 @@ export function TwoColumnMedia({
   );
 }
 
-export function TwoColumnContent({ children }: { children: React.ReactNode }) {
+interface TwoColumnContentProps {
+  children: React.ReactNode;
+  className?: string;
+}
+
+export function TwoColumnContent({
+  children,
+  className,
+}: TwoColumnContentProps) {
   return (
     <Fade direction="right" delay={0.1}>
-      <div className="w-full space-y-6">{children}</div>
+      <div className={cn("w-full space-y-6", className)}>{children}</div>
     </Fade>
   );
 }

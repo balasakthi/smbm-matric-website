@@ -69,10 +69,18 @@ async function Contact() {
       )}
 
       {ctaBlock && (
-        <CTA
-          title={ctaBlock?.title || ""}
-          supportLine={ctaBlock?.supportLine || ""}
-        />
+        <SectionWithHeader
+          id="cta-block"
+          sectionClassName="bg-secondary"
+          spacing="sm"
+        >
+          <CTA
+            title={ctaBlock?.title}
+            supportLine={ctaBlock?.supportLine}
+            buttonLink={ctaBlock?.buttonLink}
+            buttonText={ctaBlock?.buttonText}
+          />
+        </SectionWithHeader>
       )}
     </>
   );

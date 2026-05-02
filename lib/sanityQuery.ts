@@ -164,10 +164,12 @@ const HOME_PAGE_QUERY = `
     },
   },
 
-  ctaBlock->{
+  ctaBlock{
     title,
-    supportLine
-  }
+    supportLine,
+    buttonLink,
+    buttonText,
+  },
 }
 `;
 
@@ -272,9 +274,11 @@ const ABOUT_PAGE_QUERY = `
     }
   },
 
-  ctaBlock->{
+  ctaBlock{
     title,
-    supportLine
+    supportLine,
+    buttonLink,
+    buttonText,
   }
 
 }
@@ -387,10 +391,12 @@ const ACADEMICS_PAGE_QUERY = `
     }
     
   },
-
-  ctaBlock->{
+  
+  ctaBlock{
     title,
-    supportLine
+    supportLine,
+    buttonLink,
+    buttonText,
   }
 
 }
@@ -500,13 +506,57 @@ const CONTACT_PAGE_QUERY = `
       answer
     }
   },
-
-  ctaBlock->{
+  
+  ctaBlock{
     title,
-    supportLine
-  }
+    supportLine,
+    buttonLink,
+    buttonText,
+  },
 
 }
+`;
+
+const CAREERS_PAGE_QUERY = `
+*[_type == "careersPage"][0]{
+    hero{
+      title,
+      subtitle,
+      label,
+      backgroundImage{
+        asset,
+        alt
+      }
+    },
+    whyJoinSMBM{
+      label,
+      title,
+      subtitle,
+      highlights[]{
+        icon,
+        title,
+        description,
+      },
+    },
+    
+    applicationForm{
+      label,
+      title,
+      subtitle,
+      formTitle,
+      image{
+        asset,
+        alt
+      }
+    },
+  
+    ctaBlock{
+      title,
+      supportLine,
+      buttonLink,
+      buttonText,
+    },
+  }
 `;
 
 export {
@@ -514,6 +564,7 @@ export {
   ACADEMICS_PAGE_QUERY,
   ADMISSION_PAGE_QUERY,
   CONTACT_PAGE_QUERY,
+  CAREERS_PAGE_QUERY,
   CORRESPONDENT_MESSAGE_QUERY,
   HOME_PAGE_QUERY,
   PRINCIPAL_MESSAGE_QUERY,

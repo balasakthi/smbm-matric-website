@@ -9,6 +9,7 @@ import {
   BriefcaseBusiness,
   Building,
   Camera,
+  ChartSpline,
   Clock8,
   Dumbbell,
   File,
@@ -30,10 +31,13 @@ import {
   Palette,
   Phone,
   Presentation,
+  Scale,
   School,
+  Shield,
   ShieldCheck,
   Sparkles,
   Star,
+  Target,
   TestTubeDiagonal,
   Trophy,
   User,
@@ -52,7 +56,8 @@ export type IconCategory =
   | "teachingMethodology"
   | "leadership"
   | "admissionSteps"
-  | "contact";
+  | "contact"
+  | "whyJoinSMBM";
 
 export const iconMaps: Record<IconCategory, Record<string, LucideIcon>> = {
   quickHighlight: {
@@ -133,6 +138,14 @@ export const iconMaps: Record<IconCategory, Record<string, LucideIcon>> = {
     Phone,
     Mail,
     MapPin,
+  },
+  whyJoinSMBM: {
+    Handshake,
+    ChartSpline,
+    Target,
+    Shield,
+    Scale,
+    Trophy,
   },
 };
 

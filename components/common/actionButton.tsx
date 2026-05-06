@@ -20,6 +20,7 @@ interface ActionButtonProps extends Omit<
   targetPage?: string;
   variant?: "default" | "outline" | "ghost" | "secondary";
   showIcon?: boolean;
+  iconPosition?: "left" | "right";
   icon?: LucideIcon;
   isLoading?: boolean;
   children?: React.ReactNode;
@@ -34,6 +35,7 @@ function ActionButton({
   variant = "default",
   showIcon = true,
   icon: Icon = ArrowUpRight,
+  iconPosition = "right",
   isLoading = false,
   className,
   children,
@@ -71,14 +73,26 @@ function ActionButton({
     }
   };
 
+  const renderIcon = () => {
+    if (!showIcon || isLoading) return null;
+
+    const iconClasses = cn(BTN_ICON_HOVER_SLIDE, "size-5");
+
+    if (iconPosition === "left") {
+      return <Icon className={cn(iconClasses)} />;
+    }
+    return <Icon className={cn(iconClasses)} />;
+  };
+
   const content = (
     <>
       {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
 
+      {iconPosition === "left" && renderIcon()}
+
       <span>{text}</span>
-      {showIcon && !isLoading && (
-        <Icon className={cn(BTN_ICON_HOVER_SLIDE, "size-5")} />
-      )}
+
+      {iconPosition === "right" && renderIcon()}
       {children}
     </>
   );

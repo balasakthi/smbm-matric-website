@@ -607,8 +607,15 @@ const GALLERY_PAGE_QUERY = `
       "previewImages": images[0...6]{
         asset->{
           _id,
-          url
+          url,
+          metadata{
+            dimensions{
+              width,
+              height,
+            }
+          }
         },
+          
         alt
       },
 

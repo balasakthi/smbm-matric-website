@@ -14,6 +14,8 @@ async function Careers() {
 
   const { hero, ctaBlock, categories } = gallery;
 
+  console.log(gallery);
+
   return (
     <>
       <HeroHeader

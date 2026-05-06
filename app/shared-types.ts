@@ -1,6 +1,25 @@
 import type { SanityImageSource } from "@sanity/image-url";
 import { PortableTextBlock } from "next-sanity";
 
+export interface ImageDimensions {
+  width: number;
+  height: number;
+  aspectRatio: number;
+}
+
+export interface ImageAsset {
+  _id: string;
+  url: string;
+  metadata: {
+    dimensions: ImageDimensions;
+  };
+}
+
+export interface ImageWithAlt {
+  asset?: ImageAsset;
+  alt?: string;
+}
+
 export interface SectionHeader {
   label?: string;
   title: string;
@@ -33,11 +52,6 @@ export interface Testimonial {
   batch?: string;
   quote?: string;
   photo?: ImageWithAlt;
-}
-
-export interface ImageWithAlt {
-  asset?: SanityImageSource;
-  alt?: string;
 }
 
 export interface OrderedItem {

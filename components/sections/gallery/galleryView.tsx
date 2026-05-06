@@ -7,7 +7,6 @@ import { FeatureImage } from "@/components/common/featureImage";
 import { ActionButton } from "@/components/common/actionButton";
 
 import { urlFor } from "@/sanity/sanity-image";
-import { getImageDimensions } from "@sanity/asset-utils";
 
 import type { Gallery } from "@/app/gallery/types";
 import { Fade } from "@/components/common/Fade";
@@ -48,16 +47,14 @@ export function GalleryView({ gallery, onBack }: Props) {
           {gallery.previewImages?.map((img, index) => {
             const imgUrl = urlFor(img).url();
 
-            const { width, height } = getImageDimensions(img);
-
             return (
               <Fade key={index} direction="up" delay={index * 0.1}>
                 <Item
                   key={index}
                   original={imgUrl}
                   thumbnail={imgUrl}
-                  width={width}
-                  height={height}
+                  width={img.asset?.metadata?.dimensions?.width}
+                  height={img.asset?.metadata?.dimensions?.height}
                 >
                   {({ ref, open }) => (
                     <div

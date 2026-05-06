@@ -559,13 +559,73 @@ const CAREERS_PAGE_QUERY = `
   }
 `;
 
+const GALLERY_PAGE_QUERY = `
+*[_type == "galleryPage"][0]{
+  hero{
+    title,
+    subtitle,
+    label,
+    backgroundImage{
+      asset->{
+        _id,
+        url
+      },
+      alt
+    }
+  },
+
+  gallery{
+    label,
+    title,
+    subtitle,
+  },
+
+  ctaBlock{
+    title,
+    supportLine,
+    buttonLink,
+    buttonText,
+  },
+
+  "categories": *[_type == "category"] | order(order asc){
+    _id,
+    title,
+    order,
+
+    "galleries": *[_type == "gallery" && category._ref == ^._id] | order(order asc){
+      _id,
+      title,
+
+      thumbnail{
+        asset->{
+          _id,
+          url
+        },
+        alt
+      },
+
+      "previewImages": images[0...6]{
+        asset->{
+          _id,
+          url
+        },
+        alt
+      },
+
+      "imageCount": count(images)
+    }
+  }
+}
+`;
+
 export {
   ABOUT_PAGE_QUERY,
   ACADEMICS_PAGE_QUERY,
   ADMISSION_PAGE_QUERY,
-  CONTACT_PAGE_QUERY,
   CAREERS_PAGE_QUERY,
+  CONTACT_PAGE_QUERY,
   CORRESPONDENT_MESSAGE_QUERY,
+  GALLERY_PAGE_QUERY,
   HOME_PAGE_QUERY,
   PRINCIPAL_MESSAGE_QUERY,
   VICE_PRINCIPAL_MESSAGE_QUERY,

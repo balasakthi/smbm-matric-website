@@ -3,8 +3,8 @@ import { Fade } from "@/components/common/Fade";
 import { ResponsiveGrid } from "./responsiveGrid";
 import { ImageCard } from "./imageCard";
 
-import type { SanityImageSource } from "@sanity/image-url";
 import { FeatureImage } from "./featureImage";
+import { ImageWithAlt } from "@/app/shared-types";
 
 type GridColumns = {
   sm?: 1 | 2 | 3 | 4;
@@ -15,7 +15,7 @@ type GridColumns = {
 interface GridItem {
   title?: string;
   description?: string;
-  image?: SanityImageSource & { alt?: string };
+  image?: ImageWithAlt;
   badge?: string;
 }
 

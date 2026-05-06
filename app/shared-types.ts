@@ -1,4 +1,3 @@
-import type { SanityImageSource } from "@sanity/image-url";
 import { PortableTextBlock } from "next-sanity";
 
 export interface ImageDimensions {
@@ -67,9 +66,7 @@ export interface BaseHero {
   title?: string;
   subtitle?: string;
   label?: string;
-  backgroundImage?: SanityImageSource & {
-    alt?: string;
-  };
+  backgroundImage?: ImageWithAlt;
 }
 
 export interface OverviewSection {
@@ -86,9 +83,7 @@ export interface ManagementMessage extends OrderedItem {
   highlightQuote?: string;
   previewMessage?: PortableTextBlock[];
   fullMessage?: PortableTextBlock[];
-  photo?: SanityImageSource & {
-    alt?: string;
-  };
+  photo?: ImageWithAlt;
   slug?: {
     current?: string;
   };

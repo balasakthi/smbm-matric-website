@@ -181,7 +181,9 @@ function HeroHeader({
 
             {subtitle && (
               <Fade direction="right" delay={0.3}>
-                <p className="text-sm text-primary-foreground/80">{subtitle}</p>
+                <p className="text-sm text-primary-foreground/80 max-w-xl">
+                  {subtitle}
+                </p>
               </Fade>
             )}
           </div>

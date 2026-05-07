@@ -1,40 +1,3 @@
-const CORRESPONDENT_MESSAGE_QUERY = `
-*[_type == "managementMessage" && role == "correspondent"][0] {
-    name,
-    designation,
-    highlightQuote,
-    previewMessage,
-    fullMessage,
-    photo,
-    slug{
-      current,
-    },
-}`;
-const PRINCIPAL_MESSAGE_QUERY = `
-*[_type == "managementMessage" && role == "principal"][0] {
-    name,
-    designation,
-    highlightQuote,
-    previewMessage,
-    fullMessage,
-    photo,
-    slug{
-      current,
-    },
-}`;
-const VICE_PRINCIPAL_MESSAGE_QUERY = `
-*[_type == "managementMessage" && role == "vicePrincipal"][0] {
-    name,
-    designation,
-    highlightQuote,
-    previewMessage,
-    fullMessage,
-    photo,
-    slug{
-      current,
-    },
-}`;
-
 const HOME_PAGE_QUERY = `
 *[_type == "homePage"][0]{
   hero{
@@ -625,15 +588,94 @@ const GALLERY_PAGE_QUERY = `
 }
 `;
 
+const LEADERSHIP_PAGE_QUERY = `
+*[_type == "leadershipPage"][0]{
+  hero{
+    title,
+    subtitle,
+    label,
+    backgroundImage{
+      asset->{
+        _id,
+        url
+      },
+      alt
+    }
+  },
+
+
+  managementSection{
+    title,
+    subtitle,
+    label,
+  },
+
+  academicSection{
+    title,
+    subtitle,
+    label,
+  },
+
+  ctaBlock{
+    title,
+    supportLine,
+    buttonLink,
+    buttonText,
+  },
+
+  "managementMembers": *[
+    _type == "leadershipMember" &&
+    category == "management"
+  ] | order(order asc) {
+    _id,
+    name,
+    designation,
+    role,
+    featured,
+    highlightQuote,
+    previewMessage,
+    slug,
+
+    photo{
+      asset->{
+        _id,
+        url
+      },
+      alt
+    }
+  },
+
+  "academicMembers": *[
+    _type == "leadershipMember" &&
+    category == "academicLeadership"
+  ] | order(order asc) {
+    _id,
+    name,
+    designation,
+    role,
+    featured,
+    highlightQuote,
+    previewMessage,
+    slug,
+
+    photo{
+      asset->{
+        _id,
+        url
+      },
+      alt
+    }
+  }
+}
+`;
+
 export {
   ABOUT_PAGE_QUERY,
   ACADEMICS_PAGE_QUERY,
   ADMISSION_PAGE_QUERY,
   CAREERS_PAGE_QUERY,
   CONTACT_PAGE_QUERY,
-  CORRESPONDENT_MESSAGE_QUERY,
   GALLERY_PAGE_QUERY,
   HOME_PAGE_QUERY,
-  PRINCIPAL_MESSAGE_QUERY,
-  VICE_PRINCIPAL_MESSAGE_QUERY,
+  LEADERSHIP_PAGE_QUERY,
 };

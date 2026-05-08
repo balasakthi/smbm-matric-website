@@ -32,21 +32,24 @@ const HOME_PAGE_QUERY = `
     buttonLink
   },
 
-  managementMessage[]->{
-    role,
-    name,
-    designation,
-    highlightQuote,
-    previewMessage,
+  "managementMember": *[
+    _type == "leadershipMember" &&
+    category == "management" &&
+    role == "correspondent"
+    ]| order(order asc)[0] {
+      _id,
+      name,
+      designation,
+      role,
+      featured,
+      highlightQuote,
+      previewMessage,
+      slug,
     photo{
       asset,
       alt
-    },
-    order,
-    slug{
-      current
     }
-  } | order(order asc),
+  },
 
   whyChooseSMBM{
     title,
@@ -167,21 +170,24 @@ const ABOUT_PAGE_QUERY = `
     missionStatement,
   },
 
-  managementMessage[]->{
-    role,
-    name,
-    designation,
-    highlightQuote,
-    previewMessage,
+ "managementMember": *[
+    _type == "leadershipMember" &&
+    category == "academicLeadership" &&
+    role == "principal"
+    ]| order(order asc)[0] {
+      _id,
+      name,
+      designation,
+      role,
+      featured,
+      highlightQuote,
+      previewMessage,
+      slug,
     photo{
       asset,
       alt
-    },
-    order,
-    slug{
-      current
     }
-  } | order(order asc),
+  },
 
   heritage{
     label,

@@ -5,8 +5,8 @@ import type {
   ButtonActions,
   CTABlock,
   ImageWithAlt,
-  ManagementMessage,
   StatsBlock,
+  LeadershipMember,
 } from "../shared-types";
 
 interface OverviewSection extends ButtonActions {
@@ -32,7 +32,7 @@ interface MissionVisionSection {
   items?: MissionVisionItem[];
 }
 
-interface LeadershipMember {
+interface Leadership {
   name?: string;
   position?: string;
 }
@@ -64,7 +64,7 @@ interface HeritageSection {
   aphorism?: string;
   motto?: string[];
   leadershipMission?: PortableTextBlock[];
-  leadership?: LeadershipMember[];
+  leadership?: Leadership[];
   coreFocus?: CoreFocusItem;
   schools?: SchoolHistoryItem[];
   socialVision?: SocialVisionItem;
@@ -89,7 +89,7 @@ interface AboutPage {
   overview?: OverviewSection;
   missionVision?: MissionVisionSection;
   heritage?: HeritageSection;
-  managementMessage?: ManagementMessage[];
+  managementMember?: LeadershipMember;
   studentLife?: StudentLifeSection;
   statsBlock?: StatsBlock;
   ctaBlock?: CTABlock;

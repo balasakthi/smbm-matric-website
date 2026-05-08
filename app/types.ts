@@ -6,10 +6,10 @@ import type {
   ButtonActions,
   CTABlock,
   ImageWithAlt,
-  ManagementMessage,
   OrderedItem,
   StatsBlock,
   Testimonial,
+  LeadershipMember,
 } from "./shared-types";
 
 interface HeroSection extends BaseHero {
@@ -78,7 +78,7 @@ interface HomePage {
   hero?: HeroSection;
   quickHighlights?: QuickHighlight[];
   schoolIntroduction?: SchoolIntroduction;
-  managementMessage?: ManagementMessage[];
+  managementMember?: LeadershipMember;
   whyChooseSMBM?: WhyChooseSMBM;
   statsBlock?: StatsBlock;
   academicLevels?: AcademicLevels;

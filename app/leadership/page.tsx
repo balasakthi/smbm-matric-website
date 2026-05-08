@@ -23,8 +23,6 @@ async function Leadership() {
     ctaBlock,
   } = leadership;
 
-  console.log(leadership);
-
   return (
     <>
       <HeroHeader

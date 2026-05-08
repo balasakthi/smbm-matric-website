@@ -89,6 +89,29 @@ export interface ManagementMessage extends OrderedItem {
   };
 }
 
+export interface LeadershipMember {
+  _id: string;
+  name: string;
+  designation: string;
+  category: "management" | "academicLeadership";
+  role:
+    | "correspondent"
+    | "principal"
+    | "vicePrincipal"
+    | "president"
+    | "vicePresident"
+    | "treasurer"
+    | "assistantSecretary"
+    | "coordinator";
+  featured?: boolean;
+  highlightQuote?: string;
+  previewMessage?: PortableTextBlock[];
+  slug?: {
+    current: string;
+  };
+  photo?: ImageWithAlt;
+}
+
 export interface ContactInfo {
   officeHours?: {
     days?: string;

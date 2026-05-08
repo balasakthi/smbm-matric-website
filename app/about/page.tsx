@@ -30,13 +30,18 @@ import { InfoCard } from "@/components/common/infoCard";
 async function About() {
   const about = await fetchSectionData<AboutPage>(ABOUT_PAGE_QUERY);
 
-  const { overview, missionVision, heritage, studentLife, ctaBlock } = about;
+  const {
+    overview,
+    missionVision,
+    heritage,
+    studentLife,
+    ctaBlock,
+    managementMember,
+  } = about;
 
   const stats = about.statsBlock?.stats || [];
 
-  const principal = about.managementMessage?.find(
-    (message) => message.role?.toLowerCase() === "principal",
-  );
+  console.log(about);
 
   return (
     <>
@@ -226,14 +231,14 @@ async function About() {
         </SectionWithHeader>
       )}
 
-      {principal && (
+      {managementMember && (
         <LeadershipMessage
-          name={principal?.name || ""}
-          designation={principal?.designation || ""}
-          highlightQuote={principal?.highlightQuote}
-          previewMessage={principal?.previewMessage}
-          photo={principal?.photo || ""}
-          slug={principal?.slug?.current}
+          name={managementMember?.name || ""}
+          designation={managementMember?.designation || ""}
+          highlightQuote={managementMember?.highlightQuote}
+          previewMessage={managementMember?.previewMessage}
+          photo={managementMember?.photo || ""}
+          slug={managementMember?.slug?.current}
         />
       )}
 

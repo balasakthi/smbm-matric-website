@@ -40,16 +40,13 @@ export default async function Home() {
     infrastructureHighlights,
     testimonials,
     ctaBlock,
+    managementMember,
   } = home;
 
   const academicResult =
     home.academicResults?.find((r) => r.isCurrent) || home.academicResults?.[0];
 
   const stats = statsBlock?.stats || [];
-
-  const correspondent = home.managementMessage?.find(
-    (message) => message.role?.toLowerCase() === "correspondent",
-  );
 
   return (
     <>
@@ -116,14 +113,14 @@ export default async function Home() {
         </SectionWithHeader>
       )}
 
-      {correspondent && (
+      {managementMember && (
         <LeadershipMessage
-          name={correspondent?.name || ""}
-          designation={correspondent?.designation || ""}
-          highlightQuote={correspondent?.highlightQuote}
-          previewMessage={correspondent?.previewMessage}
-          photo={correspondent?.photo || ""}
-          slug={correspondent?.slug?.current}
+          name={managementMember?.name || ""}
+          designation={managementMember?.designation || ""}
+          highlightQuote={managementMember?.highlightQuote}
+          previewMessage={managementMember?.previewMessage}
+          photo={managementMember?.photo || ""}
+          slug={managementMember?.slug?.current}
         />
       )}
 

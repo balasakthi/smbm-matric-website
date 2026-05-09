@@ -3,7 +3,7 @@ import { Fade } from "@/components/common/Fade";
 import { LeadershipCard } from "./leadershipCard";
 import { FeaturedLeadershipCard } from "./featuredLeadershipCard";
 
-import type { LeadershipMember } from "@/app/leadership/types";
+import type { LeadershipMember } from "@/app/shared-types";
 
 import { cn } from "@/lib/utils";
 

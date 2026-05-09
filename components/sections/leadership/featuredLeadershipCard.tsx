@@ -3,7 +3,7 @@ import { Quote } from "lucide-react";
 import { FeatureImage } from "@/components/common/featureImage";
 
 import { cn } from "@/lib/utils";
-import type { LeadershipMember } from "@/app/leadership/types";
+import type { LeadershipMember } from "@/app/shared-types";
 import { ActionButton } from "@/components/common/actionButton";
 
 interface Props {

@@ -106,10 +106,11 @@ function NavigationSheet() {
             text="Admissions"
             size="lg"
             href="/admissions"
-            icon={ArrowRight}
             variant="secondary"
             className="w-full"
-          />
+          >
+            <ArrowRight />
+          </ActionButton>
         </div>
       </SheetContent>
     </Sheet>

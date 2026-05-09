@@ -28,8 +28,9 @@ export function GalleryView({ gallery, onBack }: Props) {
             variant="ghost"
             className="w-fit"
             iconPosition="left"
-            icon={ArrowLeft}
-          />
+          >
+            <ArrowLeft />
+          </ActionButton>
           <div className="flex flex-col gap-1">
             <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">
               {gallery.title}

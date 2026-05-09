@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
-import { ArrowUpRight, Loader2, LucideIcon } from "lucide-react";
+import { ArrowUpRight, Loader2 } from "lucide-react";
 
 import { BTN_ICON_HOVER_SLIDE, BTN_HOVER_SCALE } from "@/lib/ui-constants";
 import { cn } from "@/lib/utils";
@@ -21,7 +21,6 @@ interface ActionButtonProps extends Omit<
   variant?: "default" | "outline" | "ghost" | "secondary";
   showIcon?: boolean;
   iconPosition?: "left" | "right";
-  icon?: LucideIcon;
   isLoading?: boolean;
   children?: React.ReactNode;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
@@ -34,7 +33,6 @@ function ActionButton({
   targetPage,
   variant = "default",
   showIcon = true,
-  icon: Icon = ArrowUpRight,
   iconPosition = "right",
   isLoading = false,
   className,
@@ -50,9 +48,14 @@ function ActionButton({
 
       if (!targetPage || currentPath === targetPage) {
         const el = document.getElementById(formId);
+
         if (el) {
-          el.scrollIntoView({ behavior: "smooth", block: "center" });
+          el.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+          });
         }
+
         return;
       }
 
@@ -60,8 +63,12 @@ function ActionButton({
 
       setTimeout(() => {
         const el = document.getElementById(formId);
+
         if (el) {
-          el.scrollIntoView({ behavior: "smooth", block: "center" });
+          el.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+          });
         }
       }, 500);
 
@@ -76,12 +83,11 @@ function ActionButton({
   const renderIcon = () => {
     if (!showIcon || isLoading) return null;
 
-    const iconClasses = cn(BTN_ICON_HOVER_SLIDE, "size-5");
-
-    if (iconPosition === "left") {
-      return <Icon className={cn(iconClasses)} />;
-    }
-    return <Icon className={cn(iconClasses)} />;
+    return (
+      <span className={cn(BTN_ICON_HOVER_SLIDE)}>
+        {children ?? <ArrowUpRight className="size-5" />}
+      </span>
+    );
   };
 
   const content = (
@@ -93,7 +99,6 @@ function ActionButton({
       <span>{text}</span>
 
       {iconPosition === "right" && renderIcon()}
-      {children}
     </>
   );
 

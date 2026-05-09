@@ -90,11 +90,11 @@ export interface ManagementMessage extends OrderedItem {
 }
 
 export interface LeadershipMember {
-  _id: string;
+  _id?: string;
   name: string;
   designation: string;
-  category: "management" | "academicLeadership";
-  role:
+  category?: "management" | "academicLeadership";
+  role?:
     | "correspondent"
     | "principal"
     | "vicePrincipal"
@@ -104,10 +104,12 @@ export interface LeadershipMember {
     | "assistantSecretary"
     | "coordinator";
   featured?: boolean;
+  heroSubtitle?: string;
   highlightQuote?: string;
   previewMessage?: PortableTextBlock[];
+  fullMessage?: PortableTextBlock[];
   slug?: {
-    current: string;
+    current?: string;
   };
   photo?: ImageWithAlt;
 }

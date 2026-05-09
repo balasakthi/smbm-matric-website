@@ -60,7 +60,7 @@ export function FeaturedLeadershipCard({ member, variant = "default" }: Props) {
           {member.featured && member.slug?.current && (
             <ActionButton
               href={`/leadership/${member.slug.current}`}
-              text="View Profile"
+              text="Read Full Message"
               variant="ghost"
             />
           )}

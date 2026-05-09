@@ -41,8 +41,6 @@ async function About() {
 
   const stats = about.statsBlock?.stats || [];
 
-  console.log(about);
-
   return (
     <>
       <HeroHeader
@@ -237,8 +235,8 @@ async function About() {
           designation={managementMember?.designation || ""}
           highlightQuote={managementMember?.highlightQuote}
           previewMessage={managementMember?.previewMessage}
-          photo={managementMember?.photo || ""}
-          slug={managementMember?.slug?.current}
+          photo={managementMember?.photo}
+          slug={managementMember?.slug}
         />
       )}
 

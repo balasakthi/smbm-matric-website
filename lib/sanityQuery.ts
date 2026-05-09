@@ -675,6 +675,58 @@ const LEADERSHIP_PAGE_QUERY = `
 }
 `;
 
+const LEADERSHIP_MEMBER_QUERY = `
+{
+  "member": *[
+    _type == "leadershipMember" &&
+    slug.current == $slug
+  ][0]{
+    _id,
+    name,
+    designation,
+    role,
+    highlightQuote,
+    fullMessage,
+    heroSubtitle,
+    
+    photo{
+      asset->{
+        _id,
+        url
+      },
+      alt
+    },
+
+    slug{
+      current
+    }
+  },
+
+  "leadershipPage": *[
+    _type == "leadershipPage"
+  ][0]{
+    hero{
+      backgroundImage{
+        asset->{
+          _id,
+          url
+        },
+        alt
+      }
+    }
+  }
+}
+`;
+
+const LEADERSHIP_SLUGS_QUERY = `
+*[
+  _type == "leadershipMember" &&
+  defined(slug.current)
+]{
+  "slug": slug.current
+}
+`;
+
 export {
   ABOUT_PAGE_QUERY,
   ACADEMICS_PAGE_QUERY,
@@ -684,4 +736,6 @@ export {
   GALLERY_PAGE_QUERY,
   HOME_PAGE_QUERY,
   LEADERSHIP_PAGE_QUERY,
+  LEADERSHIP_MEMBER_QUERY,
+  LEADERSHIP_SLUGS_QUERY,
 };

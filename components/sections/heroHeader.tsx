@@ -174,14 +174,14 @@ function HeroHeader({
             )}
 
             <Fade direction="right" delay={0.2}>
-              <h1 className="text-2xl md:text-4xl lg:text-5xl font-semibold text-primary-foreground leading-tight">
+              <h1 className="text-2xl md:text-4xl lg:text-5xl font-semibold text-primary-foreground leading-tight capitalize">
                 {title || "Untitled Page"}
               </h1>
             </Fade>
 
             {subtitle && (
               <Fade direction="right" delay={0.3}>
-                <p className="text-sm text-primary-foreground/80 max-w-xl">
+                <p className="text-sm text-primary-foreground/80 max-w-3xl">
                   {subtitle}
                 </p>
               </Fade>

@@ -16,4 +16,4 @@ interface LeadershipPage {
   ctaBlock?: CTABlock;
 }
 
-export type { LeadershipPage, LeadershipMember };
+export type { LeadershipPage };

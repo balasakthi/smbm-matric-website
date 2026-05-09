@@ -119,8 +119,8 @@ export default async function Home() {
           designation={managementMember?.designation || ""}
           highlightQuote={managementMember?.highlightQuote}
           previewMessage={managementMember?.previewMessage}
-          photo={managementMember?.photo || ""}
-          slug={managementMember?.slug?.current}
+          photo={managementMember?.photo}
+          slug={managementMember?.slug}
         />
       )}
 

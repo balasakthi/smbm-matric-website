@@ -78,7 +78,7 @@ const HOME_PAGE_QUERY = `
     buttonLink
   },
 
-  academicResults[]->{
+  "academicResults": academicResults[]->{
     title,
     subtitle,
     year,
@@ -99,7 +99,7 @@ const HOME_PAGE_QUERY = `
       score,
       achievement
     }
-  } | order(year desc),
+  },
 
   infrastructureHighlights{
     title,

@@ -10,24 +10,32 @@ import {
   Building,
   Camera,
   ChartSpline,
+  Clock,
   Clock8,
+  DoorOpen,
   Dumbbell,
   File,
   FileCheckCorner,
   FileUser,
   FlaskConical,
+  Footprints,
+  Gem,
   GraduationCap,
   Handshake,
   HeartHandshake,
   Home,
   House,
   IdCard,
+  IndianRupee,
   Languages,
   Laptop,
+  Leaf,
   Lightbulb,
   LucideIcon,
   Mail,
   MapPin,
+  MapPinOff,
+  MessageSquareX,
   Palette,
   Phone,
   Presentation,
@@ -35,6 +43,8 @@ import {
   School,
   Shield,
   ShieldCheck,
+  Shirt,
+  Smartphone,
   Sparkles,
   Star,
   Target,
@@ -46,17 +56,18 @@ import {
 } from "lucide-react";
 
 export type IconCategory =
-  | "quickHighlight"
   | "academics"
-  | "whyChoose"
-  | "curriculum"
-  | "classCategories"
-  | "document"
-  | "learningApproach"
-  | "teachingMethodology"
-  | "leadership"
   | "admissionSteps"
+  | "classCategories"
   | "contact"
+  | "curriculum"
+  | "discipline"
+  | "document"
+  | "leadership"
+  | "learningApproach"
+  | "quickHighlight"
+  | "teachingMethodology"
+  | "whyChoose"
   | "whyJoinSMBM";
 
 export const iconMaps: Record<IconCategory, Record<string, LucideIcon>> = {
@@ -146,6 +157,20 @@ export const iconMaps: Record<IconCategory, Record<string, LucideIcon>> = {
     Shield,
     Scale,
     Trophy,
+  },
+  discipline: {
+    Clock,
+    Leaf,
+    Smartphone,
+    IndianRupee,
+    Gem,
+    MapPinOff,
+    Shirt,
+    Handshake,
+    MessageSquareX,
+    DoorOpen,
+    Footprints,
+    ShieldCheck,
   },
 };
 

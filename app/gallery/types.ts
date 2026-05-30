@@ -15,7 +15,7 @@ interface Gallery {
   imageCount?: number;
 }
 
-interface Category {
+interface GalleryCategory {
   _id: string;
   title: string;
   galleries: Gallery[];
@@ -25,7 +25,7 @@ interface GalleryPage {
   hero?: BaseHero;
   gallery?: SectionHeader;
   ctaBlock?: CTABlock;
-  categories: Category[];
+  categories: GalleryCategory[];
 }
 
-export type { GalleryPage, Category, Gallery };
+export type { GalleryPage, GalleryCategory, Gallery };

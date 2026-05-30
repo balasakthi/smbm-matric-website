@@ -2,13 +2,13 @@
 
 import { useState } from "react";
 
-import type { Category, Gallery } from "@/app/gallery/types";
+import type { GalleryCategory, Gallery } from "@/app/gallery/types";
 
 import { GalleryTabs } from "@/components/sections/gallery/galleryTabs";
 import { GalleryView } from "@/components/sections/gallery/galleryView";
 
 interface Props {
-  categories: Category[];
+  categories: GalleryCategory[];
 }
 
 export default function GallerySection({ categories }: Props) {

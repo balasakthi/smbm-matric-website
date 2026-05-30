@@ -556,12 +556,12 @@ const GALLERY_PAGE_QUERY = `
     buttonText,
   },
 
-  "categories": *[_type == "category"] | order(order asc){
+  "categories": *[_type == "galleryCategory"] | order(order asc){
     _id,
     title,
     order,
 
-    "galleries": *[_type == "gallery" && category._ref == ^._id] | order(order asc){
+    "galleries": *[_type == "gallery" && galleryCategory._ref == ^._id] | order(order asc){
       _id,
       title,
 
@@ -727,6 +727,61 @@ const LEADERSHIP_SLUGS_QUERY = `
 }
 `;
 
+const RULES_AND_REGULATIONS_PAGE_QUERY = `
+*[_type == "rulesAndRegulations"][0]{
+  hero{
+    label,
+    title,
+    subtitle,
+    backgroundImage{
+      asset->{
+        _id,
+        url
+      },
+      alt
+    }
+  },
+
+  discipline{
+    label,
+    title,
+    subtitle,
+
+    rules[]{
+      title,
+      description,
+      icon
+    }
+  },
+
+  uniformPolicy{
+    label,
+    title,
+    subtitle,
+
+    guidelines,
+
+    uniformCategories[]{
+      classGroup,
+      boysUniform,
+      girlsUniform
+    },
+
+    specialUniformNote
+  },
+
+  prayerAndPledge{
+    label,
+    title,
+    subtitle,
+
+    morningPrayer,
+    eveningPrayer,
+    loyaltyPledge
+  }
+}
+`;
+
 export {
   ABOUT_PAGE_QUERY,
   ACADEMICS_PAGE_QUERY,
@@ -735,7 +790,8 @@ export {
   CONTACT_PAGE_QUERY,
   GALLERY_PAGE_QUERY,
   HOME_PAGE_QUERY,
-  LEADERSHIP_PAGE_QUERY,
   LEADERSHIP_MEMBER_QUERY,
+  LEADERSHIP_PAGE_QUERY,
   LEADERSHIP_SLUGS_QUERY,
+  RULES_AND_REGULATIONS_PAGE_QUERY,
 };

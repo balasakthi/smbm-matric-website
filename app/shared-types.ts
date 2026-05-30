@@ -1,5 +1,12 @@
 import { PortableTextBlock } from "next-sanity";
 
+export interface ListItem {
+  title: string;
+  icon?: string;
+  subtitle?: string;
+  description?: string;
+}
+
 export interface ImageDimensions {
   width: number;
   height: number;

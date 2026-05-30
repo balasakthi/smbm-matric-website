@@ -7,11 +7,21 @@ interface InfoCardProps {
   title?: string;
   content?: PortableTextBlock[];
   highlights?: string[];
+  variant?: "white" | "secondary";
 }
 
-export function InfoCard({ title, content, highlights }: InfoCardProps) {
+export function InfoCard({
+  title,
+  content,
+  highlights,
+  variant = "secondary",
+}: InfoCardProps) {
+  const isWhite = variant === "white";
+
   const CardBody = (
-    <Card className="md:px-6 md:py-8 bg-secondary relative overflow-hidden">
+    <Card
+      className={`md:px-6 md:py-8 ${isWhite ? "bg-white" : "bg-secondary"} relative overflow-hidden`}
+    >
       <GraduationCap
         size={120}
         className="absolute top-0 right-0 p-4 opacity-10"

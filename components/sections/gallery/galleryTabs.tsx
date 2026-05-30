@@ -1,10 +1,10 @@
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { FeatureImage } from "@/components/common/featureImage";
 
-import type { Category, Gallery } from "@/app/gallery/types";
+import type { GalleryCategory, Gallery } from "@/app/gallery/types";
 
 interface Props {
-  categories: Category[];
+  categories: GalleryCategory[];
   onSelectGallery: (gallery: Gallery) => void;
 }
 

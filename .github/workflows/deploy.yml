@@ -10,7 +10,7 @@ on:
 
 jobs:
   deploy-main:
-    if: github.ref == 'refs/heads/master'
+    if: github.ref == 'refs/heads/master' || github.event_name == 'repository_dispatch'
     runs-on: ubuntu-latest
 
     steps:
@@ -46,7 +46,7 @@ jobs:
           server-dir: /public_html/smbmmatricschool/
 
   deploy-dev:
-    if: github.ref == 'refs/heads/development'
+    if: github.ref == 'refs/heads/development' && github.event_name == 'push'
     runs-on: ubuntu-latest
 
     steps:

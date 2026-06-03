@@ -1,7 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import type { ComponentProps } from "react";
+import { usePathname } from "next/navigation";
+
+import { ChevronDown } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -15,10 +17,11 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import { ChevronDown } from "lucide-react";
+
 import { PRIMARY_NAV_LINKS } from "@/lib/navigation";
 import { cn } from "@/lib/utils";
-import { usePathname } from "next/navigation";
+
+import type { ComponentProps } from "react";
 
 function NavMenu(props: ComponentProps<typeof NavigationMenu>) {
   const pathname = usePathname();

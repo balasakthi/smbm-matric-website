@@ -728,7 +728,7 @@ const LEADERSHIP_SLUGS_QUERY = `
 `;
 
 const RULES_AND_REGULATIONS_PAGE_QUERY = `
-*[_type == "rulesAndRegulations"][0]{
+*[_type == "rulesAndRegulationsPage"][0]{
   hero{
     label,
     title,

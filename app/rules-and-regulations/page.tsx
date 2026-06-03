@@ -26,8 +26,6 @@ async function RulesAndRegulations() {
     RULES_AND_REGULATIONS_PAGE_QUERY,
   );
 
-  console.log(rulesAndRegulations);
-
   const { hero, discipline, uniformPolicy, prayerAndPledge } =
     rulesAndRegulations;
 
@@ -184,7 +182,7 @@ async function RulesAndRegulations() {
               <PortableText value={prayerAndPledge?.morningPrayer} />
             </FeatureCard>
             <FeatureCard
-              title={"Morning Prayer"}
+              title={"Evening Prayer"}
               alignment="center"
               icon={<SimpleIcon icon={"School"} category="whyChoose" isWhite />}
               variant="secondary"
@@ -192,7 +190,7 @@ async function RulesAndRegulations() {
               <PortableText value={prayerAndPledge?.eveningPrayer} />
             </FeatureCard>
             <FeatureCard
-              title={"Morning Prayer"}
+              title={"Loyalty Pledge"}
               alignment="center"
               icon={<SimpleIcon icon={"School"} category="whyChoose" isWhite />}
               variant="secondary"
